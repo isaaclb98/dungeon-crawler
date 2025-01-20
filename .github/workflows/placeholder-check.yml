@@ -1,0 +1,9 @@
+name: Placeholder Check
+on:
+  pull_request:
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder Status
+        run: echo "This is a placeholder status check."
