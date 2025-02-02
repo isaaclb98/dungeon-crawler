@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f382cf2606f45884a97412954ebd6ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopAttackingDistance: 5.2
 --- !u!1101 &-6513092144059296722
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -99,6 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1169b24417d9b1f4cad0c87d6951eaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseSpeed: 6
+  stopChasingDistance: 21
+  attackingDistance: 5
 --- !u!1101 &-2691656539297656612
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -370,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleTime: 0
-  dectectionAreaRadius: 18
+  detectionAreaRadius: 18
 --- !u!114 &8521486099634702817
 MonoBehaviour:
   m_ObjectHideFlags: 1

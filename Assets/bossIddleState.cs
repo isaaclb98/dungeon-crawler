@@ -9,7 +9,7 @@ public class bossIddleState : StateMachineBehaviour
 
     Transform player;
 
-    public float dectectionAreaRadius = 18f;
+    public float detectionAreaRadius = 18f;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -31,7 +31,7 @@ public class bossIddleState : StateMachineBehaviour
 
         //--Transisiton to Chase State-- //
         float distanceFromPlayer = Vector3.Distance(player.position, animator.transform.position);
-        if (distanceFromPlayer < dectectionAreaRadius)
+        if (distanceFromPlayer < detectionAreaRadius)
         {
             animator.SetBool("isChasing", true );
         }
