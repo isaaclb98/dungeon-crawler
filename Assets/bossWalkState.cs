@@ -28,7 +28,7 @@ public class bossWalkState : StateMachineBehaviour
         timer = 0;
 
         //--Get all waypoints and move to the first waypoint--//
-        GameObject waypointsCluster = GameObject.FindGameObjectWithTag("Waypoints");
+        GameObject waypointsCluster = animator.GetComponent<BossWayPoints>().bossWaypointsCluster;
         foreach (Transform t  in waypointsCluster.transform)
         {
             waypointsList.Add(t);
