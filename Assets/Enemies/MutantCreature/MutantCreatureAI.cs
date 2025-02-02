@@ -17,14 +17,15 @@ public class MutantCreatureAI : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     private bool isAttacking = false;
+    private bool isSniffing = false;
     private float lastAttackTime = 0f;
     private int currentHealth;
-    private bool isSniffing = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        animator.enabled = true; // Ensure the Animator is active
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent.speed = patrolSpeed;
         currentHealth = maxHealth;
@@ -66,8 +67,9 @@ public class MutantCreatureAI : MonoBehaviour
             Debug.Log("Patrolling");
             Patrol();
         }
-    }
 
+     Debug.Log($"Animator States => Walking: {animator.GetBool("isWalking")}, Attacking: {animator.GetBool("isAttacking")}, Sniffing: {isSniffing}");
+    }
 
     void Sniff()
     {
@@ -75,7 +77,9 @@ public class MutantCreatureAI : MonoBehaviour
         {
             isSniffing = true;
             agent.isStopped = true;
+            animator.ResetTrigger("Sniff");
             animator.SetTrigger("Sniff");
+            animator.SetBool("isWalking", false); // Ensure walking animation stops
             StartCoroutine(ResumePatrolAfterSniff());
         }
     }
@@ -83,8 +87,16 @@ public class MutantCreatureAI : MonoBehaviour
     IEnumerator ResumePatrolAfterSniff()
     {
         yield return new WaitForSeconds(2f);
+
         isSniffing = false;
         agent.isStopped = false;
+
+        // Check if the player is still within attack range and attack immediately
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= attackRange)
+        {
+            Attack();
+        }
     }
 
     void Patrol()
@@ -98,8 +110,9 @@ public class MutantCreatureAI : MonoBehaviour
             MoveToNextPatrolPoint();
         }
 
-        animator.SetBool("isWalking", true);
-        animator.SetBool("isAttacking", false);
+        Debug.Log("Setting isWalking to true for Patrol");
+        bool shouldWalk = agent.velocity.magnitude > 0.1f;
+        animator.SetBool("isWalking", shouldWalk);
     }
 
     void MoveToNextPatrolPoint()
@@ -112,13 +125,22 @@ public class MutantCreatureAI : MonoBehaviour
     void Attack()
     {
         if (Time.time - lastAttackTime < attackCooldown) return;
+
+        Debug.Log("Attacking Player!"); // Debugging output
         isAttacking = true;
+        isSniffing = false;  // Stop sniffing
         agent.isStopped = true;
+
+        // Reset Sniff trigger to prevent looping
+        animator.ResetTrigger("Sniff");
+
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
+
         lastAttackTime = Time.time;
         StartCoroutine(ResetAttack());
     }
+
 
     IEnumerator ResetAttack()
     {
