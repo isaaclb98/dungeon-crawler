@@ -77,9 +77,9 @@ public class MutantCreatureAI : MonoBehaviour
         {
             isSniffing = true;
             agent.isStopped = true;
+            animator.SetBool("isWalking", false); // Ensure walking animation stops
             animator.ResetTrigger("Sniff");
             animator.SetTrigger("Sniff");
-            animator.SetBool("isWalking", false); // Ensure walking animation stops
             StartCoroutine(ResumePatrolAfterSniff());
         }
     }
@@ -90,6 +90,7 @@ public class MutantCreatureAI : MonoBehaviour
 
         isSniffing = false;
         agent.isStopped = false;
+        animator.ResetTrigger("Sniff");
 
         // Check if the player is still within attack range and attack immediately
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
