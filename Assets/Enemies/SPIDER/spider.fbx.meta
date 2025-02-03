@@ -488,7 +488,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -641,7 +641,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -794,7 +794,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -947,7 +947,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -1100,7 +1100,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -1253,7 +1253,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -1406,7 +1406,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -1559,7 +1559,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -1712,7 +1712,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -1865,7 +1865,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -2018,7 +2018,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -2171,7 +2171,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -2324,7 +2324,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -2477,7 +2477,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -2630,7 +2630,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -2783,7 +2783,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -2940,8 +2940,8 @@ ModelImporter:
     bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
+    maxBonesPerVertex: 51
+    minBoneWeight: 0.152
     optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 1
@@ -2967,7 +2967,325 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: spider(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R1
+      parentName: spider(Clone)
+      position: {x: 0.26300597, y: 0.0030317802, z: 0.3616122}
+      rotation: {x: -0.18871918, y: -0.044917084, z: -0.13040057, w: 0.9722979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L2
+      parentName: spider(Clone)
+      position: {x: -0.46397662, y: -0.0034477469, z: 0.12679212}
+      rotation: {x: 0.0000000031104195, y: 0.000000014086645, z: 0.000000014901161,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R3
+      parentName: spider(Clone)
+      position: {x: 0.42321545, y: 0.0023114528, z: -0.21598968}
+      rotation: {x: 0.0000000343608, y: 0.000000018594871, z: 5.960354e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L4
+      parentName: spider(Clone)
+      position: {x: -0.18527222, y: -0.005367654, z: -0.53734666}
+      rotation: {x: 0.00000000286737, y: 0.000000005289688, z: -1.5167491e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L1
+      parentName: spider(Clone)
+      position: {x: -0.26300597, y: 0.0030317802, z: 0.6132703}
+      rotation: {x: -0.19383197, y: -0.007851608, z: -0.13769606, w: 0.9712916}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R2
+      parentName: spider(Clone)
+      position: {x: 0.46397662, y: -0.003447745, z: 0.37845024}
+      rotation: {x: 0.0000000278212, y: 0.000000014086645, z: 0.000000012904784, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L3
+      parentName: spider(Clone)
+      position: {x: -0.42321545, y: 0.0023114528, z: 0.03566843}
+      rotation: {x: -0.000000002139441, y: 0.000000018594871, z: 3.9782633e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R4
+      parentName: spider(Clone)
+      position: {x: 0.18527222, y: -0.005367654, z: -0.28568852}
+      rotation: {x: 0.000000010317951, y: 0.000000005289688, z: -9.822092e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spider1MESH
+      parentName: spider(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Null
+      parentName: spider1MESH
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: root
+      parentName: spider(Clone)
+      position: {x: 0, y: 0.53277713, z: 0.040701814}
+      rotation: {x: -0, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Leg4
+      parentName: root
+      position: {x: -0.09133189, y: 0.029764479, z: -0.044477496}
+      rotation: {x: -0.000000023283064, y: -0.00000004656613, z: 0.000000014551914,
+        w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: L_Leg41
+      parentName: L_Leg4
+      position: {x: -0.11654303, y: 0.014161562, z: -0.12588733}
+      rotation: {x: 0.0000000174623, y: 0.000000034924597, z: 5.4569743e-10, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: L_Leg42
+      parentName: L_Leg41
+      position: {x: -0.04914902, y: -0.13730371, z: -0.13278031}
+      rotation: {x: 0.000000005820766, y: 0.000000023283064, z: 0.00000000527507,
+        w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: L_Leg43
+      parentName: L_Leg42
+      position: {x: 0.030409917, y: -0.095298946, z: -0.069104716}
+      rotation: {x: -0.000000023283066, y: -0, z: -0.000000026193447, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: L_Leg44
+      parentName: L_Leg43
+      position: {x: 0.041341808, y: -0.0820152, z: -0.10454415}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Leg4
+      parentName: root
+      position: {x: 0.09133189, y: 0.029764479, z: -0.044477496}
+      rotation: {x: 0.00000002910383, y: -0.000000023283064, z: 0.000000011641533,
+        w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: R_Leg41
+      parentName: R_Leg4
+      position: {x: 0.11654303, y: 0.014161546, z: -0.12588735}
+      rotation: {x: -0.000000024738256, y: 0.000000011641532, z: 7.275952e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: R_Leg42
+      parentName: R_Leg41
+      position: {x: 0.049149003, y: -0.13730371, z: -0.13278031}
+      rotation: {x: -0.0000000043655746, y: 0.000000014551915, z: -7.275959e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: R_Leg43
+      parentName: R_Leg42
+      position: {x: -0.030409917, y: -0.095298946, z: -0.069104716}
+      rotation: {x: -0, y: 0.000000002910383, z: -0.000000008731147, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: R_Leg44
+      parentName: R_Leg43
+      position: {x: -0.041341808, y: -0.0820152, z: -0.10454415}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: L_Leg3
+      parentName: root
+      position: {x: -0.103527255, y: 0.024963757, z: 0.0105092805}
+      rotation: {x: -0.000000011641532, y: 0.000000011641535, z: -0.0000000014551917,
+        w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: L_Leg31
+      parentName: L_Leg3
+      position: {x: -0.15350766, y: 0.08305372, z: -0.056304447}
+      rotation: {x: 0.0000000058207656, y: 0.000000034924593, z: 0.000000016007107,
+        w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: L_Leg32
+      parentName: L_Leg31
+      position: {x: -0.111230426, y: -0.15205485, z: -0.09701446}
+      rotation: {x: 0.0000000058207665, y: -0.000000023283064, z: -0.000000014551914,
+        w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: L_Leg33
+      parentName: L_Leg32
+      position: {x: -0.04275995, y: -0.14741346, z: -0.016019607}
+      rotation: {x: -0, y: -0.000000011641529, z: 2.0328791e-16, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: L_Leg34
+      parentName: L_Leg33
+      position: {x: -0.012190113, y: -0.071561895, z: 0.0033921627}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Leg3
+      parentName: root
+      position: {x: 0.103527255, y: 0.024963757, z: 0.0105092805}
+      rotation: {x: 0.00000004656613, y: 0.000000023283064, z: -0.0000000014551926,
+        w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: R_Leg31
+      parentName: R_Leg3
+      position: {x: 0.15350768, y: 0.08305371, z: -0.05630444}
+      rotation: {x: -0.000000011641529, y: -0.000000005820768, z: 7.2759637e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Leg32
+      parentName: R_Leg31
+      position: {x: 0.11123044, y: -0.15205485, z: -0.097014435}
+      rotation: {x: -3.5527137e-15, y: 1.7763568e-15, z: -7.2759593e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Leg33
+      parentName: R_Leg32
+      position: {x: 0.04275995, y: -0.14741346, z: -0.01601959}
+      rotation: {x: -3.561184e-15, y: 0.000000011641532, z: 0.000000008731147, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: R_Leg34
+      parentName: R_Leg33
+      position: {x: 0.012190113, y: -0.07156189, z: 0.0033921688}
+      rotation: {x: -0, y: -0, z: 4.1457638e-23, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Leg2
+      parentName: root
+      position: {x: -0.11458811, y: 0.026884045, z: 0.066767566}
+      rotation: {x: 0.25321493, y: -0.012660723, z: 0.7418277, w: 0.6208168}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Leg21
+      parentName: L_Leg2
+      position: {x: -0.16386853, y: 0.082149506, z: 0.0573368}
+      rotation: {x: -0.07248194, y: -0.046876937, z: -0.32180536, w: 0.94286287}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: L_Leg22
+      parentName: L_Leg21
+      position: {x: -0.13856533, y: -0.13415976, z: 0.05075268}
+      rotation: {x: -0.02126501, y: 0.34490946, z: -0.5391603, w: 0.76804394}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Leg23
+      parentName: L_Leg22
+      position: {x: -0.040485304, y: -0.1662711, z: 0.017816365}
+      rotation: {x: -0.000000011641533, y: 0.000000017462298, z: -7.2759604e-10, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: L_Leg24
+      parentName: L_Leg23
+      position: {x: -0.0064693447, y: -0.07737458, z: -0.0053286706}
+      rotation: {x: -0, y: -0, z: -1.8756684e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Leg2
+      parentName: root
+      position: {x: 0.11458811, y: 0.026884045, z: 0.066767566}
+      rotation: {x: 0.25321496, y: 0.012660712, z: -0.7418277, w: 0.6208169}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Leg21
+      parentName: R_Leg2
+      position: {x: 0.16386853, y: 0.08214949, z: 0.057336807}
+      rotation: {x: -0.07248196, y: 0.046877008, z: 0.32180542, w: 0.9428628}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: R_Leg22
+      parentName: R_Leg21
+      position: {x: 0.13856532, y: -0.13415977, z: 0.050752696}
+      rotation: {x: -0.02126517, y: -0.34490946, z: 0.5391602, w: 0.768044}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: R_Leg23
+      parentName: R_Leg22
+      position: {x: 0.040485296, y: -0.1662711, z: 0.017816378}
+      rotation: {x: 3.5527137e-15, y: 0.000000046566132, z: -0.000000005820768, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Leg24
+      parentName: R_Leg23
+      position: {x: 0.0064693415, y: -0.07737458, z: -0.0053286664}
+      rotation: {x: -0, y: -0, z: -1.6543614e-22, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: L_Leg1
+      parentName: root
+      position: {x: -0.08295346, y: 0.027024256, z: 0.11335533}
+      rotation: {x: 0.050016046, y: 0.102785096, z: 0.11394443, w: 0.9868892}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: L_Leg11
+      parentName: L_Leg1
+      position: {x: -0.11933368, y: 0.073027454, z: 0.04419829}
+      rotation: {x: -0.06471789, y: -0.026383787, z: -0.07599348, w: 0.99465597}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Leg12
+      parentName: L_Leg11
+      position: {x: -0.07544632, y: -0.08886933, z: 0.13096194}
+      rotation: {x: -0.100649886, y: -0.041032307, z: -0.11818582, w: 0.98702484}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: L_Leg13
+      parentName: L_Leg12
+      position: {x: 0.007596218, y: -0.16852592, z: -0.0056717047}
+      rotation: {x: -0.06582124, y: -0.02683359, z: -0.07728911, w: 0.99447167}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: L_Leg14
+      parentName: L_Leg13
+      position: {x: 0.025138335, y: -0.08672776, z: 0.021335086}
+      rotation: {x: -0, y: -0, z: 0.000000006868503, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: R_Leg1
+      parentName: root
+      position: {x: 0.08295346, y: 0.027024256, z: 0.11335533}
+      rotation: {x: 0.026209554, y: -0.1112629, z: 0.10568196, w: 0.98780817}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: R_Leg11
+      parentName: R_Leg1
+      position: {x: 0.13911861, y: 0.014817133, z: 0.04419829}
+      rotation: {x: -0.053478908, y: 0.04499461, z: -0.054298397, w: 0.9960759}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: R_Leg12
+      parentName: R_Leg11
+      position: {x: 0.058151916, y: -0.10103594, z: 0.13096194}
+      rotation: {x: -0.10203928, y: 0.037443746, z: -0.097134635, w: 0.98931843}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: R_Leg13
+      parentName: R_Leg12
+      position: {x: 0.034738045, y: -0.16508166, z: -0.0056717047}
+      rotation: {x: -0.071074486, y: -0.00094301987, z: -0.07012556, w: 0.9950025}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: R_Leg14
+      parentName: R_Leg13
+      position: {x: 0.023752002, y: -0.08711764, z: 0.021335086}
+      rotation: {x: -0, y: -0, z: 7.6397544e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: head
+      parentName: root
+      position: {x: -0, y: -0.011398239, z: 0.12466102}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: faceend
+      parentName: head
+      position: {x: -0, y: -0.033019233, z: 0.08139963}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Leftjaw
+      parentName: faceend
+      position: {x: -0.06204773, y: -0.0009815025, z: 0.00479256}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftmouth
+      parentName: Leftjaw
+      position: {x: 0.002802485, y: -0.01190821, z: 0.067102365}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rightjaw
+      parentName: faceend
+      position: {x: 0.06204773, y: -0.0009815025, z: 0.00479256}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightmouth
+      parentName: Rightjaw
+      position: {x: -0.002802485, y: -0.01190821, z: 0.067102365}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear
+      parentName: root
+      position: {x: -0, y: 0.008753693, z: -0.054064583}
+      rotation: {x: 0.38745263, y: -0, z: -0, w: 0.9218896}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear1
+      parentName: rear
+      position: {x: -0, y: 0.030714145, z: -0.09448662}
+      rotation: {x: 0.14352356, y: -0, z: -0, w: 0.9896469}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear2
+      parentName: rear1
+      position: {x: -0, y: 0, z: -0.12997453}
+      rotation: {x: 0.000296697, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear3
+      parentName: rear2
+      position: {x: -0, y: 0, z: -0.1609574}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -2976,7 +3294,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: root
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
