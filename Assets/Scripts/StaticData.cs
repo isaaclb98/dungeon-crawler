@@ -20,6 +20,8 @@ public class StaticData : ScriptableObject
         public double levelUpXpNeededMultiplier = 1.1;
     }
     
+    public StaticPlayerStats playerStats;
+    
     // Enemy stats
     [System.Serializable]
     public class EnemyStats
@@ -32,9 +34,17 @@ public class StaticData : ScriptableObject
     }
 
     public EnemyStats[] enemies;
-    // Spider
-
-    // Creep
 
     // Weapon stats
+    
+    // Items
+    [System.Serializable]
+    public class ItemData
+    {
+        public string itemName;
+        public int itemID;
+        public Sprite icon;
+        public string description;
+    }
+    public ItemData[] items;
 }
