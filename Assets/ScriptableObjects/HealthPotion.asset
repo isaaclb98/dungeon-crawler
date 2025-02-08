@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a628cab8e060a6a41abeb756e6410f2a, type: 3}
-  m_Name: StaticData
+  m_Script: {fileID: 11500000, guid: 38ea572ad7e1dcb4e86a262a649fb4e9, type: 3}
+  m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  enemies:
-  - name: Spider
-    health: 0
-    attack: 0
-    xpReward: 0
-    goldReward: 0
+  itemName: Health Potion
+  itemID: 0
+  icon: {fileID: 0}
+  description: Gain 10 HP

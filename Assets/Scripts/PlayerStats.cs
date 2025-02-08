@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    // Need to assign our StaticData ScriptableObject in the inspector
-    public StaticData staticData;
+    public PlayerData playerData;
 
     // Dynamic data
     public int currentLevel;
@@ -19,12 +18,12 @@ public class PlayerStats : MonoBehaviour
     {
         // Initialize default stats
         // Need to implement saving feature eventually
-        currentLevel = staticData.playerStats.startingLevel;
-        currentXp = staticData.playerStats.startingXp;
-        currentHealth = staticData.playerStats.startingHealth;
-        currentAttack = staticData.playerStats.startingAttack;
-        currentDefense = staticData.playerStats.startingDefense;
-        xpToLevelUp = staticData.playerStats.startingXpToLevelUp;
+        currentLevel = playerData.startingLevel;
+        currentXp = playerData.startingXp;
+        currentHealth = playerData.startingHealth;
+        currentAttack = playerData.startingAttack;
+        currentDefense = playerData.startingDefense;
+        xpToLevelUp = playerData.startingXpToLevelUp;
     }
 
     // Call this when the player earns XP (e.g., after defeating an enemy)
@@ -48,7 +47,7 @@ public class PlayerStats : MonoBehaviour
         currentDefense += 1;
 
         // Recalculate XP needed for the next level using the multiplier from static data
-        xpToLevelUp = Mathf.RoundToInt(xpToLevelUp * (float)staticData.playerStats.levelUpXpNeededMultiplier);
+        xpToLevelUp = Mathf.RoundToInt(xpToLevelUp * (float)playerData.levelUpXpNeededMultiplier);
 
         Debug.Log("Level Up! You are now level: " + currentLevel);
     }

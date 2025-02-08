@@ -5,17 +5,17 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     // List of items
-    public List<StaticData.ItemData> inventoryItems = new List<StaticData.ItemData>();
+    public List<ItemData> inventoryItems = new List<ItemData>();
 
     // Add an item to the inventory
-    public void AddItem(StaticData.ItemData newItem)
+    public void AddItem(ItemData newItem)
     {
         inventoryItems.Add(newItem);
         Debug.Log("Added item: " + newItem.itemName);
     }
 
     // Remove an item from the inventory
-    public void RemoveItem(StaticData.ItemData item)
+    public void RemoveItem(ItemData item)
     {
         if (inventoryItems.Contains(item))
         {
