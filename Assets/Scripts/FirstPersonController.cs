@@ -385,6 +385,24 @@ public class FirstPersonController : MonoBehaviour
         }
 
         #endregion
+
+        #region PressE
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PickUpItem();
+        }
+
+        #endregion
+
+        #region PressI
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            DisplayInventory();
+        }
+
+        #endregion
         
         CheckGround();
         
@@ -592,6 +610,8 @@ public class FirstPersonController : MonoBehaviour
     
     public void Attack()
     {
+        RaycastHit hit;
+        
         if (!equippedWeaponData)
         {
             Debug.Log("No weapon equipped!");
@@ -610,8 +630,7 @@ public class FirstPersonController : MonoBehaviour
         }
         
         Debug.Log("Weapon range " + equippedWeaponData.range);
-
-        RaycastHit hit;
+        
         if (PerformRaycast(playerCamera, out hit, equippedWeaponData.range))
         {
             if (hit.collider.CompareTag("Enemy"))
@@ -624,6 +643,52 @@ public class FirstPersonController : MonoBehaviour
             Debug.Log(equippedWeaponData.itemName + " missed.");
         }
     }
+
+    public void PickUpItem()
+    {
+        RaycastHit hit;
+        float pickupRange = 3f;
+    
+        if (PerformRaycast(playerCamera, out hit, pickupRange))
+        {
+            ItemPickup pickup = hit.collider.GetComponentInParent<ItemPickup>();
+            if (pickup != null)
+            {
+                // Retrieve the Inventory component on the player
+                InventoryManager inventory = GetComponent<InventoryManager>();
+                if (inventory != null)
+                {
+                    // Add the item to the inventory
+                    inventory.AddItem(pickup.itemData);
+                    Debug.Log("Picked up: " + pickup.itemData.itemName);
+                
+                    Destroy(pickup.gameObject);
+                }
+                else
+                {
+                    Debug.LogError("No Inventory component found on the player.");
+                }
+            }
+            else
+            {
+                Debug.LogError("No ItemPickup component found on item.");
+            }
+        }
+    }
+
+    public void DisplayInventory()
+    {
+        InventoryManager inventory = GetComponent<InventoryManager>();
+        if (inventory != null)
+        {
+            Debug.Log(inventory.ToString());
+        }
+        else
+        {
+            Debug.LogError("No Inventory component found on the player.");
+        }
+    }
+
 }
 
 

@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 4459864850019384737}
   - component: {fileID: 4459864850019384741}
   - component: {fileID: 4459864850019384740}
+  - component: {fileID: 8395378084411930626}
   m_Layer: 0
-  m_Name: FirstPersonController
+  m_Name: PlayerEntity
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,6 +196,19 @@ MonoBehaviour:
   bobAmount: {x: 0, y: 0.1, z: 0}
   startingWeapon: {fileID: 11400000, guid: 9e266a6001af5d2408f88d461d671ac2, type: 2}
   weaponHolder: {fileID: 8092489487545113592}
+--- !u!114 &8395378084411930626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459864850019384750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09245e199faa1c428e7421c30f9d148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryItems: []
 --- !u!1 &4459864850190357393
 GameObject:
   m_ObjectHideFlags: 0

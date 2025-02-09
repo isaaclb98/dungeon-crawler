@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -22,5 +23,18 @@ public class InventoryManager : MonoBehaviour
             inventoryItems.Remove(item);
             Debug.Log("Removed item: " + item.itemName);
         }
+    }
+    
+    public override string ToString()
+    {
+        if (inventoryItems == null || inventoryItems.Count == 0)
+            return "Inventory is empty.";
+
+        StringBuilder sb = new StringBuilder("Inventory:\n");
+        foreach (ItemData item in inventoryItems)
+        {
+            sb.AppendLine(item.itemName);
+        }
+        return sb.ToString();
     }
 }
