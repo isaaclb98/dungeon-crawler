@@ -20,3 +20,4 @@ MonoBehaviour:
   weaponType: Sword
   prefab: {fileID: 8915031093302127446, guid: f2cc9800a40f4704584329b99248de6b, type: 3}
   weaponScale: {x: 1.2, y: 1.6, z: 1.5}
+  attackSpeed: 1
