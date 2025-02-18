@@ -9,4 +9,5 @@ public class WeaponData : ItemData
     public int damage;
     public string weaponType;
     public GameObject prefab;
+    public Vector3 weaponScale = new Vector3(1f, 1f, 1f); //Custom weapon scale
 }
