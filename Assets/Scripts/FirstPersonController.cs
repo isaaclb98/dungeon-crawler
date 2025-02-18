@@ -26,7 +26,7 @@ public class FirstPersonController : MonoBehaviour
     public bool invertCamera = false;
     public bool cameraCanMove = true;
     public float mouseSensitivity = 2f;
-    public float maxLookAngle = 50f;
+    public float maxLookAngle = 89f;
 
     // Crosshair
     public bool lockCursor = true;
@@ -240,7 +240,7 @@ public class FirstPersonController : MonoBehaviour
             }
 
             // Clamp pitch between lookAngle
-            pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
+            pitch = Mathf.Clamp(pitch, -89f, 89f);
 
             transform.localEulerAngles = new Vector3(0, yaw, 0);
             playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
@@ -599,9 +599,10 @@ public class FirstPersonController : MonoBehaviour
         // Instantiate the weapon prefab as a child of the weaponHolder
         currentWeapon = Instantiate(weaponData.prefab, weaponHolder);
         // Reset its local transform so it is properly aligned relative to the weaponHolder
-        currentWeapon.transform.localPosition = Vector3.zero;
-        currentWeapon.transform.localRotation = Quaternion.identity;
-    
+        currentWeapon.transform.localPosition = new Vector3(0.2f, -0.7f, 0.6f); 
+        currentWeapon.transform.localRotation = Quaternion.Euler(0, 75, 0);
+        currentWeapon.transform.localScale = new Vector3(1.2f, 1.6f, 1.5f);
+
         equippedWeaponData = weaponData;
     
         Debug.Log("Equipped new weapon: " + equippedWeaponData.itemName);
