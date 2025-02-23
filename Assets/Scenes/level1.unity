@@ -480,7 +480,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.995
+      value: 79.994995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -1708,7 +1708,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.994995
+      value: 319.995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -3131,7 +3131,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.995
+      value: 79.994995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -5123,6 +5123,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1046509183}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &376720570
 MonoBehaviour:
@@ -9718,7 +9730,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.994995
+      value: 319.995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -11650,7 +11662,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.994995
+      value: 319.995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -11768,7 +11780,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.994995
+      value: 319.995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -12543,6 +12555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItems: []
+  ItemContent: {fileID: 2016671562}
+  Items: {fileID: 4794484328122604634, guid: 36caebd48f35c18458109fb6942c3126, type: 3}
 --- !u!4 &941224293
 Transform:
   m_ObjectHideFlags: 0
@@ -14522,6 +14536,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 941224292}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: ListItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1046509183}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -15580,7 +15606,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.995
+      value: 79.994995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -16705,7 +16731,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.995
+      value: 79.994995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -18170,7 +18196,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.994995
+      value: 319.995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -20556,7 +20582,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.995
+      value: 79.994995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -24467,7 +24493,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.995
+      value: 79.994995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -27436,7 +27462,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.995
+      value: 79.994995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -28071,7 +28097,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_StartCorner: 1
+  m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 20, y: 30}
@@ -28633,7 +28659,7 @@ PrefabInstance:
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.994995
+      value: 319.995
       objectReference: {fileID: 0}
     - target: {fileID: 5065089590360738619, guid: 36caebd48f35c18458109fb6942c3126,
         type: 3}
@@ -29691,6 +29717,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 941224293}
   - {fileID: 1029455401}
   - {fileID: 437949655}
   - {fileID: 211635942}
@@ -29698,4 +29725,3 @@ SceneRoots:
   - {fileID: 1490356062}
   - {fileID: 347052057}
   - {fileID: 321121300}
-  - {fileID: 941224293}
