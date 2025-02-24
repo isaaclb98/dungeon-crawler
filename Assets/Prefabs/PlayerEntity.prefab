@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4459864850019384741}
   - component: {fileID: 4459864850019384740}
   - component: {fileID: 8395378084411930626}
+  - component: {fileID: 143300546634889972}
   m_Layer: 0
   m_Name: PlayerEntity
   m_TagString: Player
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4459864850019384750}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.010497987, z: 0, w: 0.9999449}
-  m_LocalPosition: {x: 18.23406, y: -0.7999995, z: -31.2215}
+  m_LocalPosition: {x: 2.83, y: 34.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -154,7 +155,7 @@ MonoBehaviour:
   fov: 60
   invertCamera: 0
   cameraCanMove: 1
-  mouseSensitivity: 2
+  mouseSensitivity: 4.1
   maxLookAngle: 50
   lockCursor: 1
   crosshair: 1
@@ -196,6 +197,7 @@ MonoBehaviour:
   bobAmount: {x: 0, y: 0.1, z: 0}
   startingWeapon: {fileID: 11400000, guid: 9e266a6001af5d2408f88d461d671ac2, type: 2}
   weaponHolder: {fileID: 8092489487545113592}
+  attackDelay: 0.833
 --- !u!114 &8395378084411930626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +211,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItems: []
+  ItemContent: {fileID: 0}
+  Items: {fileID: 0}
+--- !u!114 &143300546634889972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459864850019384750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5972ab2bae2bb4fa2c3de0e7122632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: f2f153c3aec020e41b36d25e25a2a7a7, type: 2}
+  currentLevel: 0
+  currentXp: 0
+  currentHealth: 0
+  currentAttack: 0
+  currentDefense: 0
+  currentGold: 0
+  xpToLevelUp: 0
 --- !u!1 &4459864850190357393
 GameObject:
   m_ObjectHideFlags: 0

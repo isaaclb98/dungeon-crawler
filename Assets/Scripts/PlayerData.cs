@@ -12,4 +12,5 @@ public class PlayerData : ScriptableObject
     public int startingXp = 0;
     public int startingXpToLevelUp = 83;
     public double levelUpXpNeededMultiplier = 1.1;
+    public int startingGold;
 }

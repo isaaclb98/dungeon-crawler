@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    // Singleton
+    public static PlayerStats Instance { get; private set; }
+
     public PlayerData playerData;
 
     // Dynamic data
@@ -12,21 +13,36 @@ public class PlayerStats : MonoBehaviour
     public int currentHealth;
     public int currentAttack;
     public int currentDefense;
+    public int currentGold;
     public int xpToLevelUp;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
-        // Initialize default stats
-        // Need to implement saving feature eventually
+        // Defaults
         currentLevel = playerData.startingLevel;
         currentXp = playerData.startingXp;
         currentHealth = playerData.startingHealth;
         currentAttack = playerData.startingAttack;
         currentDefense = playerData.startingDefense;
         xpToLevelUp = playerData.startingXpToLevelUp;
+        currentGold = playerData.startingGold; 
     }
 
-    // Call this when the player earns XP (e.g., after defeating an enemy)
+    // Player gains xp
     public void GainXp(int amount)
     {
         currentXp += amount;
@@ -34,6 +50,13 @@ public class PlayerStats : MonoBehaviour
         {
             LevelUp();
         }
+    }
+
+    // Player gains gold
+    public void GainGold(int amount)
+    {
+        currentGold += amount;
+        Debug.Log("Gold Gained: " + amount + ", Total Gold: " + currentGold);
     }
 
     private void LevelUp()
