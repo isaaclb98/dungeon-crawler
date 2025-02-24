@@ -612,7 +612,7 @@ public class FirstPersonController : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
 
         var weaponAnimator = currentWeapon.GetComponent<Animator>();
-        if (weaponAnimator != null)
+        if (weaponAnimator)
         {
             weaponAnimator.Play("Idle");
         }
@@ -643,7 +643,7 @@ public class FirstPersonController : MonoBehaviour
         {
             case "Sword":
                 var weaponAnimator = currentWeapon.GetComponent<Animator>();
-                if (weaponAnimator != null)
+                if (weaponAnimator)
                 {
                     weaponAnimator.SetTrigger("Swing");
                 }
@@ -666,7 +666,7 @@ public class FirstPersonController : MonoBehaviour
                 Debug.Log("Enemy hit with " + equippedWeaponData.itemName + " for " + equippedWeaponData.damage + " damage.");
                 
                 EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-                if (enemyHealth != null)
+                if (enemyHealth)
                 {
                     enemyHealth.TakeDamage(equippedWeaponData.damage);
                 }
@@ -690,11 +690,11 @@ public class FirstPersonController : MonoBehaviour
         if (PerformRaycast(playerCamera, out hit, pickupRange))
         {
             ItemPickup pickup = hit.collider.GetComponentInParent<ItemPickup>();
-            if (pickup != null)
+            if (pickup)
             {
                 // Retrieve the Inventory component on the player
                 InventoryManager inventory = InventoryManager.Instance;
-                if (inventory != null)
+                if (inventory)
                 {
                     // Add the item to the inventory
                     inventory.AddItem(pickup.itemData);
@@ -717,7 +717,7 @@ public class FirstPersonController : MonoBehaviour
     public void DisplayInventory()
     {
         InventoryManager inventory = GetComponent<InventoryManager>();
-        if (inventory != null)
+        if (inventory)
         {
             Debug.Log(inventory.ToString());
         }
