@@ -637,6 +637,16 @@ public class FirstPersonController : MonoBehaviour
             if (hit.collider.CompareTag("Enemy"))
             {
                 Debug.Log("Enemy hit with " + equippedWeaponData.itemName + " for " + equippedWeaponData.damage + " damage.");
+                
+                EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(equippedWeaponData.damage);
+                }
+                else
+                {
+                    Debug.LogWarning("Enemy does not have an EnemyHealth component!");
+                }
             }
         }
         else
