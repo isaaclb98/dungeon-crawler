@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     public EnemyData enemyData;
     private int currentHP;
     public GameObject floatingDamagePrefab;
+    public ParticleSystem deathParticlesPrefab;
     
     void Start()
     {
@@ -61,6 +62,16 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        // Play the particle effect
+        if (deathParticlesPrefab)
+        {
+            ParticleSystem ps = Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+            ps.Play();
+
+            // Destroy the particle system object after it finishes
+            Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+        }   
+        
         // Give rewards to the player
         PlayerStats.Instance.GainXp(enemyData.xpReward);
         PlayerStats.Instance.GainGold(enemyData.goldReward);

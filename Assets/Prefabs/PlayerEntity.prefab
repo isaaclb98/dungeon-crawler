@@ -155,7 +155,7 @@ MonoBehaviour:
   fov: 60
   invertCamera: 0
   cameraCanMove: 1
-  mouseSensitivity: 2
+  mouseSensitivity: 4.1
   maxLookAngle: 50
   lockCursor: 1
   crosshair: 1
@@ -197,6 +197,7 @@ MonoBehaviour:
   bobAmount: {x: 0, y: 0.1, z: 0}
   startingWeapon: {fileID: 11400000, guid: 9e266a6001af5d2408f88d461d671ac2, type: 2}
   weaponHolder: {fileID: 8092489487545113592}
+  attackDelay: 0.833
 --- !u!114 &8395378084411930626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItems: []
+  ItemContent: {fileID: 0}
+  Items: {fileID: 0}
 --- !u!114 &143300546634889972
 MonoBehaviour:
   m_ObjectHideFlags: 0
