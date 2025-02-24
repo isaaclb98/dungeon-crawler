@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e6cefd14-b518-4cc7-950f-2e9c854bd85a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SwordSteel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SwordSteel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyTestCrystal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/EnemyTestCrystal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyHealth.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +20,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyHealth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FloatingDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />

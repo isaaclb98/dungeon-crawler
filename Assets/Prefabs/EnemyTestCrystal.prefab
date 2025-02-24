@@ -121,3 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 660233a72e254b74a956f6514b03544f, type: 2}
+  floatingDamagePrefab: {fileID: 2439937997188550388, guid: 3a0605ca49b3d604b95b316dd1fa54e9,
+    type: 3}
+  deathParticlesPrefab: {fileID: 340331524192421473, guid: 1cd4c4f158a15f140ba3f6941d4a09c8,
+    type: 3}
