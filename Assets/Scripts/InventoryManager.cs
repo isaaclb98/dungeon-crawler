@@ -4,6 +4,7 @@ using System.Text;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -56,11 +57,11 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in inventoryItems)
         {
             GameObject obj = Instantiate(Items, ItemContent);
-            var itemName = obj.transform.Find("IteName").GetComponent<Text>();
-            var iteIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
+            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
             itemName.text = item.itemName;
-            iteIcon.sprite = item.icon;
+            itemIcon.sprite = item.icon;
         }
     }
 }
