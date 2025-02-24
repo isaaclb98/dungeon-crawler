@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public static bool paused = false;
     public GameObject pauseMenuUI;
-    public GameObject optionsMenuUI;
     public FirstPersonController controller;
     // Update is called once per frame
     void Update()
@@ -48,16 +47,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f; // Reset time before switching scenes
         SceneManager.LoadScene("Play menu");
-    }
-
-    public void Options()
-    {
-        optionsMenuUI.SetActive(true);
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 0f;
-        controller.enabled = false; // Disable player movement
-        Cursor.lockState = CursorLockMode.None; // Unlock cursor
-        Cursor.visible = true; // Show cursor
     }
 
     public void Quit()
