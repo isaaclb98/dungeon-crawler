@@ -693,7 +693,7 @@ public class FirstPersonController : MonoBehaviour
             if (pickup != null)
             {
                 // Retrieve the Inventory component on the player
-                InventoryManager inventory = GetComponent<InventoryManager>();
+                InventoryManager inventory = InventoryManager.Instance;
                 if (inventory != null)
                 {
                     // Add the item to the inventory
@@ -704,12 +704,12 @@ public class FirstPersonController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("No Inventory component found on the player.");
+                    Debug.Log("No Inventory component found on the player.");
                 }
             }
             else
             {
-                Debug.LogError("No ItemPickup component found on item.");
+                Debug.Log("No ItemPickup component found on item.");
             }
         }
     }
