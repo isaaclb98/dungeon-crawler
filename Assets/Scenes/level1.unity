@@ -4025,6 +4025,7 @@ GameObject:
   - component: {fileID: 347052055}
   - component: {fileID: 347052054}
   - component: {fileID: 347052058}
+  - component: {fileID: 347052059}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4130,7 +4131,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 534968599}
+  optionsMenuUI: {fileID: 1469052155}
   controller: {fileID: 1621112524}
+--- !u!114 &347052059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347052053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90304a8ba0b57446bfb4c8707b40107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 534968599}
+  optionsMenuUI: {fileID: 1469052155}
 --- !u!1001 &347778548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12439,7 +12455,7 @@ GameObject:
   - component: {fileID: 1014087042}
   - component: {fileID: 1014087041}
   m_Layer: 5
-  m_Name: quitButton
+  m_Name: "b\u1EA1ckButton"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12509,7 +12525,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 347052058}
+      - m_Target: {fileID: 11500000, guid: f90304a8ba0b57446bfb4c8707b40107, type: 3}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -13216,7 +13232,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 347052058}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Options
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
