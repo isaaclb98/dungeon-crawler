@@ -131,9 +131,6 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
     
-    private Animator _animator;
-    private static readonly int Swing = Animator.StringToHash("Swing");
-    
     public WeaponData startingWeapon;
     
     // The currently equipped weapon's data (holds stats and prefab info)
@@ -144,11 +141,13 @@ public class FirstPersonController : MonoBehaviour
     
     // The transform where the weapon should be attached (typically a child of the FPS camera)
     public Transform weaponHolder;
+    
+    private bool canAttack = true;
+    public float attackDelay = 0.833f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
         
         if (startingWeapon != null)
         {
@@ -380,7 +379,6 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("Attacked!");
             Attack();
         }
 
@@ -608,9 +606,30 @@ public class FirstPersonController : MonoBehaviour
         Debug.Log("Equipped new weapon: " + equippedWeaponData.itemName);
     }
 
-    
+    private IEnumerator AttackCooldown()
+    {
+        // Wait for the duration of the attack delay
+        yield return new WaitForSeconds(attackDelay);
+
+        var weaponAnimator = currentWeapon.GetComponent<Animator>();
+        if (weaponAnimator != null)
+        {
+            weaponAnimator.Play("Idle");
+        }
+        canAttack = true;
+    }
+
     public void Attack()
     {
+        if (!canAttack)
+        {
+            Debug.Log("Attack still cooling down!");
+            return;
+        }
+        
+        canAttack = false;
+        StartCoroutine(AttackCooldown());
+
         RaycastHit hit;
         
         if (!equippedWeaponData)
@@ -623,25 +642,43 @@ public class FirstPersonController : MonoBehaviour
         switch (equippedWeaponData.weaponType)
         {
             case "Sword":
-                // _animator.SetTrigger(Swing);
+                var weaponAnimator = currentWeapon.GetComponent<Animator>();
+                if (weaponAnimator != null)
+                {
+                    weaponAnimator.SetTrigger("Swing");
+                }
+                else
+                {
+                    Debug.Log("The sword does not have an animator component.");
+                }
                 break;
             default:
                 Debug.Log("Error matching weapon type.");
                 break;
         }
         
-        Debug.Log("Weapon range " + equippedWeaponData.range);
+        // Debug.Log("Weapon range " + equippedWeaponData.range);
         
         if (PerformRaycast(playerCamera, out hit, equippedWeaponData.range))
         {
             if (hit.collider.CompareTag("Enemy"))
             {
                 Debug.Log("Enemy hit with " + equippedWeaponData.itemName + " for " + equippedWeaponData.damage + " damage.");
+                
+                EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(equippedWeaponData.damage);
+                }
+                else
+                {
+                    Debug.LogWarning("Enemy does not have an EnemyHealth component!");
+                }
             }
         }
         else
         {
-            Debug.Log(equippedWeaponData.itemName + " missed.");
+            // Debug.Log(equippedWeaponData.itemName + " missed.");
         }
     }
 
