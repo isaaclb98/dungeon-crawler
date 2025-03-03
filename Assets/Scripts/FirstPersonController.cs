@@ -352,13 +352,13 @@ public class FirstPersonController : MonoBehaviour
         #endregion
 
         #region isWalking
-        if (isWalking) // Small threshold to ignore tiny movements
+        if (isWalking)
         {
-            //SoundManager.Instance.PlaySound3D("Movement");
+            SoundManager.Instance.PlayLoopingSound("Movement", transform.position);
         }
         else
         {
-            Debug.Log("IsNotWalking");
+            SoundManager.Instance.StopLoopingSound("Movement");
         }
         #endregion
 
