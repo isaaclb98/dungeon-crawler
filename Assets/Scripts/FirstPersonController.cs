@@ -145,9 +145,16 @@ public class FirstPersonController : MonoBehaviour
     private bool canAttack = true;
     public float attackDelay = 0.833f;
 
+    private PlayerStats _playerStats;
+    
     private void Awake()
     {
+        DynamicGI.UpdateEnvironment();
+
         rb = GetComponent<Rigidbody>();
+        
+        _playerStats = GetComponent<PlayerStats>();
+        
         
         if (startingWeapon != null)
         {
@@ -619,6 +626,11 @@ public class FirstPersonController : MonoBehaviour
         canAttack = true;
     }
 
+    private int CalculateAttackDamage()
+    {
+        return _playerStats.currentAttack + equippedWeaponData.damage;
+    }
+
     public void Attack()
     {
         if (!canAttack)
@@ -668,7 +680,7 @@ public class FirstPersonController : MonoBehaviour
                 EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
                 if (enemyHealth)
                 {
-                    enemyHealth.TakeDamage(equippedWeaponData.damage);
+                    enemyHealth.TakeDamage(CalculateAttackDamage());
                 }
                 else
                 {
