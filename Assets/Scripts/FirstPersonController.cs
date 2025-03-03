@@ -8,9 +8,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using JetBrains.Annotations;
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
     using System.Net;
 #endif
 
@@ -304,6 +305,7 @@ public class FirstPersonController : MonoBehaviour
         {
             if(isSprinting)
             {
+
                 isZoomed = false;
                 playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
@@ -349,12 +351,24 @@ public class FirstPersonController : MonoBehaviour
 
         #endregion
 
+        #region isWalking
+        if (isWalking)
+        {
+            SoundManager.Instance.PlayLoopingSound("Movement", transform.position);
+        }
+        else
+        {
+            SoundManager.Instance.StopLoopingSound("Movement");
+        }
+        #endregion
+
         #region Jump
 
         // Gets input and calls jump method
-        if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
         {
             Jump();
+            SoundManager.Instance.PlaySound3D("Jumping");
         }
 
         #endregion
@@ -386,6 +400,7 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            SoundManager.Instance.PlaySound3D("SwordSwing");
             Attack();
         }
 
@@ -427,6 +442,7 @@ public class FirstPersonController : MonoBehaviour
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
+            
             // Checks if player is walking and isGrounded
             // Will allow head bob
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
@@ -437,6 +453,7 @@ public class FirstPersonController : MonoBehaviour
             {
                 isWalking = false;
             }
+
 
             // All movement calculations shile sprint is active
             if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)

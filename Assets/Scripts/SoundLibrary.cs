@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+[System.Serializable]
+public struct SoundEffect
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string groupID;
+    public AudioClip[] clips;
+}
 
-    // Update is called once per frame
-    void Update()
+public class SoundLibrary : MonoBehaviour
+{
+    public SoundEffect[] soundEffects;
+
+    public AudioClip GetClipFromName(string name)
     {
-        
+        foreach (var soundEffect in soundEffects)
+        {
+            if (soundEffect.groupID == name)
+            {
+                return soundEffect.clips[Random.Range(0, soundEffect.clips.Length)];
+            }
+        }
+        return null;
     }
 }
