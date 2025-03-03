@@ -73,5 +73,6 @@ public class PlayerStats : MonoBehaviour
         xpToLevelUp = Mathf.RoundToInt(xpToLevelUp * (float)playerData.levelUpXpNeededMultiplier);
 
         Debug.Log("Level Up! You are now level: " + currentLevel);
+        Debug.Log("xp needed to level up: " + xpToLevelUp);
     }
 }
