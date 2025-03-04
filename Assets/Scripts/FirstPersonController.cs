@@ -374,10 +374,7 @@ public class FirstPersonController : MonoBehaviour
         if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
         {
             Jump();
-            if (SoundManager.Instance)
-            {
-                SoundManager.Instance.PlaySound3D("Jumping");
-            }
+            
         }
 
         #endregion
@@ -409,10 +406,6 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (SoundManager.Instance)
-            {
-                SoundManager.Instance.PlaySound3D("SwordSwing");
-            }
             Attack();
         }
 
@@ -555,6 +548,11 @@ public class FirstPersonController : MonoBehaviour
         if(isCrouched && !holdToCrouch)
         {
             Crouch();
+        }
+        
+        if (SoundManager.Instance)
+        {
+            SoundManager.Instance.PlaySound3D("Jumping");
         }
     }
 
@@ -720,6 +718,11 @@ public class FirstPersonController : MonoBehaviour
         else
         {
             // Debug.Log(equippedWeaponData.itemName + " missed.");
+        }
+        
+        if (SoundManager.Instance)
+        {
+            SoundManager.Instance.PlaySound3D("SwordSwing");
         }
     }
 
