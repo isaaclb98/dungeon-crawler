@@ -354,11 +354,17 @@ public class FirstPersonController : MonoBehaviour
         #region isWalking
         if (isWalking)
         {
-            SoundManager.Instance.PlayLoopingSound("Movement", transform.position);
+            if (SoundManager.Instance) 
+            {
+                SoundManager.Instance.PlayLoopingSound("Movement", transform.position);
+            }
         }
         else
         {
-            SoundManager.Instance.StopLoopingSound("Movement");
+            if (SoundManager.Instance)
+            {
+                SoundManager.Instance.StopLoopingSound("Movement");
+            }
         }
         #endregion
 
@@ -368,7 +374,10 @@ public class FirstPersonController : MonoBehaviour
         if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
         {
             Jump();
-            SoundManager.Instance.PlaySound3D("Jumping");
+            if (SoundManager.Instance)
+            {
+                SoundManager.Instance.PlaySound3D("Jumping");
+            }
         }
 
         #endregion
@@ -400,7 +409,10 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            SoundManager.Instance.PlaySound3D("SwordSwing");
+            if (SoundManager.Instance)
+            {
+                SoundManager.Instance.PlaySound3D("SwordSwing");
+            }
             Attack();
         }
 
