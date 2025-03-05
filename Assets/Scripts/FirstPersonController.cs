@@ -709,6 +709,13 @@ public class FirstPersonController : MonoBehaviour
     
         if (PerformRaycast(playerCamera, out hit, pickupRange))
         {
+            Debug.Log("Hit: " + hit.collider.gameObject.name);
+            Transform current = hit.collider.transform;
+            while(current != null) {
+                Debug.Log("Parent: " + current.name);
+                current = current.parent;
+            }
+            
             ItemPickup pickup = hit.collider.GetComponentInParent<ItemPickup>();
             if (pickup)
             {

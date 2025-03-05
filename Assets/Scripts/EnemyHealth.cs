@@ -24,8 +24,8 @@ public class EnemyHealth : MonoBehaviour
             // Calculate the direction from the enemy to the player
             Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
         
-            // Base offset: 1 unit toward the player and 1 unit downward.
-            Vector3 offset = directionToPlayer * 1f + Vector3.up * -1f;
+            // Base offset: 1 unit toward the player and 0.5 unit upward.
+            Vector3 offset = directionToPlayer * 1f + Vector3.up * 0.5f;
         
             // Randomize lateral position
             Vector3 right = Vector3.Cross(Vector3.up, directionToPlayer).normalized;
