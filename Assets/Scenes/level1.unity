@@ -13208,6 +13208,8 @@ MonoBehaviour:
   inventoryItems: []
   ItemContent: {fileID: 2016671562}
   Items: {fileID: 4794484328122604634, guid: 36caebd48f35c18458109fb6942c3126, type: 3}
+  playerStats: {fileID: 143300546634889972, guid: 6bacecc4f3df9584198879c73a6b6c36,
+    type: 3}
   defaultWeapon: {fileID: 11400000, guid: 9e266a6001af5d2408f88d461d671ac2, type: 2}
   equippedWeapon: {fileID: 0}
   weaponHolder: {fileID: 967899804}
