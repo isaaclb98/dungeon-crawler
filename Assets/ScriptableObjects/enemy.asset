@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ea572ad7e1dcb4e86a262a649fb4e9, type: 3}
-  m_Name: HealthPotion
+  m_Script: {fileID: 11500000, guid: b53c822b10e5ed44db65b6300b158a17, type: 3}
+  m_Name: enemy
   m_EditorClassIdentifier: 
-  Id: 1
-  itemName: Health Potion
-  icon: {fileID: 0}
-  description: Gain 10 HP
-  stackable: 1
+  enemyName: 
+  enemyId: 0
+  enemyHealth: 0
+  enemyAttack: 0
+  xpReward: 0
+  goldReward: 0

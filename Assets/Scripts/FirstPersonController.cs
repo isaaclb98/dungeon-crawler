@@ -132,36 +132,21 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
     
-    public WeaponData startingWeapon;
-    
-    // The currently equipped weapon's data (holds stats and prefab info)
-    private WeaponData equippedWeaponData;
-    
-    // Visual representation of the weapon (instantiated from the prefab)
-    private GameObject currentWeapon;
-    
-    // The transform where the weapon should be attached (typically a child of the FPS camera)
-    public Transform weaponHolder;
-    
-    private bool canAttack = true;
+    private bool _canAttack = true;
     public float attackDelay = 0.833f;
 
     private PlayerStats _playerStats;
+    private InventoryManager _inventory;
     
     private void Awake()
     {
         DynamicGI.UpdateEnvironment();
 
         rb = GetComponent<Rigidbody>();
-        
-        _playerStats = GetComponent<PlayerStats>();
-        
-        
-        if (startingWeapon != null)
-        {
-            EquipWeapon(startingWeapon);
-        }
-        
+
+        _playerStats = PlayerStats.Instance;
+        _inventory = InventoryManager.Instance;
+    
         crosshairObject = GetComponentInChildren<Image>();
 
         // Set internal variables
@@ -354,11 +339,17 @@ public class FirstPersonController : MonoBehaviour
         #region isWalking
         if (isWalking)
         {
-            SoundManager.Instance.PlayLoopingSound("Movement", transform.position);
+            if (SoundManager.Instance) 
+            {
+                SoundManager.Instance.PlayLoopingSound("Movement", transform.position);
+            }
         }
         else
         {
-            SoundManager.Instance.StopLoopingSound("Movement");
+            if (SoundManager.Instance)
+            {
+                SoundManager.Instance.StopLoopingSound("Movement");
+            }
         }
         #endregion
 
@@ -368,7 +359,7 @@ public class FirstPersonController : MonoBehaviour
         if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
         {
             Jump();
-            SoundManager.Instance.PlaySound3D("Jumping");
+            
         }
 
         #endregion
@@ -400,7 +391,6 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            SoundManager.Instance.PlaySound3D("SwordSwing");
             Attack();
         }
 
@@ -544,6 +534,11 @@ public class FirstPersonController : MonoBehaviour
         {
             Crouch();
         }
+        
+        if (SoundManager.Instance)
+        {
+            SoundManager.Instance.PlaySound3D("Jumping");
+        }
     }
 
     private void Crouch()
@@ -609,54 +604,45 @@ public class FirstPersonController : MonoBehaviour
         hit = default;
         return false;
     }
-    
-    public void EquipWeapon(WeaponData weaponData)
-    {
-        // Destroy any previously equipped weapon instance
-        if (currentWeapon != null)
-        {
-            Destroy(currentWeapon);
-        }
-    
-        // Instantiate the weapon prefab as a child of the weaponHolder
-        currentWeapon = Instantiate(weaponData.prefab, weaponHolder);
-        // Reset its local transform so it is properly aligned relative to the weaponHolder
-        currentWeapon.transform.localPosition = new Vector3(0.2f, -0.7f, 0.6f); 
-        currentWeapon.transform.localRotation = Quaternion.Euler(0, 75, 0);
-        currentWeapon.transform.localScale = new Vector3(1.2f, 1.6f, 1.5f);
-
-        equippedWeaponData = weaponData;
-    
-        Debug.Log("Equipped new weapon: " + equippedWeaponData.itemName);
-    }
-
     private IEnumerator AttackCooldown()
     {
         // Wait for the duration of the attack delay
         yield return new WaitForSeconds(attackDelay);
 
-        var weaponAnimator = currentWeapon.GetComponent<Animator>();
+        var currentWeaponPrefab = _inventory.currentWeaponPrefab;
+        var weaponAnimator = currentWeaponPrefab.GetComponent<Animator>();
         if (weaponAnimator)
         {
             weaponAnimator.Play("Idle");
         }
-        canAttack = true;
+        _canAttack = true;
     }
 
     private int CalculateAttackDamage()
     {
+        var equippedWeaponData = _inventory.equippedWeapon;
+        
+        if (!equippedWeaponData)
+        {
+            Debug.Log("No weapon equipped!");
+            return 0;
+        }
+        
         return _playerStats.currentAttack + equippedWeaponData.damage;
     }
 
     public void Attack()
     {
-        if (!canAttack)
+        if (!_canAttack)
         {
             Debug.Log("Attack still cooling down!");
             return;
         }
         
-        canAttack = false;
+        var equippedWeaponData = _inventory.equippedWeapon;
+        var currentWeaponPrefab = _inventory.currentWeaponPrefab;
+
+        _canAttack = false;
         StartCoroutine(AttackCooldown());
 
         RaycastHit hit;
@@ -671,7 +657,7 @@ public class FirstPersonController : MonoBehaviour
         switch (equippedWeaponData.weaponType)
         {
             case "Sword":
-                var weaponAnimator = currentWeapon.GetComponent<Animator>();
+                var weaponAnimator = currentWeaponPrefab.GetComponent<Animator>();
                 if (weaponAnimator)
                 {
                     weaponAnimator.SetTrigger("Swing");
@@ -709,6 +695,11 @@ public class FirstPersonController : MonoBehaviour
         {
             // Debug.Log(equippedWeaponData.itemName + " missed.");
         }
+        
+        if (SoundManager.Instance)
+        {
+            SoundManager.Instance.PlaySound3D("SwordSwing");
+        }
     }
 
     public void PickUpItem()
@@ -718,15 +709,20 @@ public class FirstPersonController : MonoBehaviour
     
         if (PerformRaycast(playerCamera, out hit, pickupRange))
         {
+            Debug.Log("Hit: " + hit.collider.gameObject.name);
+            Transform current = hit.collider.transform;
+            while(current != null) {
+                Debug.Log("Parent: " + current.name);
+                current = current.parent;
+            }
+            
             ItemPickup pickup = hit.collider.GetComponentInParent<ItemPickup>();
             if (pickup)
             {
-                // Retrieve the Inventory component on the player
-                InventoryManager inventory = InventoryManager.Instance;
-                if (inventory)
+                if (_inventory)
                 {
                     // Add the item to the inventory
-                    inventory.AddItem(pickup.itemData);
+                    _inventory.AddItem(pickup.itemData);
                     Debug.Log("Picked up: " + pickup.itemData.itemName);
                 
                     Destroy(pickup.gameObject);
@@ -976,18 +972,18 @@ public class FirstPersonController : MonoBehaviour
     EditorGUILayout.Space();
 
     // Allows you to assign a starting weapon (using a WeaponData ScriptableObject)
-    fpc.startingWeapon = (WeaponData)EditorGUILayout.ObjectField(
-        new GUIContent("Starting Weapon", "Assign a starting weapon via a WeaponData ScriptableObject."),
-        fpc.startingWeapon,
-        typeof(WeaponData),
-        false);
+    // fpc.startingWeapon = (WeaponData)EditorGUILayout.ObjectField(
+    //     new GUIContent("Starting Weapon", "Assign a starting weapon via a WeaponData ScriptableObject."),
+    //     fpc.startingWeapon,
+    //     typeof(WeaponData),
+    //     false);
 
-    // Allows you to assign the weapon holder transform (typically a child of the camera)
-    fpc.weaponHolder = (Transform)EditorGUILayout.ObjectField(
-        new GUIContent("Weapon Holder", "Transform that holds the weapon (child of the camera)."),
-        fpc.weaponHolder,
-        typeof(Transform),
-        true);
+    // // Allows you to assign the weapon holder transform (typically a child of the camera)
+    // fpc.weaponHolder = (Transform)EditorGUILayout.ObjectField(
+    //     new GUIContent("Weapon Holder", "Transform that holds the weapon (child of the camera)."),
+    //     fpc.weaponHolder,
+    //     typeof(Transform),
+    //     true);
 
     EditorGUILayout.Space();
 

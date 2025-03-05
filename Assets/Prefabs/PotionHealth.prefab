@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db4adb2641aabf4c8df4ed152881d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 41b9493e84c6ad74a8de0d4258b8e0ae, type: 2}
-  pickupSound: {fileID: 0}
+  itemData: {fileID: 11400000, guid: a7c5e9854471e474a913884247515bc8, type: 2}
+  pickupSound: {fileID: 8300000, guid: 1d535bc943a3b446081eca9d0f4f1009, type: 3}
 --- !u!114 &-1894101236934484648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fb822b0ee00794b9b18efa88b94527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 41b9493e84c6ad74a8de0d4258b8e0ae, type: 2}
+  Item: {fileID: 0}

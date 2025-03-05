@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7e4021538612a0b4bbdf38e1cb6c2583,
         type: 3}
       propertyPath: m_Name
-      value: SwordSteel 1
+      value: CrystalSword
       objectReference: {fileID: 0}
     - target: {fileID: 3918288107625633506, guid: 7e4021538612a0b4bbdf38e1cb6c2583,
         type: 3}
@@ -126,6 +126,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4989747127176703354}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e4021538612a0b4bbdf38e1cb6c2583,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6887603561535538964}
   m_SourcePrefab: {fileID: 100100000, guid: 7e4021538612a0b4bbdf38e1cb6c2583, type: 3}
 --- !u!1 &8915031093302127446 stripped
 GameObject:
@@ -154,3 +158,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-6887603561535538964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8915031093302127446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db4adb2641aabf4c8df4ed152881d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: a52d762207d5f4c409db8bfaa6efe440, type: 2}
+  pickupSound: {fileID: 8300000, guid: 1d535bc943a3b446081eca9d0f4f1009, type: 3}

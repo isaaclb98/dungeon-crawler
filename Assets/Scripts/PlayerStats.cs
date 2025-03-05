@@ -15,15 +15,18 @@ public class PlayerStats : MonoBehaviour
     public int currentDefense;
     public int currentGold;
     public int xpToLevelUp;
+    public int currentMaxHealth;
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            Debug.Log("PlayerStats instance set: " + gameObject.name);
         }
         else
         {
+            Debug.Log("Duplicate PlayerStats detected on: " + gameObject.name);
             Destroy(gameObject);
             return;
         }
@@ -39,7 +42,10 @@ public class PlayerStats : MonoBehaviour
         currentAttack = playerData.startingAttack;
         currentDefense = playerData.startingDefense;
         xpToLevelUp = playerData.startingXpToLevelUp;
-        currentGold = playerData.startingGold; 
+        currentGold = playerData.startingGold;
+        currentMaxHealth = playerData.startingHealth;
+        
+        Debug.Log($"Player Stats - Level: {currentLevel}, XP: {currentXp}, Health: {currentHealth}, Attack: {currentAttack}, Defense: {currentDefense}, XP To Level Up: {xpToLevelUp}, Gold: {currentGold}, Max Health: {currentMaxHealth}");
     }
 
     // Player gains xp
@@ -65,7 +71,7 @@ public class PlayerStats : MonoBehaviour
         currentXp -= xpToLevelUp;
 
         // Eventually allow the player to choose what to increase
-        currentHealth += 1;
+        currentMaxHealth += 1;
         currentAttack += 1;
         currentDefense += 1;
 
@@ -73,5 +79,32 @@ public class PlayerStats : MonoBehaviour
         xpToLevelUp = Mathf.RoundToInt(xpToLevelUp * (float)playerData.levelUpXpNeededMultiplier);
 
         Debug.Log("Level Up! You are now level: " + currentLevel);
+        Debug.Log("xp needed to level up: " + xpToLevelUp);
+    }
+
+    public void GainHealth(int amount)
+    {
+        Debug.Log($"GainHealth called on instance: {gameObject.name} with currentMaxHealth: {currentMaxHealth}");
+        
+        Debug.Log("current max health " + currentMaxHealth);
+        Debug.Log("amount potion " + amount);
+        Debug.Log("Gained health: " + (currentMaxHealth - amount));
+
+        currentHealth += amount;
+
+        if (currentHealth > currentMaxHealth)
+        {
+            currentHealth = currentMaxHealth;
+        }
+    }
+
+    public void ApplyTemporaryDamageBoost(int amount, float duration)
+    {
+        // to do
+    }
+    
+    public void ApplyTemporarySpeedBoost(int amount, float duration)
+    {
+        // to do
     }
 }

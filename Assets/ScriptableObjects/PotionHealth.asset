@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b53c822b10e5ed44db65b6300b158a17, type: 3}
-  m_Name: TestCrystalEnemy
+  m_Script: {fileID: 11500000, guid: 6498efe463b146f4c927b6d54ee82687, type: 3}
+  m_Name: PotionHealth
   m_EditorClassIdentifier: 
-  enemyName: TestCrystal
-  enemyHealth: 20
-  enemyAttack: 0
-  xpReward: 20
-  goldReward: 1
+  itemName: Health Potion
+  icon: {fileID: 0}
+  description: Restores 10 HP.
+  hpRecovery: 10
+  damageBoostDuration: 0
+  damageBoostAmount: 0
+  speedBoostDuration: 0
+  speedBoostAmount: 0
