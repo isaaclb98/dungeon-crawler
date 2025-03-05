@@ -91,7 +91,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     // Equip a new weapon.
-    public void EquipWeapon(WeaponData newWeapon) {
+    public void EquipWeapon(WeaponData weapon) {
         // If a weapon is already equipped, add it back into the inventory.
         if (equippedWeapon != null) {
             AddItem(equippedWeapon);
@@ -103,13 +103,13 @@ public class InventoryManager : MonoBehaviour
         }
 
         // Instantiate the new weapon prefab as a child of weaponHolder.
-        currentWeaponPrefab = Instantiate(newWeapon.prefab, weaponHolder);
+        currentWeaponPrefab = Instantiate(weapon.prefab, weaponHolder);
         // Set proper local transform values (adjust as needed).
         currentWeaponPrefab.transform.localPosition = new Vector3(0.2f, -0.7f, 0.6f);
         currentWeaponPrefab.transform.localRotation = Quaternion.Euler(0, 75, 0);
         currentWeaponPrefab.transform.localScale = new Vector3(1.2f, 1.6f, 1.5f);
 
-        equippedWeapon = newWeapon;
+        equippedWeapon = weapon;
         Debug.Log("Equipped new weapon: " + equippedWeapon.itemName);
     }
 }
