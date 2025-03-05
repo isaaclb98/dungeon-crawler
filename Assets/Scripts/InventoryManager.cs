@@ -16,7 +16,8 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject Items;
-    
+    private ItemData selectedItem;  // Store the currently selected item
+    public PlayerStats playerStats; // Assign this in the Inspector
     // Weapon-related
     public WeaponData defaultWeapon;
     public WeaponData equippedWeapon;
@@ -31,6 +32,23 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         EquipWeapon(defaultWeapon);
+    }
+    // Use an item (this calls the item's own UseItem method).
+    public void SetSelectedItem(ItemData item)
+    {
+        selectedItem = item;
+    }
+
+    public void UseSelectedItem()
+    {
+        if (selectedItem != null)
+        {
+            UseItem(selectedItem, playerStats);
+        }
+    }
+    public void UseItem(ItemData item, PlayerStats player)
+    {
+        item.UseItem(player, this);
     }
 
     // Add an item to the inventory
@@ -62,28 +80,55 @@ public class InventoryManager : MonoBehaviour
         }
         return sb.ToString();
     }
-    
+
     public void ListItems()
     {
+        // Clear previous items in the inventory UI
         foreach (Transform item in ItemContent)
         {
             Destroy(item.gameObject);
         }
+
+        // Create UI buttons for each inventory item
         foreach (var item in inventoryItems)
         {
-            GameObject obj = Instantiate(Items, ItemContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
-            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            // Check for null item
+            if (item == null)
+            {
+                Debug.LogError("Inventory item is null.");
+                continue; // Skip this item if it's null
+            }
 
-            itemName.text = item.itemName;
-            itemIcon.sprite = item.icon;
+            GameObject obj = Instantiate(Items, ItemContent);
+
+            // Set item name and icon
+            var itemName = obj.transform.Find("ItemName")?.GetComponent<TextMeshProUGUI>();
+            var itemIcon = obj.transform.Find("ItemIcon")?.GetComponent<Image>();
+
+            // Check if the components exist before setting values
+            if (itemName != null && itemIcon != null)
+            {
+                itemName.text = item.itemName;
+                itemIcon.sprite = item.icon;
+            }
+            else
+            {
+                Debug.LogError("Missing ItemName or ItemIcon in the prefab.");
+            }
+
+            // Add a click event to the button
+            Button itemButton = obj.GetComponent<Button>();
+            if (itemButton != null)
+            {
+                itemButton.onClick.AddListener(() => UseItem(item, playerStats));
+            }
+            else
+            {
+                Debug.LogError("Button component not found on item object.");
+            }
         }
     }
-    
-    // Use an item (this calls the item's own UseItem method).
-    public void UseItem(ItemData item, PlayerStats player) {
-        item.UseItem(player, this);
-    }
+
 
     // Return the currently equipped weapon.
     public WeaponData GetEquippedWeapon() {
