@@ -7,7 +7,6 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public string enemyName;
-    public int enemyId;
     public int enemyHealth;
     public int enemyAttack;
     public int xpReward;

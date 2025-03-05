@@ -41,7 +41,7 @@ public class MutantCreatureAI : MonoBehaviour
         // Attack range check
         if (distanceToPlayer <= attackRange)
         {
-            Debug.Log("Attacking Player");
+            // Debug.Log("Attacking Player");
             Attack();
         }
         // Sniff or chase behavior when the player is within detection range
@@ -49,7 +49,7 @@ public class MutantCreatureAI : MonoBehaviour
         {
             if (!isSniffing)
             {
-                Debug.Log("Player Detected, Sniffing or Chasing");
+                // Debug.Log("Player Detected, Sniffing or Chasing");
                 Sniff();
             }
             else
@@ -64,11 +64,11 @@ public class MutantCreatureAI : MonoBehaviour
         // No player in range, continue patrolling
         else
         {
-            Debug.Log("Patrolling");
+            // Debug.Log("Patrolling");
             Patrol();
         }
 
-     Debug.Log($"Animator States => Walking: {animator.GetBool("isWalking")}, Attacking: {animator.GetBool("isAttacking")}, Sniffing: {isSniffing}");
+     // Debug.Log($"Animator States => Walking: {animator.GetBool("isWalking")}, Attacking: {animator.GetBool("isAttacking")}, Sniffing: {isSniffing}");
     }
 
     void Sniff()
@@ -104,14 +104,14 @@ public class MutantCreatureAI : MonoBehaviour
     {
         if (isSniffing || isAttacking) return;
 
-        Debug.Log("Patrolling... Remaining Distance: " + agent.remainingDistance);
+        // Debug.Log("Patrolling... Remaining Distance: " + agent.remainingDistance);
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             MoveToNextPatrolPoint();
         }
 
-        Debug.Log("Setting isWalking to true for Patrol");
+        // Debug.Log("Setting isWalking to true for Patrol");
         bool shouldWalk = agent.velocity.magnitude > 0.1f;
         animator.SetBool("isWalking", shouldWalk);
     }
@@ -127,7 +127,7 @@ public class MutantCreatureAI : MonoBehaviour
     {
         if (Time.time - lastAttackTime < attackCooldown) return;
 
-        Debug.Log("Attacking Player!"); // Debugging output
+        // Debug.Log("Attacking Player!"); // Debugging output
         isAttacking = true;
         isSniffing = false;  // Stop sniffing
         agent.isStopped = true;
