@@ -13,4 +13,20 @@ public class PlayerData : ScriptableObject
     public int startingXpToLevelUp = 83;
     public double levelUpXpNeededMultiplier = 1.1;
     public int startingGold;
+
+    public void TakeDamage(int damage)
+    {
+        startingHealth -= damage;
+        if (startingHealth < 0) startingHealth = 0;
+    }
+
+    public void Heal(int amount)
+    {
+        startingHealth += amount;
+    }
+
+    public bool IsDead()
+    {
+        return startingHealth <= 0;
+    }
 }
