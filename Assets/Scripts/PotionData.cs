@@ -34,8 +34,8 @@ public class PotionItem : ItemData {
         // Remove this item from inventory
         inventory.RemoveItem(this);
 
-        // Optional: Optionally destroy the potion item object if no longer needed
-        // Destroy(this);
+        
+         //Destroy(this);
     }
 
 }
