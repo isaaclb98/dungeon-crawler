@@ -33,9 +33,9 @@ public class Projectile : MonoBehaviour
             {
                 Instantiate(impactEffect, transform.position, Quaternion.identity);
             }
-
-            Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 }
 

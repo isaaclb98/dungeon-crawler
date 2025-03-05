@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestCrystalEnemy
   m_EditorClassIdentifier: 
   enemyName: TestCrystal
-  enemyHealth: 20
+  enemyHealth: 25
   enemyAttack: 0
   xpReward: 20
   goldReward: 1
