@@ -7,8 +7,6 @@ public class Projectile : MonoBehaviour
     public int baseDamage = 5; // Base damage of the projectile
     public GameObject impactEffect; // Optional: Impact effect when hitting the player
 
-    public PlayerHealth playerHealth; // Reference to the PlayerHealth script
-
     private Rigidbody rb;
 
     void Start()
@@ -22,19 +20,22 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Ensure the player has the right tag
         {
-            ApplyDamage();
+            PlayerHealthAndStamina playerHealth = other.GetComponent<PlayerHealthAndStamina>(); // Get player health component
+
+            if (playerHealth != null)
+            {
+                int actualDamage = Mathf.Max(1, baseDamage); // Ensure at least 1 damage
+                playerHealth.TakeDamage(actualDamage);
+                Debug.Log("Projectile hit player! Damage: " + actualDamage);
+            }
+
             if (impactEffect != null)
             {
                 Instantiate(impactEffect, transform.position, Quaternion.identity);
             }
+
             Destroy(gameObject);
         }
-    }
-
-    void ApplyDamage()
-    {
-        int actualDamage = Mathf.Max(1, baseDamage - playerHealth.playerData.startingDefense); // Prevent negative damage
-        playerHealth.ApplyDamage(actualDamage); // Use the PlayerHealth script to apply damage
     }
 }
 

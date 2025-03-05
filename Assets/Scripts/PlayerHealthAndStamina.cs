@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class PlayerHealthAndStamina : MonoBehaviour
 {
-    public Slider healthBar;
-    public Slider staminaBar;
+    //public Slider healthBar;
+    //public Slider staminaBar;
+    public PlayerData playerData;
 
     public float maxHealth = 100f;
     public float maxStamina = 100f;
@@ -22,20 +23,20 @@ public class PlayerHealthAndStamina : MonoBehaviour
         UpdateUI();
     }
 
-    void update()
+    void Update()
     {
-        if(currentStamina < maxStamina)
+        /*if(currentStamina < maxStamina)
         {
             currentStamina += staminaRegenRate * Time.deltaTime;
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
         }
-        UpdateUI();
+        UpdateUI();*/
     }
 
     void UpdateUI()
     {
-        healthBar.value = currentHealth / maxHealth;
-        staminaBar.value = currentStamina / maxStamina;
+        /*healthBar.value = currentHealth / maxHealth;
+        staminaBar.value = currentStamina / maxStamina;*/
     }
 
     public void TakeDamage(float damage)

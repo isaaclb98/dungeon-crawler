@@ -1,58 +1,70 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-public class CrystalMonsterShooting : MonoBehaviour
+public class HallowedCrystal : MonoBehaviour
 {
-    public GameObject projectilePrefab; // Assign crystal projectile prefab in the inspector
+    public GameObject projectilePrefab; // Assign EnergyProjectile prefab here
+    public Transform firePoint; // The monster itself is the firepoint
     public float projectileSpeed = 10f;
-    public float shootInterval = 3f; // Time between attack cycles
-    public float burstDelay = 0.2f; // Delay between each projectile in a burst
+    public float timeBetweenBursts = 3f;
+    public AudioSource chargingSound; // Drag an AudioSource with a charging sound
+    public float shakeIntensity = 0.1f;
+    public float shakeDuration = 1f;
 
-    private int[] shotPattern = { 4, 6, 8 }; // Pattern cycle
-    private int patternIndex = 0; // Keeps track of current pattern
+    private int[] projectilePattern = { 4, 6, 8 , 12, 4, 8, 6}; // The shooting pattern
+    private int currentPatternIndex = 0;
 
     void Start()
     {
-        InvokeRepeating(nameof(StartShootingBurst), shootInterval, shootInterval);
+        StartCoroutine(ShootProjectiles());
     }
 
-    void StartShootingBurst()
+    IEnumerator ShootProjectiles()
     {
-        int projectileCount = shotPattern[patternIndex]; // Get current pattern count
-        float angleStep = 360f / projectileCount; // Angle between projectiles
-
-        // Start the coroutine to shoot with delays
-        StartCoroutine(ShootBurst(projectileCount, angleStep));
-
-        // Move to the next pattern (looping back to start)
-        patternIndex = (patternIndex + 1) % shotPattern.Length;
-    }
-
-    IEnumerator ShootBurst(int projectileCount, float angleStep)
-    {
-        for (int i = 0; i < projectileCount; i++)
+        while (true)
         {
-            float angle = i * angleStep; // Calculate angle for each projectile
-            FireProjectile(angle);
-            yield return new WaitForSeconds(burstDelay); // Wait before firing next
+            yield return StartCoroutine(ChargeAttack()); // Play charge-up effect
+
+            int projectileCount = projectilePattern[currentPatternIndex];
+            FireInAllDirections(projectileCount);
+
+            currentPatternIndex = (currentPatternIndex + 1) % projectilePattern.Length; // Cycle through 4-6-8 pattern
+            yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
 
-    void FireProjectile(float angle)
+    IEnumerator ChargeAttack()
     {
-        if (projectilePrefab != null)
-        {
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        // Play Charging Sound
+        if (chargingSound != null) chargingSound.Play();
 
-            if (rb != null)
-            {
-                // Convert angle to direction
-                Vector2 shootDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-                rb.velocity = shootDirection * projectileSpeed;
-            }
+        // Shake Effect
+        Vector3 originalPosition = transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < shakeDuration)
+        {
+            transform.position = originalPosition + (Random.insideUnitSphere * shakeIntensity);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = originalPosition; // Reset position
+    }
+
+    void FireInAllDirections(int count)
+    {
+        float angleStep = 360f / count;
+        for (int i = 0; i < count; i++)
+        {
+            float angle = i * angleStep;
+            Vector3 direction = Quaternion.Euler(0, angle, 0) * transform.forward; // Use monster's forward direction
+
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            projectile.GetComponent<Rigidbody>().velocity = direction * projectileSpeed;
+
+            // Rotate projectile to face its movement direction
+            projectile.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 }
-
-
