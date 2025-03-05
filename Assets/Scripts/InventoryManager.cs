@@ -6,6 +6,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class InventoryManager : MonoBehaviour
     public void UseItem(ItemData item, PlayerStats player)
     {
         item.UseItem(player, this);
+        
     }
 
     // Add an item to the inventory
@@ -121,6 +123,7 @@ public class InventoryManager : MonoBehaviour
             if (itemButton != null)
             {
                 itemButton.onClick.AddListener(() => UseItem(item, playerStats));
+                itemButton.onClick.AddListener(() => Destroy(obj));
             }
             else
             {
