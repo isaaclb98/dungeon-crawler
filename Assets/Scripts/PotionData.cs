@@ -9,30 +9,35 @@ public class PotionItem : ItemData {
     public int damageBoostAmount;
     public float speedBoostDuration;
     public int speedBoostAmount;
+    private PlayerStats _playerStats;
+    private InventoryManager _inventory;
 
-    public override void UseItem(PlayerStats player, InventoryManager inventory)
+    public override void UseItem()
     {
+        _playerStats = PlayerStats.Instance;
+        _inventory = InventoryManager.Instance;
+        
         // Check if player and inventory are not null
-        if (player == null)
+        if (_playerStats == null)
         {
             Debug.LogError("PlayerStats is null!");
             return;
         }
-        if (inventory == null)
+        if (_inventory == null)
         {
             Debug.LogError("InventoryManager is null!");
             return;
         }
 
         // Increase health
-        player.GainHealth(hpRecovery);
+        _playerStats.GainHealth(hpRecovery);
 
         // Apply temporary boosts
-        player.ApplyTemporaryDamageBoost(damageBoostAmount, damageBoostDuration);
-        player.ApplyTemporarySpeedBoost(speedBoostAmount, speedBoostDuration);
+        _playerStats.ApplyTemporaryDamageBoost(damageBoostAmount, damageBoostDuration);
+        _playerStats.ApplyTemporarySpeedBoost(speedBoostAmount, speedBoostDuration);
 
         // Remove this item from inventory
-        inventory.RemoveItem(this);
+        _inventory.RemoveItem(this);
 
         
          //Destroy(this);

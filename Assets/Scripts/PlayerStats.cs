@@ -22,9 +22,11 @@ public class PlayerStats : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            Debug.Log("PlayerStats instance set: " + gameObject.name);
         }
         else
         {
+            Debug.Log("Duplicate PlayerStats detected on: " + gameObject.name);
             Destroy(gameObject);
             return;
         }
@@ -42,6 +44,8 @@ public class PlayerStats : MonoBehaviour
         xpToLevelUp = playerData.startingXpToLevelUp;
         currentGold = playerData.startingGold;
         currentMaxHealth = playerData.startingHealth;
+        
+        Debug.Log($"Player Stats - Level: {currentLevel}, XP: {currentXp}, Health: {currentHealth}, Attack: {currentAttack}, Defense: {currentDefense}, XP To Level Up: {xpToLevelUp}, Gold: {currentGold}, Max Health: {currentMaxHealth}");
     }
 
     // Player gains xp
@@ -80,8 +84,13 @@ public class PlayerStats : MonoBehaviour
 
     public void GainHealth(int amount)
     {
-        currentHealth += amount;
+        Debug.Log($"GainHealth called on instance: {gameObject.name} with currentMaxHealth: {currentMaxHealth}");
+        
+        Debug.Log("current max health " + currentMaxHealth);
+        Debug.Log("amount potion " + amount);
         Debug.Log("Gained health: " + (currentMaxHealth - amount));
+
+        currentHealth += amount;
 
         if (currentHealth > currentMaxHealth)
         {

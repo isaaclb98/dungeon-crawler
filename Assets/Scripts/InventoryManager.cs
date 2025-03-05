@@ -44,12 +44,12 @@ public class InventoryManager : MonoBehaviour
     {
         if (selectedItem != null)
         {
-            UseItem(selectedItem, playerStats);
+            UseItem(selectedItem);
         }
     }
-    public void UseItem(ItemData item, PlayerStats player)
+    public void UseItem(ItemData item)
     {
-        item.UseItem(player, this);
+        item.UseItem();
         
     }
 
@@ -122,7 +122,7 @@ public class InventoryManager : MonoBehaviour
             Button itemButton = obj.GetComponent<Button>();
             if (itemButton != null)
             {
-                itemButton.onClick.AddListener(() => UseItem(item, playerStats));
+                itemButton.onClick.AddListener(() => UseItem(item));
                 itemButton.onClick.AddListener(() => Destroy(obj));
             }
             else
