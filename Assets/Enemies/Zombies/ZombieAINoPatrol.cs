@@ -8,6 +8,7 @@ public class ZombieAINoPatrol : MonoBehaviour
     public float detectionRange = 10f;
     public float attackRange = 2f;
     public float attackCooldown = 2f;
+    public GameObject floatingDamagePrefab;
 
     private Transform player;
     private NavMeshAgent agent;
@@ -21,10 +22,16 @@ public class ZombieAINoPatrol : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        enemyHealth = GetComponent<EnemyHealth>(); // Get the health script
+        enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
         agent.speed = chaseSpeed;
         agent.updateRotation = true; // Let NavMeshAgent handle rotation
+
+        agent.autoBraking = false;
+        agent.angularSpeed = 120f;
+        agent.acceleration = 8f;
+        agent.avoidancePriority = 50;
 
         animator.SetBool("isWalking", false);
     }
@@ -50,6 +57,8 @@ public class ZombieAINoPatrol : MonoBehaviour
         {
             Idle();
         }
+
+        PreventSliding(); // Smooth movement
     }
 
     void ChasePlayer()
@@ -58,9 +67,9 @@ public class ZombieAINoPatrol : MonoBehaviour
 
         agent.isStopped = false;
 
-        if (Vector3.Distance(agent.destination, player.position) > 1f)
+        if (!agent.pathPending && Vector3.Distance(agent.destination, player.position) > 1f)
         {
-            agent.destination = player.position;
+            agent.SetDestination(player.position);
         }
 
         bool isMoving = agent.velocity.magnitude > 0.1f;
@@ -74,7 +83,6 @@ public class ZombieAINoPatrol : MonoBehaviour
 
         isAttacking = true;
         agent.isStopped = true;
-        agent.velocity = Vector3.zero;
 
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
@@ -86,8 +94,13 @@ public class ZombieAINoPatrol : MonoBehaviour
     IEnumerator ResetAttack()
     {
         yield return new WaitForSeconds(1f);
+
         isAttacking = false;
         agent.isStopped = false;
+
+        // **Fix sudden movement after attack** - Resume smoothly
+        yield return new WaitForSeconds(0.1f);
+        if (!isDead && !isAttacking) agent.isStopped = false;
     }
 
     void Idle()
@@ -95,7 +108,6 @@ public class ZombieAINoPatrol : MonoBehaviour
         if (!isAttacking && !isDead)
         {
             agent.isStopped = true;
-            agent.velocity = Vector3.zero;
             animator.SetBool("isWalking", false);
             animator.SetBool("isAttacking", false);
         }
@@ -114,11 +126,45 @@ public class ZombieAINoPatrol : MonoBehaviour
         return false;
     }
 
+    void PreventSliding()
+    {
+        //  **Fix agent sliding issue** - Stop when not moving
+        if (agent.remainingDistance <= agent.stoppingDistance && !isAttacking)
+        {
+            agent.isStopped = true;
+            animator.SetBool("isWalking", false);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (isDead) return;
 
         enemyHealth.TakeDamage(damage);
+        ShowFloatingDamage(damage);
+    }
+
+    void ShowFloatingDamage(int damage)
+    {
+        if (floatingDamagePrefab != null)
+        {
+            Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+            Vector3 offset = directionToPlayer * 1f + Vector3.up * -1f;
+            Vector3 right = Vector3.Cross(Vector3.up, directionToPlayer).normalized;
+            offset += right * Random.Range(-0.3f, 0.3f);
+
+            GameObject floatingDamageInstance = Instantiate(floatingDamagePrefab, transform.position + offset, Quaternion.identity);
+            Vector3 lookDirection = (playerTransform.position - floatingDamageInstance.transform.position).normalized;
+            floatingDamageInstance.transform.rotation = Quaternion.LookRotation(lookDirection);
+            floatingDamageInstance.transform.Rotate(0, 180f, 0);
+
+            FloatingDamage fd = floatingDamageInstance.GetComponent<FloatingDamage>();
+            if (fd)
+            {
+                fd.SetDamage(damage);
+            }
+        }
     }
 
     public void Die()
@@ -128,5 +174,6 @@ public class ZombieAINoPatrol : MonoBehaviour
         isDead = true;
         animator.SetTrigger("Die");
         agent.isStopped = true;
+        Destroy(gameObject, 2f);
     }
 }
