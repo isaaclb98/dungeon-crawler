@@ -9,5 +9,5 @@ public abstract class ItemData : ScriptableObject
     public Sprite icon;
     public string description;
     
-    public abstract void UseItem(PlayerStats player, InventoryManager inventory);
+    public abstract void UseItem();
 }

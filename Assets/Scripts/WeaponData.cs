@@ -12,18 +12,15 @@ public class WeaponData : ItemData
     public Vector3 weaponScale = new Vector3(1f, 1f, 1f); //Custom weapon scale
     public float attackSpeed = 1.0f;
 
-    public override void UseItem(PlayerStats player, InventoryManager inventory)
+    private InventoryManager _inventory;
+    public override void UseItem()
     {
-        // If a weapon is already equipped, add it back to the inventory.
-        if (inventory.GetEquippedWeapon() != null)
-        {
-            inventory.AddItem(inventory.GetEquippedWeapon());
-        }
-
+        _inventory = InventoryManager.Instance;
+        
         // Equip the new weapon.
-        inventory.EquipWeapon(this);
+        _inventory.EquipWeapon(this);
 
         // Remove this weapon item from the inventory
-        inventory.RemoveItem(this);
+        _inventory.RemoveItem(this);
     }
 }
