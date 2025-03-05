@@ -15,6 +15,7 @@ public class PlayerStats : MonoBehaviour
     public int currentDefense;
     public int currentGold;
     public int xpToLevelUp;
+    public int currentMaxHealth;
 
     void Awake()
     {
@@ -39,7 +40,8 @@ public class PlayerStats : MonoBehaviour
         currentAttack = playerData.startingAttack;
         currentDefense = playerData.startingDefense;
         xpToLevelUp = playerData.startingXpToLevelUp;
-        currentGold = playerData.startingGold; 
+        currentGold = playerData.startingGold;
+        currentMaxHealth = playerData.startingHealth;
     }
 
     // Player gains xp
@@ -65,7 +67,7 @@ public class PlayerStats : MonoBehaviour
         currentXp -= xpToLevelUp;
 
         // Eventually allow the player to choose what to increase
-        currentHealth += 1;
+        currentMaxHealth += 1;
         currentAttack += 1;
         currentDefense += 1;
 
@@ -74,5 +76,26 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log("Level Up! You are now level: " + currentLevel);
         Debug.Log("xp needed to level up: " + xpToLevelUp);
+    }
+
+    public void GainHealth(int amount)
+    {
+        currentHealth += amount;
+        Debug.Log("Gained health: " + (currentMaxHealth - amount));
+
+        if (currentHealth > currentMaxHealth)
+        {
+            currentHealth = currentMaxHealth;
+        }
+    }
+
+    public void ApplyTemporaryDamageBoost(int amount, float duration)
+    {
+        // to do
+    }
+    
+    public void ApplyTemporarySpeedBoost(int amount, float duration)
+    {
+        // to do
     }
 }
