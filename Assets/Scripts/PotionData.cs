@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Data/PotionData")]
+public class PotionItem : ItemData {
+    public int hpRecovery;
+    public float damageBoostDuration;
+    public int damageBoostAmount;
+    public float speedBoostDuration;
+    public int speedBoostAmount;
+    
+    public override void UseItem(PlayerStats player, InventoryManager inventory) {
+        // Increase health
+        player.GainHealth(hpRecovery);
+        
+        player.ApplyTemporaryDamageBoost(damageBoostAmount, damageBoostDuration);
+        player.ApplyTemporarySpeedBoost(speedBoostAmount, speedBoostDuration);
+        
+        // Remove this item from inventory.
+        inventory.RemoveItem(this);
+        
+        // delete object
+    }
+}
