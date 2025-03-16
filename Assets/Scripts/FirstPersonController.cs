@@ -676,18 +676,23 @@ public class FirstPersonController : MonoBehaviour
         
         if (PerformRaycast(playerCamera, out hit, equippedWeaponData.range))
         {
-            if (hit.collider.CompareTag("Enemy"))
+            if (hit.collider.CompareTag("Enemy")) // Enemy hit
             {
-                Debug.Log("Enemy hit with " + equippedWeaponData.itemName + " for " + equippedWeaponData.damage + " damage.");
-                
+                Debug.Log("Enemy hit!");
                 EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
                 if (enemyHealth)
                 {
                     enemyHealth.TakeDamage(CalculateAttackDamage());
                 }
-                else
+            }
+            else if (hit.collider.CompareTag("Spawner")) // Spawner hit
+            {
+                Debug.Log("Spawner hit!");
+
+                SpawnControl spawner = hit.collider.GetComponent<SpawnControl>();
+                if (spawner)
                 {
-                    Debug.LogWarning("Enemy does not have an EnemyHealth component!");
+                    spawner.TakeDamage();
                 }
             }
         }
