@@ -107,4 +107,62 @@ public class PlayerStats : MonoBehaviour
     {
         // to do
     }
+
+    private float damageCooldown = 1.5f; // 1 second cooldown
+    private float lastDamageTime = 0f;
+
+    public void TakeDamage(int damage)
+    {
+    if (Time.time < lastDamageTime + damageCooldown) return; // Prevent taking damage too fast
+
+    lastDamageTime = Time.time; // Update last damage time
+    currentHealth -= damage;
+    currentHealth = Mathf.Clamp(currentHealth, 0, currentMaxHealth); // Prevent negative health
+
+    Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
+
+    if (currentHealth > 0)
+    {
+        Debug.Log("Player is still alive.");
+    }
+    else
+    {
+        Debug.Log("Player's health reached 0. Calling Die().");
+        Die();
+    }
+    }
+
+
+
+    private void Die()
+    {
+    Debug.Log("Player has died!");
+
+    // Reset inventory
+    if (InventoryManager.Instance != null)
+    {
+        InventoryManager.Instance.ResetInventory();
+    }
+
+    // Destroy old player instance before restarting
+    Destroy(gameObject);
+
+    // Restart the game
+    GameManager.Instance.RestartGame();
+    }
+
+
+    private void ResetPlayerStats()
+    {
+    currentHealth = playerData.startingHealth;
+    currentGold = playerData.startingGold;
+    currentXp = playerData.startingXp;
+    currentLevel = playerData.startingLevel;
+    currentAttack = playerData.startingAttack;
+    currentDefense = playerData.startingDefense;
+    currentMaxHealth = playerData.startingHealth;
+    }
+
+
+
 }

@@ -43,5 +43,23 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void RestartGame()
+    {
+    Debug.Log("Restarting game...");
+
+    if (InventoryManager.Instance != null)
+    {
+        InventoryManager.Instance.ResetInventory();
+    }
+    else
+    {
+        Debug.LogWarning("InventoryManager instance is null! Skipping inventory reset.");
+    }
+
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
 }
 
