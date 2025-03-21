@@ -18,7 +18,6 @@ public class InventoryManager : MonoBehaviour
     public Transform ItemContent;
     public GameObject Items;
     private ItemData selectedItem;  // Store the currently selected item
-    public PlayerStats playerStats; // Assign this in the Inspector
     // Weapon-related
     public WeaponData defaultWeapon;
     public WeaponData equippedWeapon;
@@ -34,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     {
         EquipWeapon(defaultWeapon);
     }
+    
     // Use an item (this calls the item's own UseItem method).
     public void SetSelectedItem(ItemData item)
     {
