@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4459864850019384741}
   - component: {fileID: 4459864850019384740}
   - component: {fileID: 8395378084411930626}
+  - component: {fileID: 8795418587152561161}
   m_Layer: 0
   m_Name: PlayerEntity
   m_TagString: Player
@@ -210,11 +211,31 @@ MonoBehaviour:
   inventoryItems: []
   ItemContent: {fileID: 0}
   Items: {fileID: 0}
-  playerStats: {fileID: 0}
   defaultWeapon: {fileID: 0}
   equippedWeapon: {fileID: 0}
-  weaponHolder: {fileID: 0}
+  weaponHolder: {fileID: 8092489487545113592}
   currentWeaponPrefab: {fileID: 0}
+--- !u!114 &8795418587152561161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459864850019384750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5972ab2bae2bb4fa2c3de0e7122632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: f2f153c3aec020e41b36d25e25a2a7a7, type: 2}
+  currentLevel: 0
+  currentXp: 0
+  currentHealth: 0
+  currentAttack: 0
+  currentDefense: 0
+  currentGold: 0
+  xpToLevelUp: 0
+  currentMaxHealth: 0
 --- !u!1 &4459864850190357393
 GameObject:
   m_ObjectHideFlags: 0

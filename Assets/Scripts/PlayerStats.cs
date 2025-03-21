@@ -8,13 +8,21 @@ public class PlayerStats : MonoBehaviour
     public PlayerData playerData;
 
     // Dynamic data
+    [HideInInspector]
     public int currentLevel;
+    [HideInInspector]
     public int currentXp;
+    [HideInInspector]
     public int currentHealth;
+    [HideInInspector]
     public int currentAttack;
+    [HideInInspector]
     public int currentDefense;
+    [HideInInspector]
     public int currentGold;
+    [HideInInspector]
     public int xpToLevelUp;
+    [HideInInspector]
     public int currentMaxHealth;
 
     void Awake()
@@ -136,31 +144,33 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-    Debug.Log("Player has died!");
+        Debug.Log("Player has died!");
 
-    // Reset inventory
-    if (InventoryManager.Instance != null)
-    {
-        InventoryManager.Instance.ResetInventory();
-    }
+        // Reset inventory
+        if (InventoryManager.Instance)
+        {
+            InventoryManager.Instance.ResetInventory();
+        }
 
-    // Destroy old player instance before restarting
-    Destroy(gameObject);
+        ResetPlayerStats();
 
-    // Restart the game
-    GameManager.Instance.RestartGame();
+        // Destroy old player instance before restarting
+        Destroy(gameObject);
+
+        // Restart the game
+        GameManager.Instance.RestartGame();
     }
 
 
     private void ResetPlayerStats()
     {
-    currentHealth = playerData.startingHealth;
-    currentGold = playerData.startingGold;
-    currentXp = playerData.startingXp;
-    currentLevel = playerData.startingLevel;
-    currentAttack = playerData.startingAttack;
-    currentDefense = playerData.startingDefense;
-    currentMaxHealth = playerData.startingHealth;
+        currentHealth = playerData.startingHealth;
+        currentGold = playerData.startingGold;
+        currentXp = playerData.startingXp;
+        currentLevel = playerData.startingLevel;
+        currentAttack = playerData.startingAttack;
+        currentDefense = playerData.startingDefense;
+        currentMaxHealth = playerData.startingHealth;
     }
 
 
