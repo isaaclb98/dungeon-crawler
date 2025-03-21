@@ -121,23 +121,23 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-    if (Time.time < lastDamageTime + damageCooldown) return; // Prevent taking damage too fast
+        if (Time.time < lastDamageTime + damageCooldown) return; // Prevent taking damage too fast
 
-    lastDamageTime = Time.time; // Update last damage time
-    currentHealth -= damage;
-    currentHealth = Mathf.Clamp(currentHealth, 0, currentMaxHealth); // Prevent negative health
+        lastDamageTime = Time.time; // Update last damage time
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, currentMaxHealth); // Prevent negative health
 
-    Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
+        Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
 
-    if (currentHealth > 0)
-    {
-        Debug.Log("Player is still alive.");
-    }
-    else
-    {
-        Debug.Log("Player's health reached 0. Calling Die().");
-        Die();
-    }
+        if (currentHealth > 0)
+        {
+            Debug.Log("Player is still alive.");
+        }
+        else
+        {
+            Debug.Log("Player's health reached 0. Calling Die().");
+            Die();
+        }
     }
 
 
