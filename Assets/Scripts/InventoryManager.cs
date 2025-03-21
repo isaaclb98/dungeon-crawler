@@ -163,27 +163,27 @@ public class InventoryManager : MonoBehaviour
 
     public void ResetInventory()
     {
-    Debug.Log("Resetting inventory...");
+        Debug.Log("Resetting inventory...");
 
-    if (inventoryItems == null)
-    {
-        Debug.LogWarning("Inventory items list is null, initializing it.");
-        inventoryItems = new List<ItemData>(); // Ensure it's initialized
-    }
-    else
-    {
-        inventoryItems.Clear();
-    }
+        if (inventoryItems == null)
+        {
+            Debug.LogWarning("Inventory items list is null, initializing it.");
+            inventoryItems = new List<ItemData>(); // Ensure it's initialized
+        }
+        else
+        {
+            inventoryItems.Clear();
+        }
 
-    // Reset equipped weapon to default
-    if (defaultWeapon != null)
-    {
-        EquipWeapon(defaultWeapon);
-    }
-    else
-    {
-        Debug.LogWarning("Default weapon is null! Cannot equip.");
-    }
+        // Reset equipped weapon to default
+        if (defaultWeapon != null)
+        {
+            EquipWeapon(defaultWeapon);
+        }
+        else
+        {
+            Debug.LogWarning("Default weapon is null! Cannot equip.");
+        }
     }
 
 

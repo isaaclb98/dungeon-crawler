@@ -8,7 +8,6 @@ public class ZombieAINoPatrol : MonoBehaviour
     public float detectionRange = 10f;
     public float attackRange = 2f;
     public float attackCooldown = 2f;
-    public GameObject floatingDamagePrefab;
 
     private Transform player;
     private NavMeshAgent agent;
@@ -19,13 +18,16 @@ public class ZombieAINoPatrol : MonoBehaviour
     private bool isDead = false;
 
     public EnemyData enemyData;
-
+    private PlayerStats _playerStats;
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        _playerStats = PlayerStats.Instance;
 
         agent.speed = chaseSpeed;
         agent.updateRotation = true; // Let NavMeshAgent handle rotation
@@ -40,7 +42,7 @@ public class ZombieAINoPatrol : MonoBehaviour
 
     void Update()
     {
-        if (player == null || isDead) return;
+        if (!player || isDead) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -88,16 +90,16 @@ public class ZombieAINoPatrol : MonoBehaviour
 
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
-
+        
         // Check if the player is within attack range
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= attackRange)
         {
-            PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
-            if (playerHealth != null)
+            
+            if (_playerStats != null)
             {
                 // Use the enemy's attack value from the EnemyData ScriptableObject
-                playerHealth.TakeDamage(enemyData.enemyAttack);  // Apply damage based on enemyAttack
+                _playerStats.TakeDamage(enemyData.enemyAttack);  // Apply damage based on enemyAttack
             }
         }
 
