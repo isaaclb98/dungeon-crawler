@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1753269595321318383}
   - component: {fileID: 4199997914579029838}
   - component: {fileID: 8456762569897076807}
+  - component: {fileID: 7979027360803859879}
   m_Layer: 0
   m_Name: Creature1
   m_TagString: Enemy
@@ -173,10 +174,27 @@ MonoBehaviour:
   - {fileID: 0}
   patrolSpeed: 2
   chaseSpeed: 4
-  detectionRange: 5
-  attackRange: 2.5
+  detectionRange: 8
+  attackRange: 5
   attackCooldown: 3
   maxHealth: 100
+--- !u!114 &7979027360803859879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141292283208479060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d186726aa6337b14e94196f5b8b5c2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: cfd5b5799d5657d4c96b173aaf44f3e1, type: 2}
+  floatingDamagePrefab: {fileID: 2439937997188550388, guid: 3a0605ca49b3d604b95b316dd1fa54e9,
+    type: 3}
+  deathParticlesPrefab: {fileID: 340331524192421473, guid: 1cd4c4f158a15f140ba3f6941d4a09c8,
+    type: 3}
 --- !u!1001 &4484295365404488232
 PrefabInstance:
   m_ObjectHideFlags: 0
