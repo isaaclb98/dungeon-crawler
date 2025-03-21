@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance { get; private set; }
 
     public PlayerData playerData;
+    public PlayerUIManager uiManager;
 
     // Dynamic data
     [HideInInspector]
@@ -59,6 +60,8 @@ public class PlayerStats : MonoBehaviour
     // Player gains xp
     public void GainXp(int amount)
     {
+        uiManager.ShowPopupText("+" + amount + " XP", Color.green);
+        
         currentXp += amount;
         if (currentXp >= xpToLevelUp)
         {
@@ -69,6 +72,8 @@ public class PlayerStats : MonoBehaviour
     // Player gains gold
     public void GainGold(int amount)
     {
+        uiManager.ShowPopupText("+" + amount + " Gold", Color.yellow);
+        
         currentGold += amount;
         Debug.Log("Gold Gained: " + amount + ", Total Gold: " + currentGold);
     }
