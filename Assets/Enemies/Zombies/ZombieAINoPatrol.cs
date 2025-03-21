@@ -18,6 +18,8 @@ public class ZombieAINoPatrol : MonoBehaviour
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
+    public EnemyData enemyData;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -58,7 +60,7 @@ public class ZombieAINoPatrol : MonoBehaviour
             Idle();
         }
 
-        PreventSliding(); // Smooth movement
+        PreventSliding();
     }
 
     void ChasePlayer()
@@ -86,6 +88,18 @@ public class ZombieAINoPatrol : MonoBehaviour
 
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
+
+        // Check if the player is within attack range
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= attackRange)
+        {
+            PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
+            if (playerHealth != null)
+            {
+                // Use the enemy's attack value from the EnemyData ScriptableObject
+                playerHealth.TakeDamage(enemyData.enemyAttack);  // Apply damage based on enemyAttack
+            }
+        }
 
         lastAttackTime = Time.time;
         StartCoroutine(ResetAttack());
@@ -141,30 +155,6 @@ public class ZombieAINoPatrol : MonoBehaviour
         if (isDead) return;
 
         enemyHealth.TakeDamage(damage);
-        ShowFloatingDamage(damage);
-    }
-
-    void ShowFloatingDamage(int damage)
-    {
-        if (floatingDamagePrefab != null)
-        {
-            Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-            Vector3 offset = directionToPlayer * 1f + Vector3.up * -1f;
-            Vector3 right = Vector3.Cross(Vector3.up, directionToPlayer).normalized;
-            offset += right * Random.Range(-0.3f, 0.3f);
-
-            GameObject floatingDamageInstance = Instantiate(floatingDamagePrefab, transform.position + offset, Quaternion.identity);
-            Vector3 lookDirection = (playerTransform.position - floatingDamageInstance.transform.position).normalized;
-            floatingDamageInstance.transform.rotation = Quaternion.LookRotation(lookDirection);
-            floatingDamageInstance.transform.Rotate(0, 180f, 0);
-
-            FloatingDamage fd = floatingDamageInstance.GetComponent<FloatingDamage>();
-            if (fd)
-            {
-                fd.SetDamage(damage);
-            }
-        }
     }
 
     public void Die()

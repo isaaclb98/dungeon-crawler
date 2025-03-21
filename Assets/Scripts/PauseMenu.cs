@@ -53,7 +53,11 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quit button pressed!"); // Check if this shows in the Console
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
 
+        // Ensure this only runs in the Unity Editor
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
+
 }
