@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5458989456563756544}
   - component: {fileID: 1753269595321318383}
   - component: {fileID: 4199997914579029838}
-  - component: {fileID: 8456762569897076807}
   - component: {fileID: 7979027360803859879}
+  - component: {fileID: 8295097439304045842}
   m_Layer: 0
   m_Name: Creature1
   m_TagString: Enemy
@@ -156,28 +156,6 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0.2}
---- !u!114 &8456762569897076807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7141292283208479060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33f07669959b69449a23caf4ca8c960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  patrolSpeed: 2
-  chaseSpeed: 4
-  detectionRange: 8
-  attackRange: 5
-  attackCooldown: 3
-  maxHealth: 100
 --- !u!114 &7979027360803859879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +173,24 @@ MonoBehaviour:
     type: 3}
   deathParticlesPrefab: {fileID: 340331524192421473, guid: 1cd4c4f158a15f140ba3f6941d4a09c8,
     type: 3}
+--- !u!114 &8295097439304045842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141292283208479060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdad29a21cd1e747b6f8379f03cdb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 4
+  detectionRange: 10
+  attackRange: 2
+  attackCooldown: 2
+  maxHealth: 100
+  enemyData: {fileID: 0}
 --- !u!1001 &4484295365404488232
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2362,6 +2362,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Creature1
       objectReference: {fileID: 0}
+    - target: {fileID: 8295097439304045842, guid: a9982490ca248074398c4c1d2b81c39c,
+        type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd5b5799d5657d4c96b173aaf44f3e1,
+        type: 2}
     - target: {fileID: 8456762569897076807, guid: a9982490ca248074398c4c1d2b81c39c,
         type: 3}
       propertyPath: enemyData

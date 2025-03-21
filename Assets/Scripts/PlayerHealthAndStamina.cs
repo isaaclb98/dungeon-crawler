@@ -53,4 +53,9 @@ public class PlayerHealthAndStamina : MonoBehaviour
         //currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
         UpdateUI();
     }
+
+    public float GetCurrentHealth()  // Public getter for currentHealth
+    {
+        return currentHealth;
+    }
 }
