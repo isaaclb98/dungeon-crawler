@@ -13,6 +13,7 @@ public class LizardAI : MonoBehaviour
     public float attackCooldown = 2f;
     private float lastAttackTime;
 
+    public EnemyData enemyData;
     private EnemyHealth enemyHealth;
     private bool isAttacking;
 
@@ -107,7 +108,7 @@ public class LizardAI : MonoBehaviour
                 PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
                 if (playerHealth != null)
                 {
-                    playerHealth.TakeDamage(2f);  // Adjust damage as needed
+                    playerHealth.TakeDamage(enemyData.enemyAttack);
                 }
             }
         }
