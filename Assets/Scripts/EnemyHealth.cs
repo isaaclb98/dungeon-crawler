@@ -57,9 +57,6 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-
-
-
     private void Die()
     {
         // Play the particle effect

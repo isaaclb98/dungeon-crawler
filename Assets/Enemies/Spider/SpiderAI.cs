@@ -22,6 +22,8 @@ public class SpiderAI : MonoBehaviour
     private int currentPatrolIndex = 0;
     private bool isDead = false;
 
+    private EnemyHealth enemyHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,7 @@ public class SpiderAI : MonoBehaviour
         {
             animator.SetTrigger("Attack2");
         }
+        DealDamageToPlayer();
     }
 
     IEnumerator Patrol()
@@ -158,6 +161,19 @@ public class SpiderAI : MonoBehaviour
         }
 
         return false; // Return false if no line of sight
+    }
+
+    private void DealDamageToPlayer()
+    {
+        if (player == null || enemyHealth == null) return;
+
+        PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
+        if (playerHealth != null)
+        {
+            int damage = enemyHealth.enemyData.enemyAttack; // Get attack damage from EnemyHealth
+            Debug.Log("Spider attacks for " + damage + " damage!");
+            playerHealth.TakeDamage(damage);
+        }
     }
 
     private void OnDrawGizmos()

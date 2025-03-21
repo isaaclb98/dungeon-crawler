@@ -21,12 +21,16 @@ public class MutantCreatureAI : MonoBehaviour
     private float lastAttackTime = 0f;
     private int currentHealth;
 
+    public EnemyData enemyData;
+    private PlayerHealthAndStamina playerHealth;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         animator.enabled = true; // Ensure the Animator is active
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
         agent.speed = patrolSpeed;
         currentHealth = maxHealth;
         MoveToNextPatrolPoint();
@@ -64,11 +68,11 @@ public class MutantCreatureAI : MonoBehaviour
         // No player in range, continue patrolling
         else
         {
-            // Debug.Log("Patrolling");
+            Debug.Log("Patrolling");
             Patrol();
         }
 
-     // Debug.Log($"Animator States => Walking: {animator.GetBool("isWalking")}, Attacking: {animator.GetBool("isAttacking")}, Sniffing: {isSniffing}");
+     Debug.Log($"Animator States => Walking: {animator.GetBool("isWalking")}, Attacking: {animator.GetBool("isAttacking")}, Sniffing: {isSniffing}");
     }
 
     void Sniff()
@@ -127,21 +131,30 @@ public class MutantCreatureAI : MonoBehaviour
     {
         if (Time.time - lastAttackTime < attackCooldown) return;
 
-        // Debug.Log("Attacking Player!"); // Debugging output
+        Debug.Log("Attacking Player!"); // Debugging output
         isAttacking = true;
         isSniffing = false;  // Stop sniffing
         agent.isStopped = true;
 
         // Reset Sniff trigger to prevent looping
         animator.ResetTrigger("Sniff");
-
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
+
+        // Now attack the player
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= attackRange)
+        {
+            PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(enemyData.enemyAttack); 
+            }
+        }
 
         lastAttackTime = Time.time;
         StartCoroutine(ResetAttack());
     }
-
 
     IEnumerator ResetAttack()
     {

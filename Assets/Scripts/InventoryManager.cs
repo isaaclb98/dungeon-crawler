@@ -18,7 +18,6 @@ public class InventoryManager : MonoBehaviour
     public Transform ItemContent;
     public GameObject Items;
     private ItemData selectedItem;  // Store the currently selected item
-    public PlayerStats playerStats; // Assign this in the Inspector
     // Weapon-related
     public WeaponData defaultWeapon;
     public WeaponData equippedWeapon;
@@ -34,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     {
         EquipWeapon(defaultWeapon);
     }
+    
     // Use an item (this calls the item's own UseItem method).
     public void SetSelectedItem(ItemData item)
     {
@@ -163,27 +163,27 @@ public class InventoryManager : MonoBehaviour
 
     public void ResetInventory()
     {
-    Debug.Log("Resetting inventory...");
+        Debug.Log("Resetting inventory...");
 
-    if (inventoryItems == null)
-    {
-        Debug.LogWarning("Inventory items list is null, initializing it.");
-        inventoryItems = new List<ItemData>(); // Ensure it's initialized
-    }
-    else
-    {
-        inventoryItems.Clear();
-    }
+        if (inventoryItems == null)
+        {
+            Debug.LogWarning("Inventory items list is null, initializing it.");
+            inventoryItems = new List<ItemData>(); // Ensure it's initialized
+        }
+        else
+        {
+            inventoryItems.Clear();
+        }
 
-    // Reset equipped weapon to default
-    if (defaultWeapon != null)
-    {
-        EquipWeapon(defaultWeapon);
-    }
-    else
-    {
-        Debug.LogWarning("Default weapon is null! Cannot equip.");
-    }
+        // Reset equipped weapon to default
+        if (defaultWeapon != null)
+        {
+            EquipWeapon(defaultWeapon);
+        }
+        else
+        {
+            Debug.LogWarning("Default weapon is null! Cannot equip.");
+        }
     }
 
 

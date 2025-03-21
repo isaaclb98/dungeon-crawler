@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4459864850019384741}
   - component: {fileID: 4459864850019384740}
   - component: {fileID: 8395378084411930626}
-  - component: {fileID: 143300546634889972}
+  - component: {fileID: 8795418587152561161}
   m_Layer: 0
   m_Name: PlayerEntity
   m_TagString: Player
@@ -195,8 +195,6 @@ MonoBehaviour:
   joint: {fileID: 4459864851508666808}
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.1, z: 0}
-  startingWeapon: {fileID: 11400000, guid: 9e266a6001af5d2408f88d461d671ac2, type: 2}
-  weaponHolder: {fileID: 8092489487545113592}
   attackDelay: 0.833
 --- !u!114 &8395378084411930626
 MonoBehaviour:
@@ -213,7 +211,11 @@ MonoBehaviour:
   inventoryItems: []
   ItemContent: {fileID: 0}
   Items: {fileID: 0}
---- !u!114 &143300546634889972
+  defaultWeapon: {fileID: 0}
+  equippedWeapon: {fileID: 0}
+  weaponHolder: {fileID: 8092489487545113592}
+  currentWeaponPrefab: {fileID: 0}
+--- !u!114 &8795418587152561161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,6 +235,7 @@ MonoBehaviour:
   currentDefense: 0
   currentGold: 0
   xpToLevelUp: 0
+  currentMaxHealth: 0
 --- !u!1 &4459864850190357393
 GameObject:
   m_ObjectHideFlags: 0

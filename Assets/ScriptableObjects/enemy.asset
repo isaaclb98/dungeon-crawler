@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: enemy
   m_EditorClassIdentifier: 
   enemyName: 
-  enemyId: 0
   enemyHealth: 0
   enemyAttack: 0
   xpReward: 0

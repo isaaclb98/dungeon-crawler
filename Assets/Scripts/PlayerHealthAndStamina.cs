@@ -42,6 +42,7 @@ public class PlayerHealthAndStamina : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        Debug.Log("Player Current Health: " + currentHealth);
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateUI();
     }
@@ -49,7 +50,12 @@ public class PlayerHealthAndStamina : MonoBehaviour
     public void UseStamina(float amount)
     {
         currentStamina -= amount * staminaDrainRate * Time.deltaTime;
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        //currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
         UpdateUI();
+    }
+
+    public float GetCurrentHealth()  // Public getter for currentHealth
+    {
+        return currentHealth;
     }
 }

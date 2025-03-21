@@ -8,7 +8,6 @@ public class ZombieAINoPatrol : MonoBehaviour
     public float detectionRange = 10f;
     public float attackRange = 2f;
     public float attackCooldown = 2f;
-    public GameObject floatingDamagePrefab;
 
     private Transform player;
     private NavMeshAgent agent;
@@ -18,12 +17,17 @@ public class ZombieAINoPatrol : MonoBehaviour
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
+    public EnemyData enemyData;
+    private PlayerStats _playerStats;
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        _playerStats = PlayerStats.Instance;
 
         agent.speed = chaseSpeed;
         agent.updateRotation = true; // Let NavMeshAgent handle rotation
@@ -38,7 +42,7 @@ public class ZombieAINoPatrol : MonoBehaviour
 
     void Update()
     {
-        if (player == null || isDead) return;
+        if (!player || isDead) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -58,7 +62,7 @@ public class ZombieAINoPatrol : MonoBehaviour
             Idle();
         }
 
-        PreventSliding(); // Smooth movement
+        PreventSliding();
     }
 
     void ChasePlayer()
@@ -86,6 +90,18 @@ public class ZombieAINoPatrol : MonoBehaviour
 
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
+        
+        // Check if the player is within attack range
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= attackRange)
+        {
+            
+            if (_playerStats != null)
+            {
+                // Use the enemy's attack value from the EnemyData ScriptableObject
+                _playerStats.TakeDamage(enemyData.enemyAttack);  // Apply damage based on enemyAttack
+            }
+        }
 
         lastAttackTime = Time.time;
         StartCoroutine(ResetAttack());
@@ -141,30 +157,6 @@ public class ZombieAINoPatrol : MonoBehaviour
         if (isDead) return;
 
         enemyHealth.TakeDamage(damage);
-        ShowFloatingDamage(damage);
-    }
-
-    void ShowFloatingDamage(int damage)
-    {
-        if (floatingDamagePrefab != null)
-        {
-            Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-            Vector3 offset = directionToPlayer * 1f + Vector3.up * -1f;
-            Vector3 right = Vector3.Cross(Vector3.up, directionToPlayer).normalized;
-            offset += right * Random.Range(-0.3f, 0.3f);
-
-            GameObject floatingDamageInstance = Instantiate(floatingDamagePrefab, transform.position + offset, Quaternion.identity);
-            Vector3 lookDirection = (playerTransform.position - floatingDamageInstance.transform.position).normalized;
-            floatingDamageInstance.transform.rotation = Quaternion.LookRotation(lookDirection);
-            floatingDamageInstance.transform.Rotate(0, 180f, 0);
-
-            FloatingDamage fd = floatingDamageInstance.GetComponent<FloatingDamage>();
-            if (fd)
-            {
-                fd.SetDamage(damage);
-            }
-        }
     }
 
     public void Die()
