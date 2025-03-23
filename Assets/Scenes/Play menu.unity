@@ -1483,7 +1483,6 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 536c954f33dd0431d9468053f1f65ea5, type: 3}
   - groupID: Pickup
     clips:
-    - {fileID: 8300000, guid: 1d535bc943a3b446081eca9d0f4f1009, type: 3}
     - {fileID: 8300000, guid: 3c45e4c02f50c478aab38788cc3faba6, type: 3}
   - groupID: Hurting
     clips:

@@ -741,6 +741,11 @@ public class FirstPersonController : MonoBehaviour
             {
                 Debug.Log("No ItemPickup component found on item.");
             }
+
+            if (SoundManager.Instance)
+            {
+                SoundManager.Instance.PlaySound3D("Pickup");
+            }
         }
     }
 

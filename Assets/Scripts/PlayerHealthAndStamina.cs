@@ -4,17 +4,21 @@ using UnityEngine.UI;
 public class PlayerHealthAndStamina : MonoBehaviour
 {
     //public Slider healthBar;
+    private Slider slider;
+    public Text healthCounter;
+
     //public Slider staminaBar;
     public PlayerData playerData;
+    public static PlayerHealthAndStamina Instance { get; set; } 
 
-    public float maxHealth = 100f;
-    public float maxStamina = 100f;
+    public float maxHealth;
+    public float maxStamina;
 
     private float currentHealth;
     private float currentStamina;
 
-    public float staminaRegenRate = 5f;
-    public float staminaDrainRate = 20f;
+    public float staminaRegenRate;
+    public float staminaDrainRate;
 
     void Start()
     {
@@ -31,6 +35,11 @@ public class PlayerHealthAndStamina : MonoBehaviour
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
         }
         UpdateUI();*/
+
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            currentHealth -= 10;
+        }
     }
 
     void UpdateUI()
