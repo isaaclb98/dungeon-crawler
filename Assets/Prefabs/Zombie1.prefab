@@ -192,6 +192,8 @@ MonoBehaviour:
   detectionRange: 10
   attackRange: 3
   attackCooldown: 5
+  floatingDamagePrefab: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: 0640c1f8fb4f4a94c803e28522474f88, type: 2}
 --- !u!114 &53674560300900418
 MonoBehaviour:
   m_ObjectHideFlags: 0

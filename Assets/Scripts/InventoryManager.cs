@@ -18,7 +18,6 @@ public class InventoryManager : MonoBehaviour
     public Transform ItemContent;
     public GameObject Items;
     private ItemData selectedItem;  // Store the currently selected item
-    public PlayerStats playerStats; // Assign this in the Inspector
     // Weapon-related
     public WeaponData defaultWeapon;
     public WeaponData equippedWeapon;
@@ -34,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     {
         EquipWeapon(defaultWeapon);
     }
+    
     // Use an item (this calls the item's own UseItem method).
     public void SetSelectedItem(ItemData item)
     {
@@ -139,20 +139,36 @@ public class InventoryManager : MonoBehaviour
     }
 
     // Equip a new weapon.
-    public void EquipWeapon(WeaponData weapon) {
-        // If a weapon is already equipped, add it back into the inventory.
-        if (equippedWeapon != null) {
+    public void EquipWeapon(WeaponData weapon){
+        if (weapon == null)
+        {
+            Debug.LogWarning("EquipWeapon called with null weapon.");
+            return;
+        }
+
+        if (weapon.prefab == null)
+        {
+        Debug.LogWarning("Weapon prefab is missing!");
+        return;
+        }
+
+        if (weaponHolder == null)
+        {
+        Debug.LogWarning("WeaponHolder is not assigned in InventoryManager.");
+        return;
+        }
+
+        if (equippedWeapon != null)
+        {
             AddItem(equippedWeapon);
         }
 
-        // Destroy any existing weapon instance.
-        if (currentWeaponPrefab != null) {
-            Destroy(currentWeaponPrefab);
+        if (currentWeaponPrefab != null)
+        {
+        Destroy(currentWeaponPrefab);
         }
 
-        // Instantiate the new weapon prefab as a child of weaponHolder.
         currentWeaponPrefab = Instantiate(weapon.prefab, weaponHolder);
-        // Set proper local transform values (adjust as needed).
         currentWeaponPrefab.transform.localPosition = new Vector3(0.2f, -0.7f, 0.6f);
         currentWeaponPrefab.transform.localRotation = Quaternion.Euler(0, 75, 0);
         currentWeaponPrefab.transform.localScale = new Vector3(1.2f, 1.6f, 1.5f);
@@ -161,29 +177,30 @@ public class InventoryManager : MonoBehaviour
         Debug.Log("Equipped new weapon: " + equippedWeapon.itemName);
     }
 
+
     public void ResetInventory()
     {
-    Debug.Log("Resetting inventory...");
+        Debug.Log("Resetting inventory...");
 
-    if (inventoryItems == null)
-    {
-        Debug.LogWarning("Inventory items list is null, initializing it.");
-        inventoryItems = new List<ItemData>(); // Ensure it's initialized
-    }
-    else
-    {
-        inventoryItems.Clear();
-    }
+        if (inventoryItems == null)
+        {
+            Debug.LogWarning("Inventory items list is null, initializing it.");
+            inventoryItems = new List<ItemData>(); // Ensure it's initialized
+        }
+        else
+        {
+            inventoryItems.Clear();
+        }
 
-    // Reset equipped weapon to default
-    if (defaultWeapon != null)
-    {
-        EquipWeapon(defaultWeapon);
-    }
-    else
-    {
-        Debug.LogWarning("Default weapon is null! Cannot equip.");
-    }
+        // Reset equipped weapon to default
+        if (defaultWeapon != null)
+        {
+            EquipWeapon(defaultWeapon);
+        }
+        else
+        {
+            Debug.LogWarning("Default weapon is null! Cannot equip.");
+        }
     }
 
 
