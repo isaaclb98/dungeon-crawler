@@ -23741,7 +23741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthCounter: {fileID: 2032927366}
-  playerState: {fileID: 1870272746}
+  playerStats: {fileID: 0}
 --- !u!4 &1563049924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2240556459148385532, guid: 1bca8fcfbbb9e004696f13acaac1bf48,
@@ -23803,17 +23803,17 @@ PrefabInstance:
     - target: {fileID: 5835603169493172103, guid: a9982490ca248074398c4c1d2b81c39c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.4
+      value: 20.002012
       objectReference: {fileID: 0}
     - target: {fileID: 5835603169493172103, guid: a9982490ca248074398c4c1d2b81c39c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.742
+      value: -2.1556711
       objectReference: {fileID: 0}
     - target: {fileID: 5835603169493172103, guid: a9982490ca248074398c4c1d2b81c39c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.9
+      value: 19.773552
       objectReference: {fileID: 0}
     - target: {fileID: 5835603169493172103, guid: a9982490ca248074398c4c1d2b81c39c,
         type: 3}
@@ -29026,7 +29026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1870272748}
-  - component: {fileID: 1870272747}
+  - component: {fileID: 1870272749}
   m_Layer: 0
   m_Name: PlayerStateManager
   m_TagString: Untagged
@@ -29034,24 +29034,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1870272747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870272746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299ded4118e09456daf2dc215fd7b15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthCounter: {fileID: 0}
-  playerData: {fileID: 11400000, guid: f2f153c3aec020e41b36d25e25a2a7a7, type: 2}
-  maxHealth: 100
-  maxStamina: 100
-  staminaRegenRate: 5
-  staminaDrainRate: 20
 --- !u!4 &1870272748
 Transform:
   m_ObjectHideFlags: 0
@@ -29067,6 +29049,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1870272749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870272746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5972ab2bae2bb4fa2c3de0e7122632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  uiManager: {fileID: 0}
+  maxHealth: 0
+  currentLevel: 0
+  currentXp: 0
+  currentHealth: 0
+  currentAttack: 0
+  currentDefense: 0
+  currentGold: 0
+  xpToLevelUp: 0
+  currentMaxHealth: 0
 --- !u!1 &1870814151
 GameObject:
   m_ObjectHideFlags: 0

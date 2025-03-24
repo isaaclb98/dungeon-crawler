@@ -1487,7 +1487,6 @@ MonoBehaviour:
   - groupID: Hurting
     clips:
     - {fileID: 8300000, guid: 92618832877734ab38e68e3d8ffb737d, type: 3}
-    - {fileID: 8300000, guid: 7089cc2744b50374890745fbc9e2e65e, type: 3}
   - groupID: Death
     clips:
     - {fileID: 8300000, guid: 9ceaf304a3ace4b0584c8776b8867abd, type: 3}

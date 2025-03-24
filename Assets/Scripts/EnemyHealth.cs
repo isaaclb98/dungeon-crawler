@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public EnemyData enemyData;
-    private int currentHP;
+    private float currentHP;
     public GameObject floatingDamagePrefab;
     public ParticleSystem deathParticlesPrefab;
     
@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
         currentHP = enemyData.enemyHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHP -= damage;
 
@@ -47,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
             FloatingDamage fd = floatingDamageInstance.GetComponent<FloatingDamage>();
             if (fd)
             {
-                fd.SetDamage(damage);
+                fd.SetDamage((int)damage);
             }
         }
 

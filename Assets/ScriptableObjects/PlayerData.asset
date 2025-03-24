@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   startingLevel: 1
-  startingHealth: 10
+  startingHealth: 50
   startingAttack: 1
   startingDefense: 1
   startingXp: 0
   startingXpToLevelUp: 83
   levelUpXpNeededMultiplier: 1.1
+  startingGold: 0

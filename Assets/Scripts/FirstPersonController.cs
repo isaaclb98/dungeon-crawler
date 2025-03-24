@@ -618,7 +618,7 @@ public class FirstPersonController : MonoBehaviour
         _canAttack = true;
     }
 
-    private int CalculateAttackDamage()
+    private float CalculateAttackDamage()
     {
         var equippedWeaponData = _inventory.equippedWeapon;
         

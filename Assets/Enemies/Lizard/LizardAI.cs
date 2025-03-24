@@ -105,7 +105,7 @@ public class LizardAI : MonoBehaviour
             if (hit.collider.CompareTag("Player"))
             {
                 // If the ray hits the player, deal damage
-                PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
+                PlayerStats playerHealth = player.GetComponent<PlayerStats>();
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(enemyData.enemyAttack);

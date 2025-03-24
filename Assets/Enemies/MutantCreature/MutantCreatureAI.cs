@@ -22,7 +22,7 @@ public class MutantCreatureAI : MonoBehaviour
     private int currentHealth;
 
     public EnemyData enemyData;
-    private PlayerHealthAndStamina playerHealth;
+    private PlayerStats playerHealth;
 
     void Start()
     {
@@ -145,7 +145,7 @@ public class MutantCreatureAI : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= attackRange)
         {
-            PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
+            PlayerStats playerHealth = player.GetComponent<PlayerStats>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(enemyData.enemyAttack); 

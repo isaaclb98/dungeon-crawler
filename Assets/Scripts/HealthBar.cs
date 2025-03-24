@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour
     private Slider slider;
     public TextMeshProUGUI healthCounter;
 
-    public GameObject playerState;
+    public GameObject playerStats;
 
     //Private player's health
     private float currentHealth, maxHealth;
@@ -24,8 +24,9 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentHealth = playerState.GetComponent<PlayerHealthAndStamina>().GetCurrentHealth();
-        maxHealth = playerState.GetComponent<PlayerHealthAndStamina>().maxHealth;
+        currentHealth = PlayerStats.Instance.currentHealth;
+
+        maxHealth = PlayerStats.Instance.maxHealth;
 
         // Avoid division by zero and clamp value between 0 and 1
         float fillValue = Mathf.Clamp01(currentHealth / maxHealth);
