@@ -3,9 +3,6 @@ using UnityEngine.AI;
 
 public class LizardAI : MonoBehaviour
 {
-    public Animator animator;
-    public NavMeshAgent agent;
-    public Transform player;
     public float walkSpeed = 2f;
     public float runSpeed = 5f;
     public float attackRange = 1.5f;
@@ -13,8 +10,14 @@ public class LizardAI : MonoBehaviour
     public float attackCooldown = 2f;
     private float lastAttackTime;
 
-    public EnemyData enemyData;
+    private Transform player;
+    private NavMeshAgent agent;
+    private Animator animator;
     private EnemyHealth enemyHealth;
+
+    public EnemyData enemyData;
+    private PlayerStats playerStats;
+
     private bool isAttacking;
 
     public float wanderRadius = 20f; // The radius within which the lizard will wander
@@ -24,8 +27,8 @@ public class LizardAI : MonoBehaviour
 
     void Start()
     {
-        if (!animator) animator = GetComponent<Animator>();
-        if (!agent) agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
