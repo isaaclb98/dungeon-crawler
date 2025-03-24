@@ -618,7 +618,7 @@ public class FirstPersonController : MonoBehaviour
         _canAttack = true;
     }
 
-    private int CalculateAttackDamage()
+    private float CalculateAttackDamage()
     {
         var equippedWeaponData = _inventory.equippedWeapon;
         
@@ -740,6 +740,11 @@ public class FirstPersonController : MonoBehaviour
             else
             {
                 Debug.Log("No ItemPickup component found on item.");
+            }
+
+            if (SoundManager.Instance)
+            {
+                SoundManager.Instance.PlaySound3D("Pickup");
             }
         }
     }

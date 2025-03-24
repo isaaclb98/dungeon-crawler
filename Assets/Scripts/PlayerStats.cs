@@ -8,23 +8,26 @@ public class PlayerStats : MonoBehaviour
     public PlayerData playerData;
     public PlayerUIManager uiManager;
 
+    public float maxHealth;
+
+
     // Dynamic data
     [HideInInspector]
-    public int currentLevel;
+    public float currentLevel;
     [HideInInspector]
-    public int currentXp;
+    public float currentXp;
     [HideInInspector]
-    public int currentHealth;
+    public float currentHealth;
     [HideInInspector]
-    public int currentAttack;
+    public float currentAttack;
     [HideInInspector]
-    public int currentDefense;
+    public float currentDefense;
     [HideInInspector]
-    public int currentGold;
+    public float currentGold;
     [HideInInspector]
-    public int xpToLevelUp;
+    public float xpToLevelUp;
     [HideInInspector]
-    public int currentMaxHealth;
+    public float currentMaxHealth;
 
     void Awake()
     {
@@ -47,7 +50,12 @@ public class PlayerStats : MonoBehaviour
         // Defaults
         currentLevel = playerData.startingLevel;
         currentXp = playerData.startingXp;
-        currentHealth = playerData.startingHealth;
+
+        //Health
+        maxHealth = playerData.startingHealth;
+        currentHealth = maxHealth;
+
+
         currentAttack = playerData.startingAttack;
         currentDefense = playerData.startingDefense;
         xpToLevelUp = playerData.startingXpToLevelUp;
@@ -57,8 +65,24 @@ public class PlayerStats : MonoBehaviour
         Debug.Log($"Player Stats - Level: {currentLevel}, XP: {currentXp}, Health: {currentHealth}, Attack: {currentAttack}, Defense: {currentDefense}, XP To Level Up: {xpToLevelUp}, Gold: {currentGold}, Max Health: {currentMaxHealth}");
     }
 
+    void Update()
+    {
+        /*if(currentStamina < maxStamina)
+        {
+            currentStamina += staminaRegenRate * Time.deltaTime;
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        }
+        UpdateUI();*/
+
+        //For testing the damage
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            currentHealth -= 1;
+        }
+    }
+
     // Player gains xp
-    public void GainXp(int amount)
+    public void GainXp(float amount)
     {
         uiManager.ShowPopupText("+" + amount + " XP", Color.green);
         
@@ -70,7 +94,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     // Player gains gold
-    public void GainGold(int amount)
+    public void GainGold(float amount)
     {
         uiManager.ShowPopupText("+" + amount + " Gold", Color.yellow);
         
@@ -95,7 +119,7 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("xp needed to level up: " + xpToLevelUp);
     }
 
-    public void GainHealth(int amount)
+    public void GainHealth(float amount)
     {
         Debug.Log($"GainHealth called on instance: {gameObject.name} with currentMaxHealth: {currentMaxHealth}");
         
@@ -111,12 +135,12 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void ApplyTemporaryDamageBoost(int amount, float duration)
+    public void ApplyTemporaryDamageBoost(float amount, float duration)
     {
         // to do
     }
     
-    public void ApplyTemporarySpeedBoost(int amount, float duration)
+    public void ApplyTemporarySpeedBoost(float amount, float duration)
     {
         // to do
     }
@@ -124,7 +148,7 @@ public class PlayerStats : MonoBehaviour
     private float damageCooldown = 1.5f; // 1 second cooldown
     private float lastDamageTime = 0f;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (Time.time < lastDamageTime + damageCooldown) return; // Prevent taking damage too fast
 
@@ -142,6 +166,11 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("Player's health reached 0. Calling Die().");
             Die();
+        }
+
+        if (SoundManager.Instance)
+        {
+            SoundManager.Instance.PlaySound3D("Hurting");
         }
     }
 

@@ -16,7 +16,7 @@ public class MutantCreatureSimpleAI : MonoBehaviour
     private bool isAttacking = false;
     private float lastAttackTime = 0f;
 
-    private PlayerHealthAndStamina playerHealth;
+    private PlayerStats playerHealth;
 
     void Start()
     {
@@ -24,9 +24,18 @@ public class MutantCreatureSimpleAI : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.enabled = true; // Ensure the Animator is active
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (player == null)
+        {
+            Debug.LogError("Player GameObject with tag 'Player' not found! Make sure the tag is set correctly.");
+            return;
+        }
 
         agent.speed = chaseSpeed;
-        playerHealth = player.GetComponent<PlayerHealthAndStamina>(); // Get reference to PlayerHealthAndStamina script
+        playerHealth = player.GetComponent<PlayerStats>(); // Get reference to PlayerHealthAndStamina script
+        if (playerHealth == null)
+        {
+            Debug.LogError("PlayerStats component not found on Player GameObject. Check if the script is attached.");
+        }
     }
 
     void Update()
@@ -74,7 +83,7 @@ public class MutantCreatureSimpleAI : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(enemyData.enemyAttack); 
-                Debug.Log($"Player Health after attack: {playerHealth.GetCurrentHealth()}"); // Debug the player's health
+                Debug.Log($"Player Health after attack: {playerHealth.currentHealth}"); // Debug the player's health
             }
         }
 
