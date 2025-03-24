@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class MutantCreatureSimpleAI : MonoBehaviour
 {
-    public EnemyData enemyData; // Reference to the EnemyData ScriptableObject
     public float chaseSpeed = 4f;
     public float detectionRange = 10f;
     public float attackRange = 2f;
@@ -13,17 +12,18 @@ public class MutantCreatureSimpleAI : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
-    private bool isAttacking = false;
     private float lastAttackTime = 0f;
 
     private PlayerStats playerHealth;
+    public EnemyData enemyData;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        animator.enabled = true; // Ensure the Animator is active
+        animator.enabled = true;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
         if (player == null)
         {
             Debug.LogError("Player GameObject with tag 'Player' not found! Make sure the tag is set correctly.");
@@ -31,7 +31,7 @@ public class MutantCreatureSimpleAI : MonoBehaviour
         }
 
         agent.speed = chaseSpeed;
-        playerHealth = player.GetComponent<PlayerStats>(); // Get reference to PlayerHealthAndStamina script
+        playerHealth = player.GetComponent<PlayerStats>(); // Get reference to PlayerStats script
         if (playerHealth == null)
         {
             Debug.LogError("PlayerStats component not found on Player GameObject. Check if the script is attached.");
@@ -54,6 +54,10 @@ public class MutantCreatureSimpleAI : MonoBehaviour
         {
             Chase();
         }
+        else
+        {
+            Idle();
+        }
     }
 
     void Chase()
@@ -69,7 +73,6 @@ public class MutantCreatureSimpleAI : MonoBehaviour
         if (Time.time - lastAttackTime < attackCooldown) return;
 
         Debug.Log("Attacking Player!"); // Debugging output
-        isAttacking = true;
 
         // Stop moving while attacking
         agent.isStopped = true;
@@ -91,10 +94,16 @@ public class MutantCreatureSimpleAI : MonoBehaviour
         StartCoroutine(ResetAttack());
     }
 
+    void Idle()
+    {
+            agent.isStopped = true;
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isAttacking", false);
+    }
+
     IEnumerator ResetAttack()
     {
         yield return new WaitForSeconds(1f);
-        isAttacking = false;
         agent.isStopped = false;
     }
 }

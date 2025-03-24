@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZombieAINoPatrol : MonoBehaviour
+public class ZombieAISimplified : MonoBehaviour
 {
     public float chaseSpeed = 2f;
     public float detectionRange = 10f;
@@ -13,7 +13,6 @@ public class ZombieAINoPatrol : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     private EnemyHealth enemyHealth;
-    private bool isAttacking = false;
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
@@ -30,11 +29,7 @@ public class ZombieAINoPatrol : MonoBehaviour
         playerStats = PlayerStats.Instance;
 
         agent.speed = chaseSpeed;
-        agent.updateRotation = true; // Let NavMeshAgent handle rotation
-
-        agent.angularSpeed = 120f;
-        agent.acceleration = 8f;
-        agent.avoidancePriority = 50;
+        agent.updateRotation = true;
 
         animator.SetBool("isWalking", false);
     }
@@ -53,40 +48,29 @@ public class ZombieAINoPatrol : MonoBehaviour
             }
             else
             {
-                ChasePlayer();
+                Chase();
             }
         }
         else
         {
             Idle();
         }
-
-        PreventSliding();
     }
 
-    void ChasePlayer()
+    void Chase()
     {
-        if (isAttacking || isDead) return;
-
-        agent.isStopped = false;
-
-        if (!agent.pathPending && Vector3.Distance(agent.destination, player.position) > 1f)
-        {
-            agent.SetDestination(player.position);
-        }
-
-        bool isMoving = agent.velocity.magnitude > 0.1f;
-        animator.SetBool("isWalking", isMoving);
+        agent.destination = player.position;
+        animator.SetBool("isWalking", true);
         animator.SetBool("isAttacking", false);
     }
 
     void Attack()
     {
-        if (Time.time - lastAttackTime < attackCooldown || isDead) return;
+        if (Time.time - lastAttackTime < attackCooldown) return;
 
-        isAttacking = true;
+        Debug.Log("Attacking Player!");
+
         agent.isStopped = true;
-
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
         
@@ -98,6 +82,7 @@ public class ZombieAINoPatrol : MonoBehaviour
             if (playerStats != null)
             {
                 playerStats.TakeDamage(enemyData.enemyAttack);  // Apply damage based on enemyAttack
+                Debug.Log($"Player Health after attack: {playerStats.currentHealth}");
             }
         }
 
@@ -108,23 +93,14 @@ public class ZombieAINoPatrol : MonoBehaviour
     IEnumerator ResetAttack()
     {
         yield return new WaitForSeconds(1f);
-
-        isAttacking = false;
         agent.isStopped = false;
-
-        // **Fix sudden movement after attack** - Resume smoothly
-        yield return new WaitForSeconds(0.1f);
-        if (!isDead && !isAttacking) agent.isStopped = false;
     }
 
     void Idle()
     {
-        if (!isAttacking && !isDead)
-        {
             agent.isStopped = true;
             animator.SetBool("isWalking", false);
             animator.SetBool("isAttacking", false);
-        }
     }
 
     bool HasLineOfSight()
@@ -139,30 +115,10 @@ public class ZombieAINoPatrol : MonoBehaviour
         return false;
     }
 
-    void PreventSliding()
-    {
-        //  **Fix agent sliding issue** - Stop when not moving
-        if (agent.remainingDistance <= agent.stoppingDistance && !isAttacking)
-        {
-            agent.isStopped = true;
-            animator.SetBool("isWalking", false);
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         if (isDead) return;
 
         enemyHealth.TakeDamage(damage);
-    }
-
-    public void Die()
-    {
-        if (isDead) return;
-
-        isDead = true;
-        animator.SetTrigger("Die");
-        agent.isStopped = true;
-        Destroy(gameObject, 2f);
     }
 }
