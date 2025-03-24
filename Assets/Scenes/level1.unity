@@ -6005,6 +6005,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410684804}
   m_CullTransparentMesh: 1
+--- !u!1001 &416640359
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1960323289631635218, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_Name
+      value: spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.075443
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.6340437
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709508060616479361, guid: fbe1f9a4918381545bb95572eca221a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fbe1f9a4918381545bb95572eca221a6, type: 3}
 --- !u!1001 &416785094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29017,61 +29085,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5befbbc71f854e04d8f57b1dfee2eb6b, type: 3}
---- !u!1 &1870272746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1870272748}
-  - component: {fileID: 1870272749}
-  m_Layer: 0
-  m_Name: PlayerStateManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1870272748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870272746}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 134.3539, y: 482.43784, z: -0.7793776}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1870272749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870272746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae5972ab2bae2bb4fa2c3de0e7122632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
-  uiManager: {fileID: 0}
-  maxHealth: 0
-  currentLevel: 0
-  currentXp: 0
-  currentHealth: 0
-  currentAttack: 0
-  currentDefense: 0
-  currentGold: 0
-  xpToLevelUp: 0
-  currentMaxHealth: 0
 --- !u!1 &1870814151
 GameObject:
   m_ObjectHideFlags: 0
@@ -33449,4 +33462,4 @@ SceneRoots:
   - {fileID: 326388448}
   - {fileID: 1066730848}
   - {fileID: 1556191418}
-  - {fileID: 1870272748}
+  - {fileID: 416640359}
