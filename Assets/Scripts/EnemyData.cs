@@ -7,9 +7,9 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public string enemyName;
-    public int enemyHealth;
-    public int enemyAttack;
-    public int xpReward;
-    public int goldReward;
+    public float enemyHealth;
+    public float enemyAttack;
+    public float xpReward;
+    public float goldReward;
 }
 

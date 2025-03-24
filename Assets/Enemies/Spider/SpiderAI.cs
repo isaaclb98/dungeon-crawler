@@ -167,10 +167,10 @@ public class SpiderAI : MonoBehaviour
     {
         if (player == null || enemyHealth == null) return;
 
-        PlayerHealthAndStamina playerHealth = player.GetComponent<PlayerHealthAndStamina>();
+        PlayerStats playerHealth = player.GetComponent<PlayerStats>();  
         if (playerHealth != null)
         {
-            int damage = enemyHealth.enemyData.enemyAttack; // Get attack damage from EnemyHealth
+            float damage = enemyHealth.enemyData.enemyAttack; // Get attack damage from EnemyHealth
             Debug.Log("Spider attacks for " + damage + " damage!");
             playerHealth.TakeDamage(damage);
         }
