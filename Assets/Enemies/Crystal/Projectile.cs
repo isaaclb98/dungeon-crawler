@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Ensure the player has the right tag
         {
-            PlayerHealthAndStamina playerHealth = other.GetComponent<PlayerHealthAndStamina>(); // Get player health component
+            PlayerStats playerHealth = other.GetComponent<PlayerStats>(); // Get player health component
 
             if (playerHealth != null)
             {
