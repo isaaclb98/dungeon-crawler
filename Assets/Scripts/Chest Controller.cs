@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ChestController : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     private bool isOpen = false;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -18,24 +18,40 @@ public class ChestController : MonoBehaviour
         // Check if player is near the chest and presses 'E'
         if (Input.GetKeyDown(KeyCode.E) && IsPlayerNear())
         {
+            Debug.Log("Enter E");
             ToggleChest();
+        }
+        else if(Input.GetKeyDown(KeyCode.C) && IsPlayerNear() && animator.GetCurrentAnimatorStateInfo(0).IsName("TreasureChest_OPEN"))
+        {
+            animator.Play("TreasureChest_CLOSE");
         }
     }
 
     void ToggleChest()
     {
-        isOpen = !isOpen; // Toggle state
-        animator.SetBool("OpenChest", isOpen);
+        animator.Play("TreasureChest_OPEN");
+        //isOpen = !isOpen; // Toggle state
+        //animator.SetBool("OpenChest", isOpen);
     }
 
     bool IsPlayerNear()
     {
         // Adjust distance based on your game scale
         float interactDistance = 3f;
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");//Optimisation
 
         if (player == null) return false;
 
-        return Vector3.Distance(transform.position, player.transform.position) <= interactDistance;
+        if(Vector3.Distance(transform.position, player.transform.position) <= interactDistance)
+        {
+            Debug.Log("Player is near");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Player is FAARRRR");
+            return false;
+        }
+
     }
 }

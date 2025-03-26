@@ -102,7 +102,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 4.1887546, y: 2.1193063, z: 1.40181}
   m_Center: {x: 0, y: 0.0025271177, z: 0.700905}
@@ -207,7 +207,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 4.1887546, y: 2.11931, z: 0.6542522}
   m_Center: {x: 0, y: -1.05216, z: 0.32712585}
@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 23000013155957888}
   - component: {fileID: 95000011866145404}
   - component: {fileID: 65000010639057260}
+  - component: {fileID: 9006562890685758776}
   m_Layer: 0
   m_Name: TreasureChest_01 (HD)
   m_TagString: Untagged
@@ -339,6 +340,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.1887546, y: 2.1193063, z: 1.40181}
   m_Center: {x: 0, y: 0.0025271177, z: 0.700905}
+--- !u!114 &9006562890685758776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012525031666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7325b370433ad49bab55db82e7c23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95000011866145404}
 --- !u!1 &1000012550981002
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +455,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 4.1887546, y: 2.1193063, z: 1.40181}
   m_Center: {x: 0, y: 0.0025271177, z: 0.700905}
@@ -546,7 +560,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 4.1887546, y: 2.11931, z: 0.6542522}
   m_Center: {x: 0, y: -1.05216, z: 0.32712585}
@@ -716,7 +730,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 4.1887546, y: 2.11931, z: 0.6542522}
   m_Center: {x: 0, y: -1.05216, z: 0.32712585}
