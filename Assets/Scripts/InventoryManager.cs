@@ -85,6 +85,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
+        Debug.Log("Listitem was called");
         // Clear previous items in the inventory UI
         foreach (Transform item in ItemContent)
         {
