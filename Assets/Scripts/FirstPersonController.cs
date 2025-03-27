@@ -709,45 +709,47 @@ public class FirstPersonController : MonoBehaviour
 
     public void PickUpItem()
     {
-        RaycastHit hit;
         float pickupRange = 3f;
+        // Create a ray from the center of the screen.
+        Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f));
+        Debug.DrawRay(ray.origin, ray.direction * pickupRange, Color.green, 1f);
+
+        // Use RaycastAll to get all hits along the ray.
+        RaycastHit[] hits = Physics.RaycastAll(ray, pickupRange);
     
-        if (PerformRaycast(playerCamera, out hit, pickupRange))
+        if (hits.Length > 0)
         {
-            Debug.Log("Hit: " + hit.collider.gameObject.name);
-            Transform current = hit.collider.transform;
-            while(current != null) {
-                Debug.Log("Parent: " + current.name);
-                current = current.parent;
-            }
-            
-            ItemPickup pickup = hit.collider.GetComponentInParent<ItemPickup>();
-            if (pickup)
+            // Retrieve the Inventory component once.
+            if (!_inventory)
             {
-                if (_inventory)
-                {
-                    // Add the item to the inventory
-                    _inventory.AddItem(pickup.itemData);
-                    Debug.Log("Picked up: " + pickup.itemData.itemName);
-                
-                    Destroy(pickup.gameObject);
-                }
-                else
-                {
-                    Debug.Log("No Inventory component found on the player.");
-                }
-            }
-            else
-            {
-                Debug.Log("No ItemPickup component found on item.");
+                Debug.LogError("No Inventory component found on the player.");
+                return;
             }
 
+            foreach (RaycastHit hit in hits)
+            {
+                // Use GetComponentInParent in case the collider is on a child.
+                ItemPickup pickup = hit.collider.GetComponentInParent<ItemPickup>();
+                if (pickup != null)
+                {
+                    _inventory.AddItem(pickup.itemData);
+                    Debug.Log("Picked up: " + pickup.itemData.itemName);
+                    // Remove the pickup from the scene.
+                    Destroy(pickup.gameObject);
+                }
+            }
+        
             if (SoundManager.Instance)
             {
                 SoundManager.Instance.PlaySound3D("Pickup");
             }
         }
+        else
+        {
+            Debug.Log("No items to pick up.");
+        }
     }
+
 
     public void DisplayInventory()
     {
