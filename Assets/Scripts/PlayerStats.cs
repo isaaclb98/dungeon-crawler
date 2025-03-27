@@ -54,8 +54,7 @@ public class PlayerStats : MonoBehaviour
         //Health
         maxHealth = playerData.startingHealth;
         currentHealth = maxHealth;
-
-
+         
         currentAttack = playerData.startingAttack;
         currentDefense = playerData.startingDefense;
         xpToLevelUp = playerData.startingXpToLevelUp;
@@ -67,14 +66,6 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        /*if(currentStamina < maxStamina)
-        {
-            currentStamina += staminaRegenRate * Time.deltaTime;
-            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-        }
-        UpdateUI();*/
-
-        //For testing the damage
         if (Input.GetKeyDown(KeyCode.G))
         {
             GainXp(100.0f);

@@ -352,44 +352,44 @@ public class FirstPersonController : MonoBehaviour
             }
         }
         #endregion
-
-        #region Jump
-
-        // Gets input and calls jump method
-        if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
-        {
-            Jump();
-            
-        }
-
-        #endregion
-
-        #region Crouch
-
-        if (enableCrouch)
-        {
-            if(Input.GetKeyDown(crouchKey) && !holdToCrouch)
-            {
-                Crouch();
-            }
-            
-            if(Input.GetKeyDown(crouchKey) && holdToCrouch)
-            {
-                isCrouched = false;
-                Crouch();
-            }
-            else if(Input.GetKeyUp(crouchKey) && holdToCrouch)
-            {
-                isCrouched = true;
-                Crouch();
-            }
-        }
-
-        #endregion
+        //
+        // #region Jump
+        //
+        // // Gets input and calls jump method
+        // if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        // {
+        //     Jump();
+        //     
+        // }
+        //
+        // #endregion
+        //
+        // #region Crouch
+        //
+        // if (enableCrouch)
+        // {
+        //     if(Input.GetKeyDown(crouchKey) && !holdToCrouch)
+        //     {
+        //         Crouch();
+        //     }
+        //     
+        //     if(Input.GetKeyDown(crouchKey) && holdToCrouch)
+        //     {
+        //         isCrouched = false;
+        //         Crouch();
+        //     }
+        //     else if(Input.GetKeyUp(crouchKey) && holdToCrouch)
+        //     {
+        //         isCrouched = true;
+        //         Crouch();
+        //     }
+        // }
+        //
+        // #endregion
 
         #region LeftClick
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonDown(0))
         {
             Attack();
         }
