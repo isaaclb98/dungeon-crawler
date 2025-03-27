@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e6cefd14-b518-4cc7-950f-2e9c854bd85a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/levelnew.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/levelnew.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WallDoorway.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WallDoorway.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PressKeyDoor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PressKeyDoor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
