@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6cefd14-b518-4cc7-950f-2e9c854bd85a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/7th Side/Modular Prison Asset Pack/Prefabs/Props/Burning Torch.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/7th Side/Modular Prison Asset Pack/Prefabs/Props/Burning Torch.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TreasureChest_01/LODprefab/TreasureChest_(LOD).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TreasureChest_01/LODprefab/TreasureChest_(LOD).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/SwordHiltMaterialDarker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/SwordHiltMaterialDarker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/SwordSteelMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/SwordSteelMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlackHand.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BlackHand.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Elven_Sword_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Elven_Sword_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WhiteHand.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WhiteHand.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/item.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/item.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +126,7 @@
       <workItem from="1741123497199" duration="377000" />
       <workItem from="1741126838293" duration="358000" />
       <workItem from="1742584148670" duration="8268000" />
-      <workItem from="1743034732228" duration="272000" />
+      <workItem from="1743034732228" duration="973000" />
     </task>
     <servers />
   </component>
