@@ -77,7 +77,7 @@ public class PlayerStats : MonoBehaviour
         //For testing the damage
         if (Input.GetKeyDown(KeyCode.G))
         {
-            currentHealth -= 1;
+            GainXp(100.0f);
         }
     }
 
@@ -111,6 +111,8 @@ public class PlayerStats : MonoBehaviour
         currentMaxHealth += 1;
         currentAttack += 1;
         currentDefense += 1;
+        
+        uiManager.ShowPopupText("Level up! You are now level " + currentLevel, Color.magenta);
 
         // Recalculate XP needed for the next level using the multiplier from static data
         xpToLevelUp = Mathf.RoundToInt(xpToLevelUp * (float)playerData.levelUpXpNeededMultiplier);
