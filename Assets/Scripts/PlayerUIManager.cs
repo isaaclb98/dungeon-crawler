@@ -25,9 +25,9 @@ public class PlayerUIManager : MonoBehaviour
         if (!isActive)
         {
             UpdateStatsText();
+
         }
     }
-
     private void UpdateStatsText()
     {
         var stats = PlayerStats.Instance;
