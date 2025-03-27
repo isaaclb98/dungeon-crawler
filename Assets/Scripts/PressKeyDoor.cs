@@ -18,7 +18,7 @@ public class PressKeyDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.CompareTag("Player"))
         {
             Instruction.SetActive(true);
             Action = true;
@@ -36,10 +36,10 @@ public class PressKeyDoor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Action == true)
+            if (Action)
             {
                 Instruction.SetActive(false);
-                AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+                // AnimeObject.GetComponent<Animator>().Play("DoorOpen");
                 ThisTrigger.SetActive(false);
                 DoorOpenSound.Play();
                 Action = false;
