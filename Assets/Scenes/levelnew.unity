@@ -33266,6 +33266,11 @@ PrefabInstance:
       objectReference: {fileID: 1981533549}
     - target: {fileID: 2048472846265554870, guid: 376ade642b5779b468272f6666fa4be1,
         type: 3}
+      propertyPath: doorOpenClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fd2bf813f48b4bdfb1546c7ebca6a68, type: 3}
+    - target: {fileID: 2048472846265554870, guid: 376ade642b5779b468272f6666fa4be1,
+        type: 3}
       propertyPath: DoorOpenSound
       value: 
       objectReference: {fileID: 0}
