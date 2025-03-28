@@ -7,8 +7,7 @@ public class PlayerStats : MonoBehaviour
 
     public PlayerData playerData;
     public PlayerUIManager uiManager;
-
-
+    
     // Dynamic data
     [HideInInspector]
     public float currentLevel;
@@ -147,13 +146,8 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
 
-        if (currentHealth > 0)
+        if (currentHealth < 0)
         {
-            Debug.Log("Player is still alive.");
-        }
-        else
-        {
-            Debug.Log("Player's health reached 0. Calling Die().");
             Die();
         }
 
@@ -183,8 +177,7 @@ public class PlayerStats : MonoBehaviour
         // Restart the game
         GameManager.Instance.RestartGame();
     }
-
-
+    
     private void ResetPlayerStats()
     {
         currentHealth = playerData.startingHealth;

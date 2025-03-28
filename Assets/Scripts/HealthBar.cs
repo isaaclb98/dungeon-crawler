@@ -18,15 +18,19 @@ public class HealthBar : MonoBehaviour
 
     void Awake()
     {
+        playerStats = PlayerStats.Instance;
         slider = GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentHealth = PlayerStats.Instance.currentHealth;
+        currentHealth = playerStats.currentHealth;
+        Debug.Log("currentHealth " + currentHealth);
 
-        maxHealth = PlayerStats.Instance.currentMaxHealth;
+        maxHealth = playerStats.currentMaxHealth;
+        Debug.Log("currentMaxHealth " + maxHealth);
+
 
         // Avoid division by zero and clamp value between 0 and 1
         float fillValue = Mathf.Clamp01(currentHealth / maxHealth);

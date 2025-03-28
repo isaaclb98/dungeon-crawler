@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChestController : MonoBehaviour
 {
     public Animator animator;
-    private bool isOpen = false;
+    // private bool isOpen = false;
 
     void Start()
     {
@@ -18,7 +18,6 @@ public class ChestController : MonoBehaviour
         // Check if player is near the chest and presses 'E'
         if (Input.GetKeyDown(KeyCode.E) && IsPlayerNear())
         {
-            Debug.Log("Enter E");
             ToggleChest();
         }
         else if(Input.GetKeyDown(KeyCode.C) && IsPlayerNear() && animator.GetCurrentAnimatorStateInfo(0).IsName("TreasureChest_OPEN"))
@@ -44,12 +43,10 @@ public class ChestController : MonoBehaviour
 
         if(Vector3.Distance(transform.position, player.transform.position) <= interactDistance)
         {
-            Debug.Log("Player is near");
             return true;
         }
         else
         {
-            Debug.Log("Player is FAARRRR");
             return false;
         }
 
