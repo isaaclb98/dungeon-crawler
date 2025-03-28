@@ -7201,6 +7201,12 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1205395694}
+    - target: {fileID: 5219627679952345865, guid: 7dc7b54399d54194e9f2619f1832e8d5,
+        type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 071ad0ee4b2b3154d95fe711d087cf95,
+        type: 2}
     - target: {fileID: 6321436713527627283, guid: 7dc7b54399d54194e9f2619f1832e8d5,
         type: 3}
       propertyPath: m_LocalPosition.x
