@@ -16,15 +16,6 @@ public class PressKeyDoor : MonoBehaviour
 
         uiManager = player.GetComponent<PlayerUIManager>();
         inventoryManager = InventoryManager.Instance;
-    
-        if (uiManager != null)
-        {
-            Debug.Log("UI Manager Found!");
-        }
-        else
-        {
-            Debug.Log("PlayerUIManager not found on Player.");
-        }
     }
 
     void OnTriggerEnter(Collider collision)
