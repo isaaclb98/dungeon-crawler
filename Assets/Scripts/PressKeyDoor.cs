@@ -15,7 +15,7 @@ public class PressKeyDoor : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         uiManager = player.GetComponent<PlayerUIManager>();
-        inventoryManager = player.GetComponent<InventoryManager>();
+        inventoryManager = InventoryManager.Instance;
     
         if (uiManager != null)
         {
@@ -29,14 +29,14 @@ public class PressKeyDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (!isOpen)
-        {
-            uiManager.ShowPopupText("Press E to open.", Color.white);
-        }
-        
         if (collision.transform.CompareTag("Player"))
         {
             Action = true;
+            
+            if (!isOpen)
+            {
+                uiManager.ShowPopupText("Press E to open.", Color.white);
+            }
         }
     }
 
@@ -86,6 +86,7 @@ public class PressKeyDoor : MonoBehaviour
                         isOpen = true;
                         ThisTrigger.SetActive(false);
                         Action = false;
+                        uiManager.ShowPopupText("Used a key.", Color.white);
                     }
                     else
                     {

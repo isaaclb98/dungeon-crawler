@@ -1,10 +1,4 @@
-﻿// CHANGE LOG
-// 
-// CHANGES || version VERSION
-//
-// "Enable/Disable Headbob, Changed look rotations - should result in reduced camera jitters" || version 1.0.1
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -730,7 +724,7 @@ public class FirstPersonController : MonoBehaviour
             {
                 // Use GetComponentInParent in case the collider is on a child.
                 ItemPickup pickup = hit.collider.GetComponentInParent<ItemPickup>();
-                if (pickup != null)
+                if (pickup)
                 {
                     _inventory.AddItem(pickup.itemData);
                     Debug.Log("Picked up: " + pickup.itemData.itemName);
@@ -750,23 +744,19 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
-
     public void DisplayInventory()
     {
-        InventoryManager inventory = GetComponent<InventoryManager>();
-        if (inventory)
+        if (_inventory)
         {
-            Debug.Log(inventory.ToString());
+            Debug.Log(_inventory.ToString());
         }
         else
         {
-            Debug.LogError("No Inventory component found on the player.");
+            Debug.LogError("No InventoryManager instance found.");
         }
     }
 
 }
-
-
 
 // Custom Editor
 #if UNITY_EDITOR

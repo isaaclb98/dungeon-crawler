@@ -6,114 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e6cefd14-b518-4cc7-950f-2e9c854bd85a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Frame_big.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Frame_big.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Frame_mid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Frame_mid.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Frame_mid_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Frame_mid_2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Hp_frame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Hp_frame.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Hp_line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Hp_line.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Materials/barmid_ready.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Materials/barmid_ready.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Materials/warrior_silhouette_man.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Materials/warrior_silhouette_man.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_background.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_frame0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_frame0.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_frame1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_frame1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_frame2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/Mini_frame2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/bar_ready.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/bar_ready.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/barmid_ready.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/barmid_ready.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/big_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/big_background.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/big_roundframe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/big_roundframe.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button2_ready_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button2_ready_off.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button2_ready_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button2_ready_on.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button3_ready.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button3_ready.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_agree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_agree.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_cancel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_frame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_frame.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_ready_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_ready_off.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_ready_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/button_ready_on.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundbackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundbackground.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundframe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundframe.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundframe_ready.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundframe_ready.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundframe_ready2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/lil_roundframe_ready2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/mid_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/mid_background.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/name_bar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/name_bar.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/name_bar2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/name_bar2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/name_bar3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/name_bar3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/warrior_silhouette_man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/warrior_silhouette_man.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/warrior_silhouette_woman.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Gui_parts/warrior_silhouette_woman.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/armor_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/armor_icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_01.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_01_nobg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_01_nobg.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_02.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_02_nobg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_02_nobg.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_03.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_03_nobg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_03_nobg.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_04.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_04_nobg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/skill_icon_04_nobg.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/stoune_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/stoune_icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/weapon_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI_Parts/Icons/weapon_icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Key.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Key.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chest Controller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chest Controller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PressKeyDoor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PressKeyDoor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +119,7 @@
       <workItem from="1743034732228" duration="2396000" />
       <workItem from="1743038460678" duration="6000" />
       <workItem from="1743038468976" duration="1295000" />
-      <workItem from="1743197049908" duration="3659000" />
+      <workItem from="1743197049908" duration="4088000" />
     </task>
     <servers />
   </component>
