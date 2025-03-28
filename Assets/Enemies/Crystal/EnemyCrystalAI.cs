@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class HallowedCrystal : MonoBehaviour
@@ -15,24 +15,47 @@ public class HallowedCrystal : MonoBehaviour
     private int[] projectilePattern = { 4, 6, 8 , 12, 4, 8, 6}; // The shooting pattern
     private int currentPatternIndex = 0;
     private GameObject player;
+    private bool playerInRange = false;
+    private Coroutine shootingCoroutine;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(ShootProjectiles());
+    }
+
+    void Update()
+    {
+        if (player == null) return;
+
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        bool inRangeNow = distance <= detectrange;
+
+        if (inRangeNow && !playerInRange)
+        {
+            playerInRange = true;
+            shootingCoroutine = StartCoroutine(ShootProjectiles()); // ✅ Start and store the coroutine
+        }
+        else if (!inRangeNow && playerInRange)
+        {
+            playerInRange = false;
+            if (shootingCoroutine != null)
+            {
+                StopCoroutine(shootingCoroutine); // ✅ Stop the stored coroutine
+                shootingCoroutine = null;
+            }
+        }
     }
 
     IEnumerator ShootProjectiles()
     {
-        while (player != null && Vector3.Distance(transform.position, player.transform.position) <= detectrange)
+        while (true)
         {
-         
-            yield return StartCoroutine(ChargeAttack()); // Play charge-up effect
+            yield return StartCoroutine(ChargeAttack());
 
             int projectileCount = projectilePattern[currentPatternIndex];
             FireInAllDirections(projectileCount);
 
-            currentPatternIndex = (currentPatternIndex + 1) % projectilePattern.Length; // Cycle through 4-6-8 pattern
+            currentPatternIndex = (currentPatternIndex + 1) % projectilePattern.Length;
             yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
