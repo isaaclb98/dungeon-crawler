@@ -7,10 +7,7 @@ public class PlayerStats : MonoBehaviour
 
     public PlayerData playerData;
     public PlayerUIManager uiManager;
-
-    public float maxHealth;
-
-
+    
     // Dynamic data
     [HideInInspector]
     public float currentLevel;
@@ -52,32 +49,21 @@ public class PlayerStats : MonoBehaviour
         currentXp = playerData.startingXp;
 
         //Health
-        maxHealth = playerData.startingHealth;
-        currentHealth = maxHealth;
-
-
         currentAttack = playerData.startingAttack;
         currentDefense = playerData.startingDefense;
         xpToLevelUp = playerData.startingXpToLevelUp;
         currentGold = playerData.startingGold;
         currentMaxHealth = playerData.startingHealth;
+        currentHealth = currentMaxHealth;
         
         Debug.Log($"Player Stats - Level: {currentLevel}, XP: {currentXp}, Health: {currentHealth}, Attack: {currentAttack}, Defense: {currentDefense}, XP To Level Up: {xpToLevelUp}, Gold: {currentGold}, Max Health: {currentMaxHealth}");
     }
 
     void Update()
     {
-        /*if(currentStamina < maxStamina)
-        {
-            currentStamina += staminaRegenRate * Time.deltaTime;
-            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-        }
-        UpdateUI();*/
-
-        //For testing the damage
         if (Input.GetKeyDown(KeyCode.G))
         {
-            currentHealth -= 1;
+            GainXp(100.0f);
         }
     }
 
@@ -111,6 +97,8 @@ public class PlayerStats : MonoBehaviour
         currentMaxHealth += 1;
         currentAttack += 1;
         currentDefense += 1;
+        
+        uiManager.ShowPopupText("Level up! You are now level " + currentLevel, Color.magenta);
 
         // Recalculate XP needed for the next level using the multiplier from static data
         xpToLevelUp = Mathf.RoundToInt(xpToLevelUp * (float)playerData.levelUpXpNeededMultiplier);
@@ -158,13 +146,8 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
 
-        if (currentHealth > 0)
+        if (currentHealth < 0)
         {
-            Debug.Log("Player is still alive.");
-        }
-        else
-        {
-            Debug.Log("Player's health reached 0. Calling Die().");
             Die();
         }
 
@@ -194,8 +177,7 @@ public class PlayerStats : MonoBehaviour
         // Restart the game
         GameManager.Instance.RestartGame();
     }
-
-
+    
     private void ResetPlayerStats()
     {
         currentHealth = playerData.startingHealth;

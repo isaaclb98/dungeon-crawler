@@ -85,6 +85,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
+        Debug.Log("Listitem was called");
         // Clear previous items in the inventory UI
         foreach (Transform item in ItemContent)
         {
@@ -123,7 +124,11 @@ public class InventoryManager : MonoBehaviour
             if (itemButton != null)
             {
                 itemButton.onClick.AddListener(() => UseItem(item));
-                itemButton.onClick.AddListener(() => Destroy(obj));
+
+                if (item.itemName != "Key")
+                {
+                    itemButton.onClick.AddListener(() => Destroy(obj));
+                }
             }
             else
             {
