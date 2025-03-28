@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour
     private Slider slider;
     public TextMeshProUGUI healthCounter;
 
-    public GameObject playerStats;
+    public PlayerStats playerStats;
 
     //Private player's health
     private float currentHealth, maxHealth;
@@ -26,7 +26,7 @@ public class HealthBar : MonoBehaviour
     {
         currentHealth = PlayerStats.Instance.currentHealth;
 
-        maxHealth = PlayerStats.Instance.maxHealth;
+        maxHealth = PlayerStats.Instance.currentMaxHealth;
 
         // Avoid division by zero and clamp value between 0 and 1
         float fillValue = Mathf.Clamp01(currentHealth / maxHealth);
