@@ -124,7 +124,11 @@ public class InventoryManager : MonoBehaviour
             if (itemButton != null)
             {
                 itemButton.onClick.AddListener(() => UseItem(item));
-                itemButton.onClick.AddListener(() => Destroy(obj));
+
+                if (item.itemName != "Key")
+                {
+                    itemButton.onClick.AddListener(() => Destroy(obj));
+                }
             }
             else
             {

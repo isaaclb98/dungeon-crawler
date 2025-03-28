@@ -1,19 +1,21 @@
 using UnityEngine;
 
 public class PressKeyDoor : MonoBehaviour
-{
-    public GameObject AnimeObject;
-    public GameObject ThisTrigger;
-    public bool Action;
-    public bool isOpen = false;
-    public PlayerUIManager uiManager;
+{ 
+    [HideInInspector] public GameObject AnimeObject;
+    [HideInInspector] public GameObject ThisTrigger;
+    [HideInInspector] public bool Action;
+    [HideInInspector] public bool isOpen = false;
+    [HideInInspector] public PlayerUIManager uiManager;
+    [HideInInspector] public InventoryManager inventoryManager;
+    public bool isLocked = false;
     
-
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         uiManager = player.GetComponent<PlayerUIManager>();
+        inventoryManager = player.GetComponent<InventoryManager>();
     
         if (uiManager != null)
         {
@@ -43,19 +45,54 @@ public class PressKeyDoor : MonoBehaviour
         Action = false;
     }
 
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Action)
             {
-                AnimeObject.GetComponent<Animator>().Play("DoorOpen");
-                isOpen = true;
-                ThisTrigger.SetActive(false);
-                Action = false;
+                if (!isLocked)
+                {
+                    AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+                    isOpen = true;
+                    ThisTrigger.SetActive(false);
+                    Action = false;
+                }
+                else
+                {
+                    bool haveKey = false;
+                    KeyItem keyItemFound = null;
+                    foreach (ItemData item in inventoryManager.inventoryItems)
+                    {
+                        Debug.Log(item.itemName);
+                        if (item.itemName == "Key")
+                        {
+                            Debug.Log("Key found!");
+                            haveKey = true;
+                            keyItemFound = item as KeyItem;
+                            break;
+                        }
+                    }
+                    
+                    Debug.Log("keyItemFound is " + keyItemFound);
+                    
+                    if (haveKey && keyItemFound)
+                    {
+                        keyItemFound.RemoveItem();
+                        
+                        // Now unlock and open the door.
+                        isLocked = false;
+                        AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+                        isOpen = true;
+                        ThisTrigger.SetActive(false);
+                        Action = false;
+                    }
+                    else
+                    {
+                        uiManager.ShowPopupText("Door is locked. You need a key.", Color.white);
+                    }
+                }
             }
         }
-
     }
 }
