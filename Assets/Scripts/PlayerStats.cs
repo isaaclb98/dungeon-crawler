@@ -8,8 +8,6 @@ public class PlayerStats : MonoBehaviour
     public PlayerData playerData;
     public PlayerUIManager uiManager;
 
-    public float maxHealth;
-
 
     // Dynamic data
     [HideInInspector]
@@ -52,14 +50,12 @@ public class PlayerStats : MonoBehaviour
         currentXp = playerData.startingXp;
 
         //Health
-        maxHealth = playerData.startingHealth;
-        currentHealth = maxHealth;
-         
         currentAttack = playerData.startingAttack;
         currentDefense = playerData.startingDefense;
         xpToLevelUp = playerData.startingXpToLevelUp;
         currentGold = playerData.startingGold;
         currentMaxHealth = playerData.startingHealth;
+        currentHealth = currentMaxHealth;
         
         Debug.Log($"Player Stats - Level: {currentLevel}, XP: {currentXp}, Health: {currentHealth}, Attack: {currentAttack}, Defense: {currentDefense}, XP To Level Up: {xpToLevelUp}, Gold: {currentGold}, Max Health: {currentMaxHealth}");
     }
