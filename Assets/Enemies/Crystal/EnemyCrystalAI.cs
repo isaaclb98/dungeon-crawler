@@ -10,19 +10,23 @@ public class HallowedCrystal : MonoBehaviour
     public AudioSource chargingSound; // Drag an AudioSource with a charging sound
     public float shakeIntensity = 0.1f;
     public float shakeDuration = 1f;
+    public float detectrange = 15f;
 
     private int[] projectilePattern = { 4, 6, 8 , 12, 4, 8, 6}; // The shooting pattern
     private int currentPatternIndex = 0;
+    private GameObject player;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(ShootProjectiles());
     }
 
     IEnumerator ShootProjectiles()
     {
-        while (true)
+        while (player != null && Vector3.Distance(transform.position, player.transform.position) <= detectrange)
         {
+         
             yield return StartCoroutine(ChargeAttack()); // Play charge-up effect
 
             int projectileCount = projectilePattern[currentPatternIndex];
@@ -66,5 +70,10 @@ public class HallowedCrystal : MonoBehaviour
             // Rotate projectile to face its movement direction
             projectile.transform.rotation = Quaternion.LookRotation(direction);
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, detectrange);
     }
 }
