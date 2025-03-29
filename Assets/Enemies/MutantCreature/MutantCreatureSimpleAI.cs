@@ -14,16 +14,15 @@ public class MutantCreatureSimpleAI : MonoBehaviour
     private Animator animator;
     private float lastAttackTime = 0f;
 
-    private EnemyHealth enemyHealth;
     private PlayerStats playerHealth;
     public EnemyData enemyData;
+    private EnemyHealth enemyHealth;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         animator.enabled = true;
-        enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (player == null)

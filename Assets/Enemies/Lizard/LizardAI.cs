@@ -27,6 +27,8 @@ public class LizardAI : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        playerStats = PlayerStats.Instance;
+
         if (player == null)
         {
             Debug.LogError("Player GameObject with tag 'Player' not found! Make sure the tag is set correctly.");
@@ -57,10 +59,13 @@ public class LizardAI : MonoBehaviour
 
     bool HasLineOfSight()
     {
-        if (Physics.Raycast(transform.position, (player.position - transform.position).normalized, out RaycastHit hit, detectionRange))
+        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+
+        if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer, out RaycastHit hit, detectionRange))
         {
-            return hit.collider.CompareTag("Player");
+            return hit.transform.CompareTag("Player");
         }
+
         return false;
     }
 
