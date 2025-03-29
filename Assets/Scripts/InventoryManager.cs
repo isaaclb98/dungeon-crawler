@@ -216,7 +216,7 @@ public class InventoryManager : MonoBehaviour
         // Reset equipped weapon to default
         if (defaultWeapon != null)
         {
-            EquipWeapon(defaultWeapon);
+            //EquipWeapon(defaultWeapon);
         }
         else
         {
