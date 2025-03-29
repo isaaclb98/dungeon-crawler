@@ -10,7 +10,6 @@ using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Instance;
     
     // List of items
     public List<ItemData> inventoryItems = new List<ItemData>();
@@ -24,9 +23,19 @@ public class InventoryManager : MonoBehaviour
     public Transform weaponHolder;
     public GameObject currentWeaponPrefab; 
 
+    public static InventoryManager Instance { get; private set; }
+
     private void Awake()
     {
+        // Singleton enforcement
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Prevent duplicate managers
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist across scene loads
     }
 
     void Start()
