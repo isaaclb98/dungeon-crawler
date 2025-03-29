@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;  // Singleton instance
-    public Transform player;  // Reference to the player
+    public Transform player;             // Reference to the player
+
+    private bool restarting = false;     // Flag indicating that a restart is in progress
 
     void Awake()
     {
-        // Ensure there is only one instance of GameManager
         if (Instance == null)
         {
             Instance = this;
@@ -16,13 +17,12 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);  // Destroy duplicate GameManager
+            Destroy(gameObject);  // Destroy duplicate GameManager instances
         }
     }
 
     void OnEnable()
     {
-        // Listen for scene changes to reassign references if needed
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // If needed, find the player again when a new scene loads
+        // Reassign the player if needed
         if (player == null)
         {
             GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
@@ -42,24 +42,41 @@ public class GameManager : MonoBehaviour
                 player = foundPlayer.transform;
             }
         }
+
+        // Only update InventoryManager on restart
+        if (restarting)
+        {
+            // Find the new weapon holder in the scene by name.
+            // (Make sure an object with the name "WeaponHolder" exists in your scene.)
+            GameObject newWeaponHolder = GameObject.Find("WeaponHolder");
+            if (newWeaponHolder != null)
+            {
+                InventoryManager.Instance.UpdateWeaponHolder(newWeaponHolder.transform);
+            }
+            else
+            {
+                Debug.LogWarning("No object named 'WeaponHolder' found in the scene. Please ensure it exists.");
+            }
+
+            // Reset the inventory (this will re-equip the default weapon as set in the inspector or config)
+            if (InventoryManager.Instance != null)
+            {
+                InventoryManager.Instance.ResetInventory();
+            }
+            else
+            {
+                Debug.LogWarning("InventoryManager instance is null after scene load.");
+            }
+
+            // Clear the restarting flag so this only happens once per restart.
+            restarting = false;
+        }
     }
 
     public void RestartGame()
     {
-    Debug.Log("Restarting game...");
-
-    if (InventoryManager.Instance != null)
-    {
-        InventoryManager.Instance.ResetInventory();
+        Debug.Log("Restarting game...");
+        restarting = true;  // Set flag to trigger weaponHolder update and inventory reset in OnSceneLoaded
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    else
-    {
-        Debug.LogWarning("InventoryManager instance is null! Skipping inventory reset.");
-    }
-
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-
 }
-

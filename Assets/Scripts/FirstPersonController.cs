@@ -137,8 +137,6 @@ public class FirstPersonController : MonoBehaviour
         DynamicGI.UpdateEnvironment();
 
         rb = GetComponent<Rigidbody>();
-
-        
     
         crosshairObject = GetComponentInChildren<Image>();
 
