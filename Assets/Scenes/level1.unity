@@ -7571,6 +7571,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1413339906}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &196014179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3166524458455191329, guid: 59b872f6755f04a48a06d2314b7defb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1951079712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &197878225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132036,6 +132042,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1951079712}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1025153299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196014179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ec42f6962b4fe4db08fb6dd1cdaadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 2
+  detectionRange: 10
+  attackRange: 2
+  attackCooldown: 3
+  enemyData: {fileID: 11400000, guid: 0640c1f8fb4f4a94c803e28522474f88, type: 2}
 --- !u!1001 &1029455401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164954,7 +164977,7 @@ PrefabInstance:
     - target: {fileID: 5835603169493172103, guid: a9982490ca248074398c4c1d2b81c39c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8154547
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5835603169493172103, guid: a9982490ca248074398c4c1d2b81c39c,
         type: 3}
@@ -254850,10 +254873,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2509762314276207093, guid: 59b872f6755f04a48a06d2314b7defb1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3166524458455191329, guid: 59b872f6755f04a48a06d2314b7defb1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1025153299}
   m_SourcePrefab: {fileID: 100100000, guid: 59b872f6755f04a48a06d2314b7defb1, type: 3}
 --- !u!1001 &1955279988
 PrefabInstance:
