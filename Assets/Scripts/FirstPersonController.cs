@@ -137,9 +137,6 @@ public class FirstPersonController : MonoBehaviour
         DynamicGI.UpdateEnvironment();
 
         rb = GetComponent<Rigidbody>();
-
-        _playerStats = PlayerStats.Instance;
-        _inventory = InventoryManager.Instance;
     
         crosshairObject = GetComponentInChildren<Image>();
 
@@ -157,6 +154,9 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        _playerStats = PlayerStats.Instance;
+        _inventory = InventoryManager.Instance;
+        
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -416,7 +416,6 @@ public class FirstPersonController : MonoBehaviour
         }
         
     }
-
     void FixedUpdate()
     {
         #region Movement
@@ -426,7 +425,6 @@ public class FirstPersonController : MonoBehaviour
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-            
             // Checks if player is walking and isGrounded
             // Will allow head bob
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
@@ -438,8 +436,7 @@ public class FirstPersonController : MonoBehaviour
                 isWalking = false;
             }
 
-
-            // All movement calculations shile sprint is active
+            // All movement calculations while sprint is active
             if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
             {
                 targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
@@ -451,8 +448,8 @@ public class FirstPersonController : MonoBehaviour
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
                 velocityChange.y = 0;
 
-                // Player is only moving when valocity change != 0
-                // Makes sure fov change only happens during movement
+                // Player is only moving when velocity change != 0
+                // Makes sure FOV change only happens during movement
                 if (velocityChange.x != 0 || velocityChange.z != 0)
                 {
                     isSprinting = true;
@@ -494,7 +491,14 @@ public class FirstPersonController : MonoBehaviour
         }
 
         #endregion
+
+        // Prevent any upward movement: if y velocity is positive, zero it out.
+        if (rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        }
     }
+
 
     // Sets isGrounded based on a raycast sent straigth down from the player object
     private void CheckGround()

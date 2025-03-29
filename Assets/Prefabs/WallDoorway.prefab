@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 497100368200222400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49, y: 1.61, z: 0}
-  m_LocalScale: {x: 2.2981577, y: 2.7029948, z: 1.0648}
+  m_LocalPosition: {x: 0.535, y: 1.61, z: 0}
+  m_LocalScale: {x: 3.56, y: 2.7029948, z: 1.0648}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2545016125071515898}
@@ -121,7 +121,10 @@ MonoBehaviour:
   AnimeObject: {fileID: 4827350283810875579}
   ThisTrigger: {fileID: 4827350283810875579}
   Action: 0
+  isOpen: 0
   uiManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  isLocked: 0
 --- !u!1 &2895795510763848806
 GameObject:
   m_ObjectHideFlags: 0

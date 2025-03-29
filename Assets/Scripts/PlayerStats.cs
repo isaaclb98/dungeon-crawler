@@ -146,7 +146,7 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
 
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -156,10 +156,8 @@ public class PlayerStats : MonoBehaviour
             SoundManager.Instance.PlaySound3D("Hurting");
         }
     }
-
-
-
-    private void Die()
+    
+    public void Die()
     {
         Debug.Log("Player has died!");
 

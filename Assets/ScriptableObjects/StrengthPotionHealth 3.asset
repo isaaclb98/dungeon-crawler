@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6498efe463b146f4c927b6d54ee82687, type: 3}
+  m_Name: StrengthPotionHealth 3
+  m_EditorClassIdentifier: 
+  itemName: Strength Health Potion
+  icon: {fileID: 0}
+  description: Boost Players Strength
+  hpRecovery: 0
+  damageBoostDuration: 5
+  damageBoostAmount: 2
+  speedBoostDuration: 0
+  speedBoostAmount: 0
