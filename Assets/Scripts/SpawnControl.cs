@@ -11,11 +11,14 @@ public class SpawnControl : MonoBehaviour
     private int hitCount = 0; 
     private GameObject player;
 
-
+    [HideInInspector] public PlayerUIManager uiManager;
+    
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player"); // Find the player in the scene
-        StartCoroutine(SpawnEnemies()); // Start the spawning process
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        uiManager = player.GetComponent<PlayerUIManager>();
+        StartCoroutine(SpawnEnemies());
     }
 
     // Spawn enemies at regular intervals
@@ -42,18 +45,20 @@ public class SpawnControl : MonoBehaviour
     public void TakeDamage()
     {
         hitCount++;
-        Debug.Log("Spawner hit " + hitCount + " times!");
 
         if (hitCount >= maxHitsToDestroy)
         {
             DestroySpawner();
         }
+        uiManager.ShowPopupText("Enemy Spawner: " + (maxHitsToDestroy - hitCount) + " hits left to be destroyed!", Color.magenta);
+
     }
 
     // Destroy the spawner
     void DestroySpawner()
     {
-        Debug.Log("Spawner destroyed after " + hitCount + " hits!");
+        uiManager.ShowPopupText("Enemy Spawner destroyed!", Color.magenta);
+
         Destroy(gameObject); 
     }
 
