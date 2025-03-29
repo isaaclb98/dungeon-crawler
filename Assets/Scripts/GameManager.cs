@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;  // Singleton instance
     public Transform player;             // Reference to the player
 
+    public float lastDeathLevel;         // To store level at death
+    public float lastDeathGold;          // To store gold at death
+
     private bool restarting = false;     // Flag indicating that a restart is in progress
 
     void Awake()
@@ -46,8 +49,6 @@ public class GameManager : MonoBehaviour
         // Only update InventoryManager on restart
         if (restarting)
         {
-            // Find the new weapon holder in the scene by name.
-            // (Make sure an object with the name "WeaponHolder" exists in your scene.)
             GameObject newWeaponHolder = GameObject.Find("WeaponHolder");
             if (newWeaponHolder != null)
             {
@@ -58,7 +59,6 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("No object named 'WeaponHolder' found in the scene. Please ensure it exists.");
             }
 
-            // Reset the inventory (this will re-equip the default weapon as set in the inspector or config)
             if (InventoryManager.Instance != null)
             {
                 InventoryManager.Instance.ResetInventory();
@@ -68,15 +68,24 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("InventoryManager instance is null after scene load.");
             }
 
-            // Clear the restarting flag so this only happens once per restart.
             restarting = false;
         }
     }
 
-    public void RestartGame()
+    public void LoadDeathScreen()
     {
-        Debug.Log("Restarting game...");
-        restarting = true;  // Set flag to trigger weaponHolder update and inventory reset in OnSceneLoaded
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("DeathScreen");
+    }
+    
+    public void LoadWinScreen()
+    {
+        SceneManager.LoadScene("WinScreen"); 
+        
+    }
+
+    public void RespawnGame()
+    {
+        restarting = true; 
+        SceneManager.LoadScene("level1");  
     }
 }

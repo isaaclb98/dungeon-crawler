@@ -5,8 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6cefd14-b518-4cc7-950f-2e9c854bd85a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dungeon-crawler/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest/Global Volume Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest/Global Volume Profile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest/NavMesh-Plane.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest/NavMesh-Plane.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest/NavMesh-Walls.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest/NavMesh-Walls.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ALB_Scene.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ALB_Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ALB_Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ALB_Scene/NavMesh-Ground.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ALB_Scene/NavMesh-Ground.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DeathScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DeathScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/I Love Unity.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/I Love Unity.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsaacsTestScene.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsaacsTestScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsaacsTestScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsaacsTestScene/NavMesh-NavMesh Surface.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsaacsTestScene/NavMesh-NavMesh Surface.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KMinnis.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KMinnis.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KMinnis.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KMinnis/NavMesh-Dungeon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KMinnis/NavMesh-Dungeon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KMinnis/NavMesh-Overall.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KMinnis/NavMesh-Overall.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Play menu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Play menu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WinScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WinScreen.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/levelnew.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/levelnew.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/PlayerData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ZombieData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ZombieData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeathScreenManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeathScreenManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Portal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Portal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinScreenManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinScreenManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Text/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Text/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +169,7 @@
       <workItem from="1743038460678" duration="6000" />
       <workItem from="1743038468976" duration="1295000" />
       <workItem from="1743197049908" duration="4088000" />
+      <workItem from="1743274685566" duration="2841000" />
     </task>
     <servers />
   </component>
