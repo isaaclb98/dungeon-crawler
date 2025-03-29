@@ -32058,6 +32058,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallowedCrystal1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 473548820565419051, guid: c0ced7f52ad9a03459d96ac01b1af731,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 473548820565419051, guid: c0ced7f52ad9a03459d96ac01b1af731,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 473548820565419051, guid: c0ced7f52ad9a03459d96ac01b1af731,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 804978860537801432, guid: c0ced7f52ad9a03459d96ac01b1af731,
         type: 3}
       propertyPath: m_LocalScale.x
