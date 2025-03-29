@@ -8,22 +8,17 @@ public class LizardAI : MonoBehaviour
     public float attackRange = 1.5f;
     public float detectionRange = 10f;
     public float attackCooldown = 2f;
-    private float lastAttackTime;
 
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
-    private EnemyHealth enemyHealth;
+    private bool isAttacking;
+    private float lastAttackTime = 0f;
 
+    private EnemyHealth enemyHealth;
     public EnemyData enemyData;
     private PlayerStats playerStats;
 
-    private bool isAttacking;
-
-    public float wanderRadius = 20f; // The radius within which the lizard will wander
-    public float wanderTime = 5f; // Time interval between wandering to a new point
-
-    private float wanderTimer;
 
     void Start()
     {
@@ -31,6 +26,13 @@ public class LizardAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (player == null)
+        {
+            Debug.LogError("Player GameObject with tag 'Player' not found! Make sure the tag is set correctly.");
+            return;
+        }
+
     }
 
     void Update()
@@ -39,13 +41,13 @@ public class LizardAI : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= attackRange)
+        if (distanceToPlayer <= attackRange && HasLineOfSight())
         {
             Attack();
         }
-        else if (distanceToPlayer <= detectionRange)
+        else if (distanceToPlayer <= detectionRange && HasLineOfSight())
         {
-            ChasePlayer();
+            Chase();
         }
         else
         {
@@ -53,37 +55,31 @@ public class LizardAI : MonoBehaviour
         }
     }
 
-    void ChasePlayer()
+    bool HasLineOfSight()
+    {
+        if (Physics.Raycast(transform.position, (player.position - transform.position).normalized, out RaycastHit hit, detectionRange))
+        {
+            return hit.collider.CompareTag("Player");
+        }
+        return false;
+    }
+
+    void Chase()
     {
         if (isAttacking) return;
 
         agent.speed = runSpeed;
 
-        RaycastHit hit;
-        Vector3 direction = (player.position - transform.position).normalized;
-        Debug.DrawRay(transform.position, direction * detectionRange, Color.red);
-
-        if (Physics.Raycast(transform.position, (player.position - transform.position).normalized, out hit, detectionRange))
+        if (agent.remainingDistance > 0.5f || agent.pathPending)
         {
-            if (hit.collider.CompareTag("Player"))
-            {
-                // No obstacle, continue chasing
-                agent.SetDestination(player.position);  // Set the destination to player's position
-                agent.isStopped = false;
-                animator.SetBool("isWalking", false);  // Stop walking animation
-                animator.SetBool("isRunning", true);   // Play running animation
-                animator.SetBool("isAttacking", false); // Stop attacking animation
-            }
-            else
-            {
-                // An obstacle is detected in the way, stop chasing
-                agent.isStopped = true;
-                animator.SetBool("isWalking", false);  // Stop walking animation
-                animator.SetBool("isRunning", false);  // Stop running animation
-                animator.SetBool("isAttacking", false); // Stop attacking animation
-            }
+            agent.SetDestination(player.position);
         }
-        Debug.Log("Distance to Player: " + Vector3.Distance(transform.position, player.position));
+
+        agent.isStopped = false;
+
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isRunning", true);
+        animator.SetBool("isAttacking", false);
     }
 
     void Attack()
@@ -98,98 +94,45 @@ public class LizardAI : MonoBehaviour
         agent.isStopped = true;
 
         Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)), Time.deltaTime * 500f);
 
-        Debug.DrawRay(transform.position, direction * attackRange, Color.green);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, (player.position - transform.position).normalized, out hit, attackRange))
+        if (HasLineOfSight() && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
-            if (hit.collider.CompareTag("Player"))
-            {
-                // If the ray hits the player, deal damage
-                PlayerStats playerHealth = player.GetComponent<PlayerStats>();
-                if (playerHealth != null)
-                {
-                    playerHealth.TakeDamage(enemyData.enemyAttack);
-                }
-            }
+            PlayerStats playerHealth = player.GetComponent<PlayerStats>();
+            playerHealth?.TakeDamage(enemyData.enemyAttack);
         }
 
         lastAttackTime = Time.time;
         Invoke("ResetAttack", 1f);
-
     }
 
     void ResetAttack()
     {
         isAttacking = false;
         agent.isStopped = false;
+        animator.SetBool("isAttacking", false);
 
-        Debug.Log("Attack finished, checking if player is within detection range");
-
-        if (Vector3.Distance(transform.position, player.position) <= detectionRange)
+        if (Vector3.Distance(transform.position, player.position) <= detectionRange && HasLineOfSight())
         {
-            Debug.Log("Player is within range, chasing...");
-            ChasePlayer();  // Continue chasing the player
+            Chase();
         }
         else
         {
-            Debug.Log("Player out of range, idling...");
-            Idle(); // If player is out of range, go idle
+            Idle();
         }
-
-        animator.SetBool("isAttacking", false);
-    }
-
-    void Wander()
-    {
-        // If the wander timer has elapsed, pick a new random position
-        if (wanderTimer <= 0)
-        {
-            Vector3 randomDirection = Random.insideUnitSphere * wanderRadius;
-            randomDirection += transform.position; // Set the random point relative to the lizard's current position
-
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomDirection, out hit, wanderRadius, NavMesh.AllAreas))
-            {
-                agent.SetDestination(hit.position);
-            }
-
-            wanderTimer = wanderTime; // Reset the wander timer
-        }
-        else
-        {
-            wanderTimer -= Time.deltaTime; // Decrease the timer
-        }
-
-        animator.SetBool("isWalking", true);
-        animator.SetBool("isRunning", false);
-        animator.SetBool("isAttacking", false);
     }
 
     void Idle()
     {
         agent.ResetPath();
+        agent.isStopped = true;
         animator.SetBool("isWalking", false);
         animator.SetBool("isRunning", false);
         animator.SetBool("isAttacking", false);
-
-        agent.isStopped = true;
-
-        Debug.Log("Going idle, resetting path and stopping agent");
-
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 
     public void TakeDamage(int damage)
     {
         enemyHealth.TakeDamage(damage);
-        if (enemyHealth.enemyData.enemyHealth <= 0)
-        {
-            animator.SetTrigger("Die");
-            agent.isStopped = true;
-            this.enabled = false;
-        }
     }
 }

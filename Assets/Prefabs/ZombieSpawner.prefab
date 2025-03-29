@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 3166524458455191329, guid: 59b872f6755f04a48a06d2314b7defb1,
     type: 3}
-  spawnInterval: 5
+  spawnInterval: 7
   detectionRadius: 10
-  health: 3
+  maxHitsToDestroy: 4
+  uiManager: {fileID: 0}

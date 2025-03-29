@@ -98,7 +98,7 @@ MonoBehaviour:
   speed: 10
   lifetime: 5
   baseDamage: 5
-  impactEffect: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7,
+  impactEffect: {fileID: 162584487599433031, guid: fdf3d976957382a448237378788a20d5,
     type: 3}
 --- !u!1 &6990993163856433134
 GameObject:
