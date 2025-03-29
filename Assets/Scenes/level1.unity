@@ -37446,6 +37446,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &460164058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3279432261775214828, guid: 6bacecc4f3df9584198879c73a6b6c36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029455401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &463426549
 GameObject:
   m_ObjectHideFlags: 0
@@ -119784,7 +119790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItems: []
-  ItemContent: {fileID: 0}
+  ItemContent: {fileID: 2099316735}
   Items: {fileID: 4794484328122604634, guid: 36caebd48f35c18458109fb6942c3126, type: 3}
   defaultWeapon: {fileID: 11400000, guid: 9e266a6001af5d2408f88d461d671ac2, type: 2}
   equippedWeapon: {fileID: 0}
@@ -132173,6 +132179,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2680026762515232133, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 941224292}
+    - target: {fileID: 2680026762515232133, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ListItems
+      objectReference: {fileID: 0}
     - target: {fileID: 3079407897927439724, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -132563,6 +132579,16 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1164146465}
+    - target: {fileID: 5651323975536350819, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: statsMenuUI
+      value: 
+      objectReference: {fileID: 460164058}
+    - target: {fileID: 5651323975536350819, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: inventoryMenuUI
+      value: 
+      objectReference: {fileID: 1121556923}
     - target: {fileID: 5791320195364945300, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -158755,6 +158781,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2240556459148385532, guid: 1bca8fcfbbb9e004696f13acaac1bf48,
     type: 3}
   m_PrefabInstance: {fileID: 1972480089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1121556923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 467657125368162290, guid: 6bacecc4f3df9584198879c73a6b6c36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029455401}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1126292084
 PrefabInstance:
@@ -272978,6 +273010,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5befbbc71f854e04d8f57b1dfee2eb6b, type: 3}
+--- !u!224 &2099316735 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1427721182375130832, guid: 6bacecc4f3df9584198879c73a6b6c36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029455401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2102354659
 PrefabInstance:
   m_ObjectHideFlags: 0
