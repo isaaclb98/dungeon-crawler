@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6cefd14-b518-4cc7-950f-2e9c854bd85a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TreasureChest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TreasureChest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/CreatureData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/CreatureData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnControl.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

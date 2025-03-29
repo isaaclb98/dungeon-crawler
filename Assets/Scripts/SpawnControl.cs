@@ -49,9 +49,10 @@ public class SpawnControl : MonoBehaviour
         if (hitCount >= maxHitsToDestroy)
         {
             DestroySpawner();
+            return;
         }
+        
         uiManager.ShowPopupText("Enemy Spawner: " + (maxHitsToDestroy - hitCount) + " hits left to be destroyed!", Color.magenta);
-
     }
 
     // Destroy the spawner
