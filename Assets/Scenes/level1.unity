@@ -119455,6 +119455,7 @@ MonoBehaviour:
   equippedWeapon: {fileID: 0}
   weaponHolder: {fileID: 967899804}
   currentWeaponPrefab: {fileID: 0}
+  config: {fileID: 11400000, guid: ebf049615dc0a0f49a6cce441d810f78, type: 2}
 --- !u!4 &941224293
 Transform:
   m_ObjectHideFlags: 0
