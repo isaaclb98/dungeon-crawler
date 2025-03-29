@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Black Sword
   icon: {fileID: 0}
   description: A black sword.
-  range: 5
+  range: 4
   damage: 2
   weaponType: Sword
   prefab: {fileID: 8915031093302127446, guid: 8015670d95a524955a740ee0081b577d, type: 3}
   weaponScale: {x: 1, y: 1, z: 1}
-  attackSpeed: 2
+  attackSpeed: 1

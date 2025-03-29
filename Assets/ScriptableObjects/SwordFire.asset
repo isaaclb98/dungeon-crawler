@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: A fire sword
   range: 6
-  damage: 2
+  damage: 10
   weaponType: Sword
   prefab: {fileID: 8915031093302127446, guid: e4191148cb9e848b290f66922ebee6b4, type: 3}
   weaponScale: {x: 1, y: 1, z: 1}
-  attackSpeed: 2
+  attackSpeed: 1
