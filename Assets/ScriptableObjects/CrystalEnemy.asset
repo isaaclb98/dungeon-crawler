@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b53c822b10e5ed44db65b6300b158a17, type: 3}
-  m_Name: TestCrystalEnemy
+  m_Name: CrystalEnemy
   m_EditorClassIdentifier: 
   enemyName: TestCrystal
-  enemyHealth: 25
+  enemyHealth: 50
   enemyAttack: 0
-  xpReward: 20
-  goldReward: 1
+  xpReward: 200
+  goldReward: 300
