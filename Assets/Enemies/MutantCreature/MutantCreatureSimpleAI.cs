@@ -30,6 +30,11 @@ public class MutantCreatureSimpleAI : MonoBehaviour
             return;
         }
 
+        if (enemyData == null)
+        {
+            Debug.LogError("EnemyData is missing! Assign an EnemyData scriptable object in the Inspector.");
+        }
+
         agent.speed = chaseSpeed;
         playerHealth = player.GetComponent<PlayerStats>(); // Get reference to PlayerStats script
         if (playerHealth == null)
@@ -62,10 +67,17 @@ public class MutantCreatureSimpleAI : MonoBehaviour
 
     void Chase()
     {
-        // Move towards the player
-        agent.destination = player.position;
-        animator.SetBool("isWalking", true);
-        animator.SetBool("isAttacking", false);  // Ensure the monster is walking and not attacking
+        if (agent.isStopped)
+            agent.isStopped = false;  // Ensure agent resumes movement
+
+        agent.SetDestination(player.position);
+
+        if (animator != null)
+        {
+            if (!animator.GetBool("isWalking"))
+                animator.SetBool("isWalking", true);
+            animator.SetBool("isAttacking", false);
+        }
     }
 
     void Attack()
@@ -74,10 +86,14 @@ public class MutantCreatureSimpleAI : MonoBehaviour
 
         Debug.Log("Attacking Player!"); // Debugging output
 
-        // Stop moving while attacking
         agent.isStopped = true;
-        animator.SetBool("isAttacking", true);
-        animator.SetBool("isWalking", false);
+
+        // Stop moving while attacking
+        if (animator != null)
+        {
+            animator.SetBool("isAttacking", true);
+            animator.SetBool("isWalking", false);
+        }
 
         // Now attack the player
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -86,7 +102,8 @@ public class MutantCreatureSimpleAI : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(enemyData.enemyAttack); 
-                Debug.Log($"Player Health after attack: {playerHealth.currentHealth}"); // Debug the player's health
+                Debug.Log($"Player Health after attack: {playerHealth.currentHealth}");
+                // Debug the player's health
             }
         }
 
@@ -103,8 +120,12 @@ public class MutantCreatureSimpleAI : MonoBehaviour
 
     IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(1f);
-        agent.isStopped = false;
+        yield return new WaitForSeconds(attackCooldown);
+        if (agent != null)
+            agent.isStopped = false;
+
+        if (animator != null)
+            animator.SetBool("isAttacking", false);
     }
 }
 
