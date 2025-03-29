@@ -10,7 +10,6 @@ using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Instance;
     
     // List of items
     public List<ItemData> inventoryItems = new List<ItemData>();
@@ -19,14 +18,32 @@ public class InventoryManager : MonoBehaviour
     public GameObject Items;
     private ItemData selectedItem;  // Store the currently selected item
     // Weapon-related
+    [HideInInspector]
     public WeaponData defaultWeapon;
     public WeaponData equippedWeapon;
     public Transform weaponHolder;
     public GameObject currentWeaponPrefab; 
+    public InventoryConfig config;
+
+    public static InventoryManager Instance { get; private set; }
 
     private void Awake()
     {
+        // Singleton enforcement
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Prevent duplicate managers
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist across scene loads
+        
+        // Load defaultWeapon from the config if one is provided
+        if (config != null)
+        {
+            defaultWeapon = config.defaultWeapon;
+        }
     }
 
     void Start()
@@ -137,7 +154,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-
     // Return the currently equipped weapon.
     public WeaponData GetEquippedWeapon() {
         return equippedWeapon;
@@ -170,7 +186,7 @@ public class InventoryManager : MonoBehaviour
 
         if (currentWeaponPrefab != null)
         {
-        Destroy(currentWeaponPrefab);
+            Destroy(currentWeaponPrefab);
         }
 
         currentWeaponPrefab = Instantiate(weapon.prefab, weaponHolder);
@@ -208,5 +224,10 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void UpdateWeaponHolder(Transform newHolder)
+    {
+        weaponHolder = newHolder;
+        EquipWeapon(defaultWeapon);
+    }
 
 }

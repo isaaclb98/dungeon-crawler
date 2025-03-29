@@ -137,9 +137,6 @@ public class FirstPersonController : MonoBehaviour
         DynamicGI.UpdateEnvironment();
 
         rb = GetComponent<Rigidbody>();
-
-        _playerStats = PlayerStats.Instance;
-        _inventory = InventoryManager.Instance;
     
         crosshairObject = GetComponentInChildren<Image>();
 
@@ -157,6 +154,9 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        _playerStats = PlayerStats.Instance;
+        _inventory = InventoryManager.Instance;
+        
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;

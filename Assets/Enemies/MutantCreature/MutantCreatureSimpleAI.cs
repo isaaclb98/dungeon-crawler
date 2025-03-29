@@ -86,7 +86,7 @@ public class MutantCreatureSimpleAI : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(enemyData.enemyAttack); 
-                Debug.Log($"Player Health after attack: {playerHealth.currentHealth}"); // Debug the player's health
+                Debug.Log($"Player Health after attack: {playerHealth.currentHealth}");
             }
         }
 
