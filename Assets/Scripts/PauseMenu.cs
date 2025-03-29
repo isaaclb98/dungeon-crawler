@@ -8,11 +8,16 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public static bool paused = false;
     public GameObject pauseMenuUI;
+    public GameObject statsMenuUI;
+    public GameObject inventoryMenuUI;
+
     public FirstPersonController controller;
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            // If any menu is open, resume (hide them all)
             if (paused)
             {
                 Resume();
@@ -21,15 +26,23 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
+        }
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+
+        if (statsMenuUI != null)
+            statsMenuUI.SetActive(false);
+
+        if (inventoryMenuUI != null)
+            inventoryMenuUI.SetActive(false);
+
         Time.timeScale = 1f;
-        controller.enabled = true; // Re-enable player movement
-        Cursor.lockState = CursorLockMode.Locked; // Lock cursor
-        Cursor.visible = false; // Hide cursor
+        controller.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         paused = false;
     }
 
