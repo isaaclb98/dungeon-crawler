@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CreatureData
   m_EditorClassIdentifier: 
   enemyName: Creature
-  enemyHealth: 15
-  enemyAttack: 1
+  enemyHealth: 35
+  enemyAttack: 3
   xpReward: 100
   goldReward: 30
