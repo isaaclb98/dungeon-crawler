@@ -1,5 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,36 +37,67 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reassign the player if needed
-        if (player == null)
+        if (restarting)
         {
+            Debug.Log("▶ Scene loaded after restart. Reinitializing...");
+
+            // ✅ Safely get the new player
             GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
             if (foundPlayer != null)
             {
                 player = foundPlayer.transform;
-            }
-        }
-
-        // Only update InventoryManager on restart
-        if (restarting)
-        {
-            GameObject newWeaponHolder = GameObject.Find("WeaponHolder");
-            if (newWeaponHolder != null)
-            {
-                InventoryManager.Instance.UpdateWeaponHolder(newWeaponHolder.transform);
+                Debug.Log("✅ Player reassigned.");
             }
             else
             {
-                Debug.LogWarning("No object named 'WeaponHolder' found in the scene. Please ensure it exists.");
+                Debug.LogError("❌ No player found in scene after restart.");
+                return; // Stop here to avoid using a null player reference
+            }
+
+            // Reassign weapon holder
+            GameObject newWeaponHolder = GameObject.Find("WeaponHolder");
+            if (newWeaponHolder != null && InventoryManager.Instance != null)
+            {
+                InventoryManager.Instance.UpdateWeaponHolder(newWeaponHolder.transform);
             }
 
             if (InventoryManager.Instance != null)
             {
                 InventoryManager.Instance.ResetInventory();
             }
+
+            // Safely access UI under new player
+            Transform pausemenu = player.Find("Canvas/PauseMenu");
+            if (pausemenu != null)
+            {
+                Transform inventoryMenu = player.Find("Canvas/InventoryMenu");
+                Transform itemContent = inventoryMenu?.Find("Viewport/Content");
+
+                if (itemContent != null)
+                {
+                    InventoryManager.Instance.ItemContent = itemContent;
+                    Debug.Log("✅ ItemContent reassigned.");
+                }
+                else
+                {
+                    Debug.LogWarning("❌ Could not find Viewport/Content.");
+                }
+
+                // Re-hook InventoryButton
+                Button inventoryButton = pausemenu.Find("inventoryButton")?.GetComponent<Button>();
+                if (inventoryButton != null)
+                {
+                    inventoryButton.onClick.AddListener(InventoryManager.Instance.ListItems);
+                    Debug.Log("✅ AddListener called for ListItems()");
+                }
+                else
+                {
+                    Debug.LogWarning("❌ InventoryButton not found.");
+                }
+            }
             else
             {
-                Debug.LogWarning("InventoryManager instance is null after scene load.");
+                Debug.LogWarning("❌ PauseMenu not found under new player's Canvas.");
             }
 
             restarting = false;
