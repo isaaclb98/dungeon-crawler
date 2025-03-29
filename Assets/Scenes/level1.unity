@@ -146765,7 +146765,7 @@ PrefabInstance:
     - target: {fileID: 27035541924851810, guid: c0ced7f52ad9a03459d96ac01b1af731,
         type: 3}
       propertyPath: m_Name
-      value: HollwedCrystal1
+      value: HallowedCrystal1
       objectReference: {fileID: 0}
     - target: {fileID: 804978860537801432, guid: c0ced7f52ad9a03459d96ac01b1af731,
         type: 3}
