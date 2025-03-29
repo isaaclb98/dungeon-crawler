@@ -31,7 +31,8 @@ public class Projectile : MonoBehaviour
 
             if (impactEffect != null)
             {
-                Instantiate(impactEffect, transform.position, Quaternion.identity);
+                Vector3 hitPoint = other.ClosestPoint(transform.position);
+                Instantiate(impactEffect, hitPoint, Quaternion.identity);
             }
 
             Destroy(gameObject);
