@@ -30,6 +30,7 @@ public class ZombieAISimplified : MonoBehaviour
 
         agent.speed = chaseSpeed;
         agent.updateRotation = true;
+        agent.isStopped = false;
 
         animator.SetBool("isWalking", false);
     }
@@ -59,8 +60,14 @@ public class ZombieAISimplified : MonoBehaviour
 
     void Chase()
     {
-        agent.destination = player.position;
-        animator.SetBool("isWalking", true);
+        if (agent.isStopped)
+            agent.isStopped = false; // Ensure movement resumes
+
+        agent.SetDestination(player.position);
+        if (!animator.GetBool("isWalking")) // Prevent unnecessary re-assignments
+        {
+            animator.SetBool("isWalking", true);
+        }
         animator.SetBool("isAttacking", false);
     }
 
@@ -92,8 +99,12 @@ public class ZombieAISimplified : MonoBehaviour
 
     IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(1f);
-        agent.isStopped = false;
+        yield return new WaitForSeconds(attackCooldown);
+        if (agent != null)
+            agent.isStopped = false;
+
+        if (animator != null)
+            animator.SetBool("isAttacking", false);
     }
 
     void Idle()
