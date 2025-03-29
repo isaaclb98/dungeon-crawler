@@ -159,7 +159,7 @@ public class PlayerStats : MonoBehaviour
 
 
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("Player has died!");
 
