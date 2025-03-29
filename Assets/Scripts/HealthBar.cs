@@ -31,10 +31,10 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         currentHealth = playerStats.currentHealth;
-        Debug.Log("currentHealth " + currentHealth);
+        //Debug.Log("currentHealth " + currentHealth);
 
         maxHealth = playerStats.currentMaxHealth;
-        Debug.Log("currentMaxHealth " + maxHealth);
+       // Debug.Log("currentMaxHealth " + maxHealth);
 
 
         // Avoid division by zero and clamp value between 0 and 1

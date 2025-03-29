@@ -159,22 +159,42 @@ public class PlayerStats : MonoBehaviour
     
     public void Die()
     {
-        Debug.Log("Player has died!");
-
         // Reset inventory
         if (InventoryManager.Instance)
         {
             InventoryManager.Instance.ResetInventory();
         }
 
-        ResetPlayerStats();
-
-        // Destroy old player instance before restarting
-        Destroy(gameObject);
+        GameManager.Instance.lastDeathLevel = currentLevel;
+        GameManager.Instance.lastDeathGold = currentGold;
 
         // Restart the game
-        GameManager.Instance.RestartGame();
+        GameManager.Instance.LoadDeathScreen();
+        
+        // Destroy old player instance before restarting
+        ResetPlayerStats();
+        Destroy(gameObject);
     }
+    
+    public void Win()
+    {
+        // Reset inventory
+        if (InventoryManager.Instance)
+        {
+            InventoryManager.Instance.ResetInventory();
+        }
+
+        GameManager.Instance.lastDeathLevel = currentLevel;
+        GameManager.Instance.lastDeathGold = currentGold;
+
+        // Restart the game
+        GameManager.Instance.LoadWinScreen();
+        
+        // Destroy old player instance before restarting
+        ResetPlayerStats();
+        Destroy(gameObject);
+    }
+
     
     private void ResetPlayerStats()
     {

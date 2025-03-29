@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4199997914579029838}
   - component: {fileID: 7979027360803859879}
   - component: {fileID: 8295097439304045842}
-  - component: {fileID: 5532938095320546558}
   m_Layer: 0
   m_Name: Creature1
   m_TagString: Enemy
@@ -90,7 +89,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!195 &5458989456563756544
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -105,7 +104,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 500
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -188,26 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseSpeed: 4
   detectionRange: 10
-  attackRange: 2
+  attackRange: 3
   attackCooldown: 2
   enemyData: {fileID: 11400000, guid: cfd5b5799d5657d4c96b173aaf44f3e1, type: 2}
---- !u!114 &5532938095320546558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7141292283208479060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d186726aa6337b14e94196f5b8b5c2b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: cfd5b5799d5657d4c96b173aaf44f3e1, type: 2}
-  floatingDamagePrefab: {fileID: 2439937997188550388, guid: 3a0605ca49b3d604b95b316dd1fa54e9,
-    type: 3}
-  deathParticlesPrefab: {fileID: 340331524192421473, guid: 1cd4c4f158a15f140ba3f6941d4a09c8,
-    type: 3}
 --- !u!1001 &4484295365404488232
 PrefabInstance:
   m_ObjectHideFlags: 0

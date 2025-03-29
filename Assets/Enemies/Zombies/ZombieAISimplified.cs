@@ -12,13 +12,13 @@ public class ZombieAISimplified : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
-    private EnemyHealth enemyHealth;
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
     public EnemyData enemyData;
     private PlayerStats playerStats;
-    
+    private EnemyHealth enemyHealth;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -30,6 +30,7 @@ public class ZombieAISimplified : MonoBehaviour
 
         agent.speed = chaseSpeed;
         agent.updateRotation = true;
+        agent.isStopped = false;
 
         animator.SetBool("isWalking", false);
     }
@@ -59,8 +60,17 @@ public class ZombieAISimplified : MonoBehaviour
 
     void Chase()
     {
-        agent.destination = player.position;
-        animator.SetBool("isWalking", true);
+        if (agent.isStopped)
+            agent.isStopped = false; // Ensure movement resumes
+
+        agent.SetDestination(player.position);
+
+        RotateTowards(player.position);
+
+        if (!animator.GetBool("isWalking")) // Prevent unnecessary re-assignments
+        {
+            animator.SetBool("isWalking", true);
+        }
         animator.SetBool("isAttacking", false);
     }
 
@@ -71,6 +81,9 @@ public class ZombieAISimplified : MonoBehaviour
         Debug.Log("Attacking Player!");
 
         agent.isStopped = true;
+
+        RotateTowards(player.position);
+
         animator.SetBool("isAttacking", true);
         animator.SetBool("isWalking", false);
         
@@ -92,8 +105,12 @@ public class ZombieAISimplified : MonoBehaviour
 
     IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(1f);
-        agent.isStopped = false;
+        yield return new WaitForSeconds(attackCooldown);
+        if (agent != null)
+            agent.isStopped = false;
+
+        if (animator != null)
+            animator.SetBool("isAttacking", false);
     }
 
     void Idle()
@@ -117,8 +134,18 @@ public class ZombieAISimplified : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isDead) return;
-
         enemyHealth.TakeDamage(damage);
+    }
+
+    void RotateTowards(Vector3 targetPosition)
+    {
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        direction.y = 0; // Prevent tilting
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
     }
 }

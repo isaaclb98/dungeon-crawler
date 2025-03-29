@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7e4021538612a0b4bbdf38e1cb6c2583,
         type: 3}
       propertyPath: m_Name
-      value: CrystalSword
+      value: BlackSword
       objectReference: {fileID: 0}
     - target: {fileID: 3918288107625633506, guid: 7e4021538612a0b4bbdf38e1cb6c2583,
         type: 3}
@@ -112,7 +112,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 134d19f39f46b204f80e8322ad91a26b, type: 2}
+      objectReference: {fileID: 2100000, guid: c4f5b5fe4dd970a418b1187690e3d631, type: 2}
     - target: {fileID: 8084854973141751649, guid: 7e4021538612a0b4bbdf38e1cb6c2583,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -170,5 +170,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db4adb2641aabf4c8df4ed152881d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: a52d762207d5f4c409db8bfaa6efe440, type: 2}
+  itemData: {fileID: 11400000, guid: 978af80d61dea4d35b630d2e0cc77ae6, type: 2}
   pickupSound: {fileID: 8300000, guid: 1d535bc943a3b446081eca9d0f4f1009, type: 3}

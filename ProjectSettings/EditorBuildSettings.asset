@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Play menu.unity
+    path: Assets/Scenes/StartScreen.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/level1.unity
@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level2.unity
     guid: c4b14d5788f65074789cd9e5eeb6844b
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: cd60d5bebb3394c80a57983ee9a9bc61
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 2039a98f37a0e4af1a184ca5d33a25e5
   m_configObjects: {}

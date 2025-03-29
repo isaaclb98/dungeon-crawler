@@ -15,9 +15,8 @@ MonoBehaviour:
   itemName: Crystal Sword
   icon: {fileID: 0}
   description: A crystal sword.
-  stackable: 0
-  range: 4
-  damage: 2
+  range: 5
+  damage: 5
   weaponType: Sword
   prefab: {fileID: 8915031093302127446, guid: 49566dd249a74854395864281a77843e, type: 3}
   weaponScale: {x: 1.2, y: 1.6, z: 1.5}
