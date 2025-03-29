@@ -156,9 +156,7 @@ public class PlayerStats : MonoBehaviour
             SoundManager.Instance.PlaySound3D("Hurting");
         }
     }
-
-
-
+    
     public void Die()
     {
         Debug.Log("Player has died!");
