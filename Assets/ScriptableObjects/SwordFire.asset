@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acd9be67a5a6a349a8c76c7d4c1e0ad, type: 3}
+  m_Name: SwordFire
+  m_EditorClassIdentifier: 
+  itemName: Fire Sword
+  icon: {fileID: 0}
+  description: A fire sword
+  range: 6
+  damage: 2
+  weaponType: Sword
+  prefab: {fileID: 8915031093302127446, guid: e4191148cb9e848b290f66922ebee6b4, type: 3}
+  weaponScale: {x: 1, y: 1, z: 1}
+  attackSpeed: 2
