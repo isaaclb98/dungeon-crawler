@@ -12,13 +12,13 @@ public class ZombieAISimplified : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
-    private EnemyHealth enemyHealth;
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
     public EnemyData enemyData;
     private PlayerStats playerStats;
-    
+    private EnemyHealth enemyHealth;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -134,8 +134,6 @@ public class ZombieAISimplified : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isDead) return;
-
         enemyHealth.TakeDamage(damage);
     }
 

@@ -14,6 +14,7 @@ public class MutantCreatureSimpleAI : MonoBehaviour
     private Animator animator;
     private float lastAttackTime = 0f;
 
+    private EnemyHealth enemyHealth;
     private PlayerStats playerHealth;
     public EnemyData enemyData;
 
@@ -22,6 +23,7 @@ public class MutantCreatureSimpleAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         animator.enabled = true;
+        enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (player == null)
@@ -126,6 +128,11 @@ public class MutantCreatureSimpleAI : MonoBehaviour
 
         if (animator != null)
             animator.SetBool("isAttacking", false);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        enemyHealth.TakeDamage(damage);
     }
 }
 
