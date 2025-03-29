@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PotionHealth
   m_EditorClassIdentifier: 
   itemName: Health Potion
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6727562283130e647a8f3d43a2896f66, type: 3}
   description: Restores 10 HP.
   hpRecovery: 10
   damageBoostDuration: 0
