@@ -16,10 +16,15 @@ public class HealthBar : MonoBehaviour
     //Private player's health
     private float currentHealth, maxHealth;
 
+  
+    void Start()
+        {
+            playerStats = PlayerStats.Instance;
+        }
+
     void Awake()
     {
-        playerStats = PlayerStats.Instance;
-        slider = GetComponent<Slider>();
+        slider = GetComponentInChildren<Slider>();
     }
 
     // Update is called once per frame
