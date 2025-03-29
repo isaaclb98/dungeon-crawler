@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class WinScreenManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI goldText;
+    public Button respawnButton;
+
     void Start()
     {
-        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        // Retrieve and display the death data stored in GameManager
+        levelText.text = "" + GameManager.Instance.lastDeathLevel;
+        goldText.text = "" + GameManager.Instance.lastDeathGold;
+
+        // Add listener to the Respawn button
+        respawnButton.onClick.AddListener(OnRespawn);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnRespawn()
     {
-        
+        // Trigger the respawn process
+        GameManager.Instance.RespawnGame();
     }
 }
