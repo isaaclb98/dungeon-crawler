@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LizardData
   m_EditorClassIdentifier: 
   enemyName: Lizard
-  enemyHealth: 7
+  enemyHealth: 12
   enemyAttack: 2
   xpReward: 0
   goldReward: 0

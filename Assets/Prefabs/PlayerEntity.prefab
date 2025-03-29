@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4459864850019384737}
   - component: {fileID: 4459864850019384741}
   - component: {fileID: 4459864850019384740}
-  - component: {fileID: 8395378084411930626}
   - component: {fileID: 8795418587152561161}
   - component: {fileID: 973824861493607714}
   m_Layer: 0
@@ -38,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4459864851508666808}
-  - {fileID: 5001046480873776395}
+  - {fileID: 5904456086658236787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -1.203, z: 0}
 --- !u!33 &4459864850019384739
@@ -198,25 +197,6 @@ MonoBehaviour:
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.1, z: 0}
   attackDelay: 0.833
---- !u!114 &8395378084411930626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459864850019384750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09245e199faa1c428e7421c30f9d148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryItems: []
-  ItemContent: {fileID: 0}
-  Items: {fileID: 0}
-  defaultWeapon: {fileID: 0}
-  equippedWeapon: {fileID: 0}
-  weaponHolder: {fileID: 8092489487545113592}
-  currentWeaponPrefab: {fileID: 0}
 --- !u!114 &8795418587152561161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,6 +891,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4459864850019384738}
     m_Modifications:
+    - target: {fileID: 1589197995375149208, guid: 014b19ea32e438e4e889958abe2ea609,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589197995375149208, guid: 014b19ea32e438e4e889958abe2ea609,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1632755444315266432, guid: 014b19ea32e438e4e889958abe2ea609,
         type: 3}
       propertyPath: m_Name
@@ -1026,9 +1016,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 014b19ea32e438e4e889958abe2ea609, type: 3}
---- !u!224 &5001046480873776395 stripped
+--- !u!224 &5904456086658236787 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6058210384675995964, guid: 014b19ea32e438e4e889958abe2ea609,
+  m_CorrespondingSourceObject: {fileID: 4648991345252803908, guid: 014b19ea32e438e4e889958abe2ea609,
     type: 3}
   m_PrefabInstance: {fileID: 1257735166361658423}
   m_PrefabAsset: {fileID: 0}
