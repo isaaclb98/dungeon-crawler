@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwordSteel
   m_EditorClassIdentifier: 
   itemName: Steel Sword
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a27a82d21a62b0249a48d674ee1f6196, type: 3}
   description: 
   range: 3
   damage: 1
