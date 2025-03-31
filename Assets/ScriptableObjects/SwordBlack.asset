@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwordBlack
   m_EditorClassIdentifier: 
   itemName: Black Sword
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ecae7c544f536a14897703270a65e7bc, type: 3}
   description: A black sword.
   range: 4
   damage: 2
