@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwordCrystal
   m_EditorClassIdentifier: 
   itemName: Crystal Sword
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 34e31c8b808e44947a4af4778df604db, type: 3}
   description: A crystal sword.
   range: 5
   damage: 5

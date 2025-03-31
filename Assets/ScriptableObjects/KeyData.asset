@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: KeyData
   m_EditorClassIdentifier: 
   itemName: Key
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cfb81fddd34949d40b94a452f3545044, type: 3}
   description: A key used to unlock doors.
